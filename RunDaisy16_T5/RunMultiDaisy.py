@@ -6,7 +6,6 @@ Created on Mon Nov  5 11:28:01 2018
 """
 
 
-import sys
 import pandas as pd
 import os
 import copy
