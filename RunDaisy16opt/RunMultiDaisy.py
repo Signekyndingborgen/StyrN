@@ -6,14 +6,10 @@ Created on Mon Nov  5 11:28:01 2018
 """
 
 
-import sys
 import pandas as pd
 import os
-import copy
+from pydaisy.Daisy import *
 
-sys.path.append(r'../../../pydaisy')
-
-from Daisy import *
 if __name__ =='__main__':
     xl = pd.read_excel(r'Treat_4+5_S1-S3.xlsx', None)
     for sheet in xl.items():
@@ -21,7 +17,7 @@ if __name__ =='__main__':
         template = DaisyModel(r'Foulum94-10_v16opt.dai')
         i=0
         unique_name = sheet[0]
-        newfile= copy.deepcopy(template)    
+        newfile= template.copy()
         block = newfile.Input['defaction'][1]
             
         for i in range(0,len(df)):
