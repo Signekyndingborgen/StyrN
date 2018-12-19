@@ -64,8 +64,8 @@ for root, dirs, filenames in items:
                     parc_sum[row['Parc nr']]+=row['Ntot_kg']
                     sum=sum +row['Ntot_kg']
                     rep=list(parc_sum.values())
-                    rep1=rep[0]
-                    rep2=rep[1]
-                    df0.append((y, rep1, rep2))
-                pd.DataFrame(df0, columns=('year', 'rep1', 'rep2'))
+                rep1=rep[0]
+                rep2=rep[1]
+                df0.append((y, rep1, rep2))
+            pd.DataFrame(df0, columns=('year', 'rep1', 'rep2'))
 #            print(parc_sum)

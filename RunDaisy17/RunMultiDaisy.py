@@ -11,9 +11,9 @@ import pandas as pd
 import os
 import copy
 
-sys.path.append(r'../../../pydaisy/')
+#sys.path.append(r'../../../pydaisy/')
 
-from Daisy import *
+from pydaisy.Daisy import *
 if __name__ =='__main__':
     xl = pd.read_excel(r'Treat_4+5_S1-S3.xlsx', None)
     for sheet in xl.items():
