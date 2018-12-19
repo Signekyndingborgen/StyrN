@@ -38,6 +38,7 @@ MotherFolder='..\RunDaisy16opt'
 items = os.walk(MotherFolder)
 index=1
 
+yearlydata =[]
 for root, dirs, filenames in items:
     for d in dirs:
         print(d)
@@ -50,13 +51,13 @@ for root, dirs, filenames in items:
 # Laver et subplot, som derefter bliver det aktive som de næste plt virker på
         df2= pd.DataFrame([rg, wc]).T
         df2.columns =['Ryegrass', 'Wclover']
-        #df2['sim-totalDM']=df22['Ryegrass']+df22['Wclover']
-        #df2 = df22.loc['2006-1-1':'2011-1-1',:]
-        
+        df2['sim-totalDM']=df2['Ryegrass']+df2['Wclover']
+        df2 = df2.loc['2006-1-1':'2011-1-1',:]
+        df3 = df2['sim-totalDM'].resample('Y', how='sum')
         for y in range(2006, 2010):
             parc_sum={}
             sum=0
-            df0=[]
+            df0=pd.DataFrame([])
             for index, row in xl.iterrows():
                 if row['id']==d and row['date'].year==y:
                     if row['Parc nr'] not in parc_sum:
@@ -64,8 +65,14 @@ for root, dirs, filenames in items:
                     parc_sum[row['Parc nr']]+=row['Ntot_kg']
                     sum=sum +row['Ntot_kg']
                     rep=list(parc_sum.values())
+             
+            if(len(parc_sum)==2):
+                rep=list(parc_sum.values())
                 rep1=rep[0]
                 rep2=rep[1]
-                df0.append((y, rep1, rep2))
-            pd.DataFrame(df0, columns=('year', 'rep1', 'rep2'))
-#            print(parc_sum)
+                yearlydata.append([d, y, rep[0], rep[1], df3[datetime(y,12,31)]])
+                
+                
+final = pd.DataFrame(yearlydata, columns=('d','year', 'rep1', 'rep2', 'sim'))
+            #=pd.concat(df0, axis = 1) 
+            #pd.DataFrame(df0, columns=('year', 'rep1', 'rep2'))
