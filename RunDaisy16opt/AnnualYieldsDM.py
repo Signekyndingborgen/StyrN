@@ -57,7 +57,6 @@ for root, dirs, filenames in items:
         for y in range(2006, 2010):
             parc_sum={}
             sum=0
-            df0=pd.DataFrame([])
             for index, row in xl.iterrows():
                 if row['id']==d and row['date'].year==y:
                     if row['Parc nr'] not in parc_sum:

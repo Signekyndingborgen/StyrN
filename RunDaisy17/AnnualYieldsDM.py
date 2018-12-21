@@ -8,13 +8,13 @@ Created on Mon Dec 17 11:53:20 2018
 import sys
 import pandas as pd
 import os
-sys.path.append(r'../../../pydaisy/')
+sys.path.append(r'../../../../pydaisy/')
 
 from Daisy import DaisyDlf, DaisyModel
 import matplotlib.pyplot as plt
 import numpy as np 
 import datetime as datetime
-sys.path.append(r'..\..\..\.')
+sys.path.append(r'..\..\..\..\.')
 
 from pydaisy.Daisy import *
 
@@ -37,7 +37,7 @@ def rmse(pred, obs):
 MotherFolder='..\RunDaisy17'
 items = os.walk(MotherFolder)
 index=1
-
+yearlydata =[]
 for root, dirs, filenames in items:
     for d in dirs:
         print(d)
@@ -62,6 +62,18 @@ for root, dirs, filenames in items:
                         parc_sum[row['Parc nr']]=0
                     parc_sum[row['Parc nr']]+=row['Ntot_kg']
                     sum=sum +row['Ntot_kg']
+                    rep=list(parc_sum.values())
+             
+            if(len(parc_sum)==2):
+                rep=list(parc_sum.values())
+                rep1=rep[0]
+                rep2=rep[1]
+                yearlydata.append([d, y, rep[0], rep[1], df3[datetime(y,12,31)]])
                 
-            print(parc_sum)
+                
+final = pd.DataFrame(yearlydata, columns=('d','year', 'rep1', 'rep2', 'sim'))
+            #=pd.concat(df0, axis = 1) 
+            #pd.DataFrame(df0, columns=('year', 'rep1', 'rep2'))
+                
+           # print(parc_sum)
 
