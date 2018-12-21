@@ -50,5 +50,6 @@ if __name__ =='__main__':
         filename = os.path.join(path, unique_name, 'setup.dai')
         newfile.save_as(filename)
     
+    DaisyModel.path_to_daisy_executable = r'C:\Program Files\Daisy 5.64\bin\Daisy.exe'
     run_sub_folders(os.path.abspath(path),'setup.dai', NumberOfProcesses=6)
 
