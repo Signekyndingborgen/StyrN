@@ -1,0 +1,223 @@
+Has 'Software\Daisy 5.64 (w64)' registry entry.
+Using 'C:\Program Files\Daisy 5.64' as daisy home.
+Reseting current directory to 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12'
+Daisy crop/soil simulation version 5.64. (May 22 2018)
+Copyright 1996 - 2016 Per Abrahamsen, Søren Hansen and KU.
+Changing directory to 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12' success
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Opening absolute file name 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai'
+* Parsing file: 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai'
+Path set to:
+0: './common'
+1: './../../common'
+2: '.'
+3: 'C:\Program Files\Daisy 5.64/lib'
+4: 'C:\Program Files\Daisy 5.64/sample'
+done
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'dk-maize.dai'
+Trying './common\dk-maize.dai'
+Trying './../../common\dk-maize.dai'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\dk-maize.dai' (cwd)
+Trying 'C:\Program Files\Daisy 5.64/lib\dk-maize.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'dk-rye.dai'
+Trying './common\dk-rye.dai'
+Trying './../../common\dk-rye.dai'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\dk-rye.dai' (cwd)
+Trying 'C:\Program Files\Daisy 5.64/lib\dk-rye.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'dk-wrape.dai'
+Trying './common\dk-wrape.dai'
+Trying './../../common\dk-wrape.dai'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\dk-wrape.dai' (cwd)
+Trying 'C:\Program Files\Daisy 5.64/lib\dk-wrape.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'wwheat.dai'
+Trying './common\wwheat.dai'
+Trying './../../common\wwheat.dai'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\wwheat.dai' (cwd)
+Trying 'C:\Program Files\Daisy 5.64/lib\wwheat.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'tillage.dai'
+Trying './common\tillage.dai'
+Trying './../../common\tillage.dai'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\tillage.dai' (cwd)
+Trying 'C:\Program Files\Daisy 5.64/lib\tillage.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'fertilizer.dai'
+Trying './common\fertilizer.dai'
+Trying './../../common\fertilizer.dai'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\fertilizer.dai' (cwd)
+Trying 'C:\Program Files\Daisy 5.64/lib\fertilizer.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'Org_fert.dai'
+Trying './common\Org_fert.dai'
+Trying './../../common\Org_fert.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'Springbarley_MES_23_2.dai'
+Trying './common\Springbarley_MES_23_2.dai'
+Trying './../../common\Springbarley_MES_23_2.dai' success!
+** Parsing file: 'Springbarley_MES_23_2.dai'
+*** input
+**** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'sbarley.dai'
+Trying './common\sbarley.dai'
+Trying './../../common\sbarley.dai'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\sbarley.dai' (cwd)
+Trying 'C:\Program Files\Daisy 5.64/lib\sbarley.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'skb-ryegrass.dai'
+Trying './common\skb-ryegrass.dai'
+Trying './../../common\skb-ryegrass.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'skb-wclover.dai'
+Trying './common\skb-wclover.dai'
+Trying './../../common\skb-wclover.dai' success!
+** Defining action 'A_F_R'
+*** In 'do' model #5
+**** Deriving from 'sow'
+***** In model 'crop'
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:18:24: Unknown 'crop' model 'Spring Wheat' (error)
+*** In 'do' model #10
+**** Deriving from 'harvest'
+***** Checking value of 'crop'
+no criteria fulfilled (error)
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:23:28: Invalid value (error)
+*** In 'do' model #37
+**** Deriving from 'sow'
+***** In model 'crop'
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:50:24: Unknown 'crop' model 'Spring Wheat' (error)
+*** In 'do' model #42
+**** Deriving from 'harvest'
+***** Checking value of 'crop'
+no criteria fulfilled (error)
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:55:28: Invalid value (error)
+*** In 'do' model #55
+**** Deriving from 'sow'
+***** In model 'crop'
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:68:15: Unknown 'crop' model 'Rye' (error)
+*** In 'do' model #57
+**** Deriving from 'harvest'
+***** Checking value of 'crop'
+no criteria fulfilled (error)
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:70:19: Invalid value (error)
+*** Checking value of 'do'
+**** do[4]: sow
+crop is missing (error)
+**** do[9]: harvest
+no criteria fulfilled (error)
+**** do[36]: sow
+crop is missing (error)
+**** do[41]: harvest
+no criteria fulfilled (error)
+**** do[54]: sow
+crop is missing (error)
+**** do[56]: harvest
+no criteria fulfilled (error)
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:70:20: Invalid value (error)
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'Foulum_soil_vg.dai'
+Trying './common\Foulum_soil_vg.dai'
+Trying './../../common\Foulum_soil_vg.dai' success!
+** input
+*** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'OutputLog_2.dai'
+Trying './common\OutputLog_2.dai'
+Trying './../../common\OutputLog_2.dai' success!
+** Parsing file: 'OutputLog_2.dai'
+*** input
+**** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'log.dai'
+Trying './common\log.dai'
+Trying './../../common\log.dai'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\log.dai' (cwd)
+Trying 'C:\Program Files\Daisy 5.64/lib\log.dai' success!
+*** Parsing file: 'log.dai'
+**** input
+***** file
+In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12':
+Looking for file 'log-std.dai'
+Trying './common\log-std.dai'
+Trying './../../common\log-std.dai'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\log-std.dai' (cwd)
+Trying 'C:\Program Files\Daisy 5.64/lib\log-std.dai' success!
+** In model 'manager'
+*** Deriving from 'activity'
+**** In 'do' model #1
+***** Deriving from 'repeat'
+****** Checking value of 'repeat'
+******* repeat: A_F_R
+******** do[4]: sow
+crop is missing (error)
+******** do[9]: harvest
+no criteria fulfilled (error)
+******** do[36]: sow
+crop is missing (error)
+******** do[41]: harvest
+no criteria fulfilled (error)
+******** do[54]: sow
+crop is missing (error)
+******** do[56]: harvest
+no criteria fulfilled (error)
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:82:16: Invalid value (error)
+**** Checking value of 'do'
+***** do[0]: repeat
+****** repeat: A_F_R
+******* do[4]: sow
+crop is missing (error)
+******* do[9]: harvest
+no criteria fulfilled (error)
+******* do[36]: sow
+crop is missing (error)
+******* do[41]: harvest
+no criteria fulfilled (error)
+******* do[54]: sow
+crop is missing (error)
+******* do[56]: harvest
+no criteria fulfilled (error)
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:82:17: Invalid value (error)
+** Checking value of 'manager'
+*** manager: activity
+**** do[0]: repeat
+***** repeat: A_F_R
+****** do[4]: sow
+crop is missing (error)
+****** do[9]: harvest
+no criteria fulfilled (error)
+****** do[36]: sow
+crop is missing (error)
+****** do[41]: harvest
+no criteria fulfilled (error)
+****** do[54]: sow
+crop is missing (error)
+****** do[56]: harvest
+no criteria fulfilled (error)
+C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai:82:17: Invalid value (error)
+Command line: C:\Program Files\Daisy 5.64\bin\daisy.exe C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12\model.dai
+Storing 'daisy.log' in 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\Run\PØ12'

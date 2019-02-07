@@ -1,0 +1,38 @@
+(input file "log.dai")           ; definition of output logs
+
+
+(deflog Crop2 Crop
+  (entries &old
+	   (number (path column "${column}" Vegetation crops crops "${crop}"
+                         Devel "*" day_length)
+		   (spec phenology component day_length))))
+
+(output
+;;      Annual output
+;;
+;;      Organic matter  
+        ("Organic Matter"       (when (and (month 9) (mday 1) (hour 0))) (where "Annual-OM.dlf"))  
+;;      Nitrogen balance  
+        ("Field nitrogen"        (when (and (month 9) (mday 1) (hour 0))) (where "Annual-FN.dlf")) 
+;;    
+	harvest
+;
+(Crop2 (crop "Ryegrass"))
+(Crop2 (crop "Wclover"))
+
+
+;;      Daily output
+("Soil NO3 Concentration"   (when daily)(where "Daily-SNO3.dlf"))
+("Crop"                 (when daily) (where "Daily-CropProduction.dlf"))
+)
+
+; Crop production variables
+; Nitrogen balance  
+        ;("Field nitrogen"       (when daily) (where "Daily-FN.dlf"))  
+	
+;       Organic matter
+        ;("Organic Matter"                 (when daily) (where "Daily-OM.dlf"))
+;;      
+;
+;;      
+

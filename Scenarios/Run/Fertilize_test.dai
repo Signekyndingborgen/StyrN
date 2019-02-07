@@ -1,0 +1,6 @@
+(defaction "Fertilizer_action" activity
+
+(wait_mm_dd 05 01)
+(fertilize ("my_cattle_slurry")
+      (equivalent_weight 140.0 [kg N/ha]) )
+      )

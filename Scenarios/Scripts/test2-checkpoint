@@ -1,0 +1,258 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sys\n",
+    "import pandas as pd\n",
+    "import os\n",
+    "sys.path.insert(0,r'../../pydaisy/')\n",
+    "import matplotlib.pyplot as plt\n",
+    "import numpy as np \n",
+    "import datetime as datetime\n",
+    "\n",
+    "from pydaisy.Daisy import *"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 90,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<bound method NDFrame.head of                   ID          KK2             KK3              K4  \\\n",
+       "0                  1  Silomajs E         Silomajs        Silomajs   \n",
+       "1                  2  Silomajs E         Silomajs  Grøn-Vårbyg-KG   \n",
+       "2                  3  Silomajs E   Grøn-Vårbyg-KG      Kløvergræs   \n",
+       "3                  4  Silomajs E       Kløvergræs      Kløvergræs   \n",
+       "4                  5  Silomajs E       Kløvergræs      Kløvergræs   \n",
+       "5                  6  Silomajs E        Vårbyg PE       Vårbyg PE   \n",
+       "6               Konv           K3              K3              K4   \n",
+       "7                Øko          NaN             NaN              O4   \n",
+       "8         PE opfyldt          NaN               x               x   \n",
+       "9   Max efterafgrøde            x             NaN             NaN   \n",
+       "10       Nedmuldning            x             NaN             NaN   \n",
+       "\n",
+       "                K5              K6              K7              K8  \\\n",
+       "0   Grøn-Vårbyg-KG  Grøn-Vårbyg-KG  Grøn-Vårbyg-KG  Grøn-Vårbyg-KG   \n",
+       "1       Kløvergræs      Kløvergræs      Kløvergræs      Kløvergræs   \n",
+       "2        Vårbyg PE      Kløvergræs      Kløvergræs      Kløvergræs   \n",
+       "3        Vinterrug          Vårbyg     Kløver-græs      Kløvergræs   \n",
+       "4      Vinterhvede     Vinterhvede          Vårbyg      Kløvergræs   \n",
+       "5           Vårbyg       Vårbyg PE    Vinterbyg PE       Vårbyg PE   \n",
+       "6               K5              K6              K6              K6   \n",
+       "7               O5              O4              O4              O4   \n",
+       "8                x               x               x               x   \n",
+       "9              NaN             NaN             NaN             NaN   \n",
+       "10             NaN             NaN             NaN             NaN   \n",
+       "\n",
+       "               K9    K10           P3         P5          PK8  \\\n",
+       "0   Pløjes - Græs  GræsV   Vinterraps  Kartoffel  Vinterhvede   \n",
+       "1           GræsP  GræsV    Vårbyg PE  Vårbyg GG  Vinterhvede   \n",
+       "2           GræsP  GræsV   Vårhvede E  Vårbyg GG  Vinterhvede   \n",
+       "3           GræsP  GræsV       Vårbyg  Vårbyg PE  Vinterhvede   \n",
+       "4           GræsP  GræsV  Vinterhvede        NaN  Vinterhvede   \n",
+       "5             NaN  GræsV    Vinterbyg        NaN  Vinterhvede   \n",
+       "6              K7     K7          NaN        NaN          NaN   \n",
+       "7              O3     O3          NaN        NaN          NaN   \n",
+       "8             NaN    NaN          NaN        NaN          NaN   \n",
+       "9             NaN    NaN          NaN        NaN          NaN   \n",
+       "10            NaN    NaN          NaN        NaN          NaN   \n",
+       "\n",
+       "                  P9          PK10              PØ11            PØ12  \n",
+       "0   Vårbyg m frøgræs    Sukkerroer     Kløvergræs GG   Kløvergræs GG  \n",
+       "1            Frøgræs   Vinterhvede       Vårbyg m PE     Vårbyg m PE  \n",
+       "2            Frøgræs     Vårbyg PE    Vårhvede m GG   Vårhvede m GG   \n",
+       "3        Vinterhvede    Sukkerroer  Ært til modenhed    Vårbyg m GG   \n",
+       "4             Vårbyg        Vårbyg      Vårbyg m GG   Vårhvede m GG   \n",
+       "5       Vinterbyg PE  Vinterhvede     Vinterrug m KG  Vinterrug m KG  \n",
+       "6                NaN           NaN               NaN             NaN  \n",
+       "7                NaN           NaN               NaN             NaN  \n",
+       "8                NaN           NaN               NaN             NaN  \n",
+       "9                NaN           NaN               NaN             NaN  \n",
+       "10               NaN           NaN               NaN             NaN  >"
+      ]
+     },
+     "execution_count": 90,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Import excel w scenario information\n",
+    "# the crop rotations\n",
+    "rota = pd.read_excel('masterinput_short.xlsx', sheet_name= 'Rotations')\n",
+    "# import the crops: daisynames, plowing, sowing and harvest dates\n",
+    "crops = pd.read_excel('masterinput_short.xlsx',sheet_name= 'Crops')\n",
+    "crops.index=crops['Crop']\n",
+    "# import the manure IDs, amounts, and types\n",
+    "manure = pd.read_excel('masterinput_short.xlsx', sheet_name = 'Manure')\n",
+    "# import table with file names for weather data, soil data, initialization file, initial SOC content\n",
+    "conditions = pd.read_excel('masterinput_short.xlsx', sheet_name = 'soil_climate_more')\n",
+    "rota.head\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 87,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "KeyError",
+     "evalue": "'Silomajs E '",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m~\\AppData\\Local\\Continuum\\anaconda3\\lib\\site-packages\\pandas\\core\\indexes\\base.py\u001b[0m in \u001b[0;36mget_value\u001b[1;34m(self, series, key)\u001b[0m\n\u001b[0;32m   3123\u001b[0m             \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 3124\u001b[1;33m                 \u001b[1;32mreturn\u001b[0m \u001b[0mlibindex\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mget_value_box\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0ms\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mkey\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   3125\u001b[0m             \u001b[1;32mexcept\u001b[0m \u001b[0mIndexError\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\index.pyx\u001b[0m in \u001b[0;36mpandas._libs.index.get_value_box\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\index.pyx\u001b[0m in \u001b[0;36mpandas._libs.index.get_value_box\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;31mTypeError\u001b[0m: 'str' object cannot be interpreted as an integer",
+      "\nDuring handling of the above exception, another exception occurred:\n",
+      "\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-87-9193ba780071>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[0;32m     15\u001b[0m     \u001b[1;32mfor\u001b[0m \u001b[0myear\u001b[0m \u001b[1;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m2\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m     16\u001b[0m         \u001b[0mcropname\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mrota\u001b[0m\u001b[1;33m[\u001b[0m\u001b[0mcolumnname\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m[\u001b[0m\u001b[0myear\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m---> 17\u001b[1;33m         \u001b[0mblock\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mChildren\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mappend\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mDaisyEntry\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m'wait_mm_dd'\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mstr\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mcrops\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;34m'Plowing'\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m[\u001b[0m\u001b[0mcropname\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mmonth\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m     18\u001b[0m         \u001b[0mplow\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mDaisyEntry\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m'plowing'\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m     19\u001b[0m         \u001b[0msow\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mDaisyEntry\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m'sow'\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;33m[\u001b[0m\u001b[1;34m'\"'\u001b[0m \u001b[1;33m+\u001b[0m \u001b[0mstr\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mcrops\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;34m'Daisynavn'\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m[\u001b[0m\u001b[0mcropname\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;33m+\u001b[0m\u001b[1;34m'\"'\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\AppData\\Local\\Continuum\\anaconda3\\lib\\site-packages\\pandas\\core\\series.py\u001b[0m in \u001b[0;36m__getitem__\u001b[1;34m(self, key)\u001b[0m\n\u001b[0;32m    765\u001b[0m         \u001b[0mkey\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mcom\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_apply_if_callable\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    766\u001b[0m         \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 767\u001b[1;33m             \u001b[0mresult\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mindex\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mget_value\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mkey\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    768\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    769\u001b[0m             \u001b[1;32mif\u001b[0m \u001b[1;32mnot\u001b[0m \u001b[0mis_scalar\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mresult\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\AppData\\Local\\Continuum\\anaconda3\\lib\\site-packages\\pandas\\core\\indexes\\base.py\u001b[0m in \u001b[0;36mget_value\u001b[1;34m(self, series, key)\u001b[0m\n\u001b[0;32m   3130\u001b[0m                     \u001b[1;32mraise\u001b[0m \u001b[0mInvalidIndexError\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   3131\u001b[0m                 \u001b[1;32melse\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 3132\u001b[1;33m                     \u001b[1;32mraise\u001b[0m \u001b[0me1\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   3133\u001b[0m             \u001b[1;32mexcept\u001b[0m \u001b[0mException\u001b[0m\u001b[1;33m:\u001b[0m  \u001b[1;31m# pragma: no cover\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   3134\u001b[0m                 \u001b[1;32mraise\u001b[0m \u001b[0me1\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\AppData\\Local\\Continuum\\anaconda3\\lib\\site-packages\\pandas\\core\\indexes\\base.py\u001b[0m in \u001b[0;36mget_value\u001b[1;34m(self, series, key)\u001b[0m\n\u001b[0;32m   3116\u001b[0m         \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   3117\u001b[0m             return self._engine.get_value(s, k,\n\u001b[1;32m-> 3118\u001b[1;33m                                           tz=getattr(series.dtype, 'tz', None))\n\u001b[0m\u001b[0;32m   3119\u001b[0m         \u001b[1;32mexcept\u001b[0m \u001b[0mKeyError\u001b[0m \u001b[1;32mas\u001b[0m \u001b[0me1\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   3120\u001b[0m             \u001b[1;32mif\u001b[0m \u001b[0mlen\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;33m>\u001b[0m \u001b[1;36m0\u001b[0m \u001b[1;32mand\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0minferred_type\u001b[0m \u001b[1;32min\u001b[0m \u001b[1;33m[\u001b[0m\u001b[1;34m'integer'\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;34m'boolean'\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\index.pyx\u001b[0m in \u001b[0;36mpandas._libs.index.IndexEngine.get_value\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\index.pyx\u001b[0m in \u001b[0;36mpandas._libs.index.IndexEngine.get_value\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\index.pyx\u001b[0m in \u001b[0;36mpandas._libs.index.IndexEngine.get_loc\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\hashtable_class_helper.pxi\u001b[0m in \u001b[0;36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\hashtable_class_helper.pxi\u001b[0m in \u001b[0;36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;31mKeyError\u001b[0m: 'Silomajs E '"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "path=r'../Run'\n",
+    "\n",
+    "# if __name__ =='__main__':\n",
+    "\n",
+    "template = DaisyModel(os.path.join(path, 'Scenarier_v1.dai'))\n",
+    "i=0\n",
+    "    \n",
+    "newfile= template.copy()    \n",
+    "block = newfile.Input['defaction'][1]\n",
+    "        \n",
+    "for i in range(1, len(rota)):\n",
+    "    columnname=rota.columns[i]\n",
+    "    \n",
+    "    for year in range(0,2):\n",
+    "        cropname = rota[columnname][year]\n",
+    "        block.Children.append(DaisyEntry('wait_mm_dd', str(crops['Plowing'][cropname].month)))  \n",
+    "        plow = DaisyEntry('plowing',[])\n",
+    "        sow = DaisyEntry('sow', ['\"' + str(crops['Daisynavn'][cropname]) +'\"'])\n",
+    "        block.Children.append(sow)  \n",
+    "    newfile.save_as(os.path.join(path, columnname,'model.dai'))\n",
+    "        \n",
+    "    \n",
+    "    \n",
+    "    \n",
+    "    \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 85,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Silomajs E '"
+      ]
+     },
+     "execution_count": 85,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cropname\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "datetime.datetime(2019, 5, 1, 0, 0)"
+      ]
+     },
+     "execution_count": 77,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\n",
+    "crops['Plowing']['Silomajs']\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\n",
+    "for i in range(0,len()):\n",
+    "    block.Children.append(DaisyEntry('wait_mm_dd', [str(df['date'][i].month), str(df['date'][i].day)]))\n",
+    "        \n",
+    "    if rota[2:,1:][i]=='sow':\n",
+    "        for crop in df['what'][i].split(','):\n",
+    "                sow = DaisyEntry('sow', ['\"' + crop.strip() +'\"'])\n",
+    "                block.Children.append(sow)  \n",
+    "\n",
+    "    for i in range(0,len(df)): #for hver jord\n",
+    "        for i in range(0,len(df)): #for hver konventionel\n",
+    "            for hvert år\n",
+    "    \n",
+    "                sow\n",
+    "                if(øko)\n",
+    "                    kløvergræs\n",
+    "        for i in range(0,len(df)): #for hver øko\n",
+    "            så kløver græs\n",
+    "            gødning\n",
+    "        harvest\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
