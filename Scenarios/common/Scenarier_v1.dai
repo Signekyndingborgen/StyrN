@@ -11,11 +11,11 @@
 (input file "skb-wclover.dai")
 
 
-(defaction "K5-K9_32yrs" activity)
+(defaction "Rotation" activity)
   
  ;; Arable Farm Rotation
 (defaction "A_F_R" activity
-  "K5-K9_32yrs")
+  "Rotation")
   
 (input file "Foulum_soil_vg.dai")   
 (input file "OutputLog_2.dai")   

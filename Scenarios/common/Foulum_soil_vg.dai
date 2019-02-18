@@ -35,7 +35,7 @@
 
 ;; Defining the Foulum soil profile;
 
-(defcolumn "JB1 fake" default
+(defcolumn "Foulum column" default
   (Surface (DetentionCapacity 5.0 [mm])
            (ReservoirConstant 60 [h^-1]))
   (Soil (MaxRootingDepth 150 [cm])
@@ -45,4 +45,4 @@
                   (-70 [cm] "Foulum 50-70")
                   (-90 [cm] "Foulum 70-90")))
    (Groundwater deep)
-  (OrganicMatter original (init	(input 12000 [kg C/ha/y])(root 6000 [kg C/ha/y])	) 	)
+  (OrganicMatter original (init	(input 12000 [kg C/ha/y])(root 6000 [kg C/ha/y])	) 	) )
