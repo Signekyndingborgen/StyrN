@@ -29,7 +29,7 @@ if __name__ =='__main__':
                 for crop in df['what'][i].split(','):
                         sow = DaisyEntry('sow', ['"' + crop.strip() +'"'])
                         block.Children.append(sow)  
-            elif df['action'][i]=='harvest' or df['action'][i]=='cut' :
+            elif df['action'][i]=='harvest' or df['action'][i]=='cut':
                 for crop in df['what'][i].split(','):
                         harvest = DaisyEntry(df['action'][i], ['"' + crop.strip() +'"'])
                         harvest.Children.append(DaisyEntry('stub', ['7 [cm]']))
