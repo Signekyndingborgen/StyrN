@@ -34,5 +34,5 @@ def CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureType, ManureMass
     return [GylleN, MineralN]
     
         
-print(CalcFertil(216, 216, 'JB 1+3', [216, 216, 216], 'Cattleslurry', 85, True))
-print(CalcFertil(216, 216, 'JB 1+3', [216, 216, 216], 'Cattleslurry', 85, False))
+#print(CalcFertil(216, 216, 'JB 1+3', [216, 216, 216], 'Cattleslurry', 85, True))
+#print(CalcFertil(216, 216, 'JB 1+3', [216, 216, 216], 'Cattleslurry', 85, False))
