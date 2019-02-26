@@ -19,7 +19,7 @@ manure.index = manure['ID']
 
 res=[]
 
-for i in range(1, 21): ## SÆDSKIFTE
+for i in range(1, 2): ## SÆDSKIFTE
     rotation = rota.columns[i]
     #find rotation length
     maxnumberyear = 6

@@ -19,15 +19,15 @@ def CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureType, ManureMass
     weight =len(AllCropIDs)* (norm_crop - forfrugt)/SumNorm
     
     #Mass of nitrogen depends on type of manure. We just apply it on the the already calculated weight
-    if ManureType =='Cattleslurry':
-        weight = 0.7 * weight
-    elif ManureType == 'Pigslurry':
-        weight = 0.75 * weight
-    elif ManureType == 'Cattlemanure':
-        weight = 0.45 * weight
-        
-    GylleN = weight*ManureMass
-    MineralN=0
+        if ManureType =='Cattleslurry':
+            weight = 0.7 * weight
+        elif ManureType == 'Pigslurry':
+            weight = 0.75 * weight
+        elif ManureType == 'Cattlemanure':
+            weight = 0.45 * weight
+            
+        GylleN = weight*ManureMass
+        MineralN=0
     #In conventional we apply Mineral N to fulfill the norm
     if IsConventional:
         MineralN = norm_crop - GylleN

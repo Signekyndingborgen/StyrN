@@ -37,7 +37,7 @@ path=r'../Run'
 
 template = DaisyModel(os.path.join(path, '../Common/Scenarier_v1.dai'))
 i=0  
-for i in range(1, 21):
+for i in range(1, 24):
     rotation=rota.columns[i]
         #find rotation length
     maxnumberyear = 6
@@ -103,6 +103,7 @@ for i in range(1, 21):
                 fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
                 fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[0]) , '[kg N/ha]']))                
                 block.Children.append(fert)
+                ## Fertil2.... mangler
                 
                 #Harvest
                 if not pd.isna(crops['Harvest1'][cropname]):
