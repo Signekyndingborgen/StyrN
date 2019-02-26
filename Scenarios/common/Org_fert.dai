@@ -17,11 +17,15 @@
     (total_C_fraction 0.4)
   (NH4_fraction 0.75))
   
-  (defam my_cattle_slurry kvaeg_gylle 
+  (defam c_slurry kvaeg_gylle 
     (first_year_utilization 0.75 [])
     (volatilization 0.05)
   )
-  (defam my_pig_slurry slagtesvin_gylle 
+  (defam p_slurry slagtesvin_gylle 
     (first_year_utilization 0.75 [])
+    (volatilization 0.05)
+  )
+(defam c_manure manure 
+    (first_year_utilization 0.50 [])
     (volatilization 0.05)
   )
