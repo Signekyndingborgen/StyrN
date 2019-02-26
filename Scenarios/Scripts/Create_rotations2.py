@@ -32,12 +32,12 @@ conditions = pd.read_excel('../common/masterinput_v1.xlsx', sheet_name = 'soil_c
     
 path=r'../Run'
 
-#shutil.rmtree(path)
+# shutil.rmtree(path)
 #os.makedirs(path)
 
 template = DaisyModel(os.path.join(path, '../Common/Scenarier_v1.dai'))
 i=0  
-for i in range(1, 23):
+for i in range(1, 13):
     rotation=rota.columns[i]
         #find rotation length
     maxnumberyear = 6
@@ -48,7 +48,7 @@ for i in range(1, 23):
 
     AllCropIDs = []
         
-    for year in range(0, maxnumberyear): 
+    for year in range(1, maxnumberyear+1): 
         cropname = rota[rotation][year].strip()
         crop_ID = int(crops['afgkode1'][cropname])
         AllCropIDs.append(crop_ID)
@@ -97,79 +97,82 @@ for i in range(1, 23):
                             block.Children.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
                 
                 #Fertilize
+                print(rotation)
+                #print(AllCropIDs)
                 man=CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureSim[0], ManureSim[1], ManureSim[2])
-                #block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
-                #fert = DaisyEntry('fertilize',[])
-                #fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                if not man[0]==0:
+                print(man)
+                # Hvis gylle ikk
+                if not ManureSim[1]==0.0:
                     block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
                     fert = DaisyEntry('fertilize',[])
                     fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
                     fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[0]) , '[kg N/ha]']))                
                     block.Children.append(fert)                
-                
-                elif pd.isna(crops['FDate2'][cropname]) and pd.isna(crops['FDate3'][cropname]) and pd.isna(crops['FDate4'][cropname]):
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]) , '[kg N/ha]']))                
-                    block.Children.append(fert)                
-                
-                elif pd.isna(crops['FDate3'][cropname]) and pd.isna(crops['FDate4'][cropname]):
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/2) , '[kg N/ha]']))                
-                    block.Children.append(fert)                
-                    
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate2'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/2) , '[kg N/ha]']))                
-                    block.Children.append(fert)  
-                
-                elif pd.isna(crops['FDate4'][cropname]):
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/3) , '[kg N/ha]']))                
-                    block.Children.append(fert)  
-                    
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate2'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/3) , '[kg N/ha]']))                
-                    block.Children.append(fert)  
-                    
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate3'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/3) , '[kg N/ha]']))                
-                    block.Children.append(fert)
                 else:
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/4) , '[kg N/ha]']))                
-                    block.Children.append(fert)  
+                    #if man
                     
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate2'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/4) , '[kg N/ha]']))                
-                    block.Children.append(fert)  
+                    if pd.isna(crops['FDate2'][cropname]) and pd.isna(crops['FDate3'][cropname]) and pd.isna(crops['FDate4'][cropname]):
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]) , '[kg N/ha]']))                
+                        block.Children.append(fert)                
                     
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate3'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/4) , '[kg N/ha]']))                
-                    block.Children.append(fert)
+                    elif pd.isna(crops['FDate3'][cropname]) and pd.isna(crops['FDate4'][cropname]):
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/2) , '[kg N/ha]']))                
+                        block.Children.append(fert)                
+                        
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate2'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/2) , '[kg N/ha]']))                
+                        block.Children.append(fert)  
+                    
+                    elif pd.isna(crops['FDate4'][cropname]):
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/3) , '[kg N/ha]']))                
+                        block.Children.append(fert)  
+                        
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate2'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/3) , '[kg N/ha]']))                
+                        block.Children.append(fert)  
+                        
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate3'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/3) , '[kg N/ha]']))                
+                        block.Children.append(fert)
+                    else:
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/4) , '[kg N/ha]']))                
+                        block.Children.append(fert)  
+                        
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate2'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/4) , '[kg N/ha]']))                
+                        block.Children.append(fert)  
+                        
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate3'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/4) , '[kg N/ha]']))                
+                        block.Children.append(fert)
 
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate4'][cropname].strftime('%m %d')]))
-                    fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
-                    fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/4) , '[kg N/ha]']))                
-                    block.Children.append(fert)               
+                        block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate4'][cropname].strftime('%m %d')]))
+                        fert = DaisyEntry('fertilize',[])
+                        fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                        fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/4) , '[kg N/ha]']))                
+                        block.Children.append(fert)               
                     
                 #Harvest
                 if not pd.isna(crops['Harvest1'][cropname]):
@@ -183,7 +186,12 @@ for i in range(1, 23):
                         block.Children.append(DaisyEntry('wait_mm_dd', [date.strftime('%m %d')]))
                         for c in crops['Daisynavn1'][cropname].split(','):
                             block.Children.append(DaisyEntry('harvest', ['"' + str(c.strip()) +'"'] ))
-                
+                       
+                        # BRuges til stub kommentar
+                        # harvest = DaisyEntry(df['action'][i], ['"' + crop.strip() +'"'])
+                       # harvest.Children.append(DaisyEntry('stub', ['7 [cm]']))
+                       # block.Children.append(harvest) 
+                        
                 #Catch crops
                 if not pd.isna(crops['Sowing2'][cropname]):
                     if str(crops['Harvest1'][cropname]) < str(crops['Sowing2'][cropname]):
@@ -204,4 +212,4 @@ for i in range(1, 23):
                                 for c in crops['Daisynavn2'][cropname].split(','):
                                     block.Children.append(DaisyEntry('harvest', ['"' + str(c.strip()) +'"']))
         #Now print the daisy file                            
-        newfile.save_as(os.path.join(path, rotation +ManureSim[0] + str(ManureSim[1]) + str(ManureSim[2]), 'model.dai'))
+        newfile.save_as(os.path.join(path, rotation + '_' + str(int(ManureSim[1])) +'_' + str(ManureSim[2]), 'model.dai'))

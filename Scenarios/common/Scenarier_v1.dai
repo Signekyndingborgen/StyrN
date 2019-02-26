@@ -5,8 +5,8 @@
 (input file "Winter Wheat JG_C2.dai") (input file "swheat.dai") (input file "dk-wbarley.dai") (input file "potato.dai")
 (input file "Potato_FP.dai") (input file "pea.dai")
 
-(input file "tillage.dai") (input file "fertilizer.dai")
-(input file "Org_fert.dai")   
+(input file "tillage.dai") (input file "dk-fertilizer.dai")
+;(input file "Org_fert.dai")   
 (input file "Springbarley_MES_23_2.dai")   
 (input file "skb-ryegrass.dai")
 (input file "skb-wclover.dai")
@@ -40,5 +40,5 @@
 
 
 ;; Beginning and end of simulation.
-(time 1994 02 01)
-(stop 2000 12 01)
+(time 1994 02 01 1)
+(stop 2000 12 01 1)

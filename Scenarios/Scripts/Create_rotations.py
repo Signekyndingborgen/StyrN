@@ -32,12 +32,12 @@ conditions = pd.read_excel('../common/masterinput_v1.xlsx', sheet_name = 'soil_c
     
 path=r'../Run'
 
-#shutil.rmtree(path)
+shutil.rmtree(path)
 #os.makedirs(path)
 
 template = DaisyModel(os.path.join(path, '../Common/Scenarier_v1.dai'))
 i=0  
-for i in range(1, 23):
+for i in range(1, 13):
     rotation=rota.columns[i]
         #find rotation length
     maxnumberyear = 6
@@ -48,7 +48,7 @@ for i in range(1, 23):
 
     AllCropIDs = []
         
-    for year in range(0, maxnumberyear): 
+    for year in range(1, maxnumberyear+1): 
         cropname = rota[rotation][year].strip()
         crop_ID = int(crops['afgkode1'][cropname])
         AllCropIDs.append(crop_ID)
@@ -95,7 +95,8 @@ for i in range(1, 23):
                         block.Children.append(DaisyEntry('wait_mm_dd', [crops['Sowing2'][cropname].strftime('%m %d')]))  
                         for c in crops['Daisynavn2'][cropname].split(','):
                             block.Children.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
-                
+                print(rotation)
+                print(AllCropIDs)
                 #Fertilize
                 man=CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureSim[0], ManureSim[1], ManureSim[2])
                 block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
@@ -138,4 +139,4 @@ for i in range(1, 23):
                                 for c in crops['Daisynavn2'][cropname].split(','):
                                     block.Children.append(DaisyEntry('harvest', ['"' + str(c.strip()) +'"']))
         #Now print the daisy file                            
-        newfile.save_as(os.path.join(path, rotation +ManureSim[0] + str(ManureSim[1]) + str(ManureSim[2]), 'model.dai'))
+        newfile.save_as(os.path.join(path, rotation + '_' + str(int(ManureSim[1])) +'_' + str(ManureSim[2]), 'model.dai'))
