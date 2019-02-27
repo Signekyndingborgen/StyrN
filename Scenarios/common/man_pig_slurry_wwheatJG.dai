@@ -1,0 +1,84 @@
+(input file "Org_fert2.dai")
+
+ (defaction "SB JB5/6_psl" activity ; N-Norm (adjusted for previous catch crop): 128 N 
+    (wait_mm_dd 3 01)
+    (wait (or trafficable (mm_dd 04 01)))
+    (plowing)
+    (seed_bed_preparation)
+    (fertilize ("my_pig_slurry") (equivalent_weight 128 [kg N/ha])) 
+;    (fertilize (NPK01 (weight 90 [kg N/ha])))
+    (sow ("SB"))
+;    (wait_days 30)
+;    (fertilize (NPK01 (weight 38 [kg N/ha])))
+    (wait (or (crop_ds_after "SB" 2.0)(mm_dd 08 20)))
+    (harvest "SB" (stub 10 [cm])(stem 0.00)(leaf 0.00))
+  )
+  
+  
+  (defaction "WR JB5/6_psl" activity
+    (wait_mm_dd 8 22)(plowing)
+    (wait_mm_dd 8 23)(fertilize (NPK01 (weight 40 [kg N/ha])))
+    (seed_bed_preparation)(sow "WR")
+    (wait_mm_dd 2 15)
+    (wait (or trafficable (mm_dd 03 15)))
+;   (fertilize (NPK01 (weight 100 [kg N/ha])))
+    (fertilize ("my_pig_slurry") (equivalent_weight 120 [kg N/ha])) 
+    (wait_days 25)
+    (fertilize (NPK01 (weight 64 [kg N/ha]))); rettet fra 84
+    (wait (or (crop_ds_after "WR" 2.0)(mm_dd 8 9)))
+    (harvest "WR" (stub 20 [cm])(stem 0.00)(leaf 0.00))
+)
+
+
+(defaction "WW-SB JB5/6 NORM_psl" activity                
+   (wait_mm_dd 9 1)
+   (plowing)
+   (wait_mm_dd 9 15)     
+   (seed_bed_preparation)
+   (sow "WW-SB" (seed 170 [kg/ha]))
+   (wait_mm_dd 3 1)
+   (wait (or trafficable (mm_dd 03 25)))
+   (fertilize ("my_pig_slurry") (equivalent_weight 120 [kg N/ha]) )
+;   (fertilize (NPK01 (weight 70 [kg N/ha])))
+   (wait_days 30)
+   (fertilize (NPK01 (weight 89 [kg N/ha]))); rettet fra 139
+   (wait (or (crop_ds_after "WW-SB" 2.0)  (mm_dd 8 20)))
+   (harvest "WW-SB"(stub 12[cm])(stem 0.90[])(leaf 0.90 []))
+)
+
+(defaction "WW-WR JB5/6 NORM_psl" activity                
+   (wait_mm_dd 9 1)
+   (plowing)
+   (wait_mm_dd 9 15)     
+   (seed_bed_preparation)
+   (sow "WW-WR" (seed 170 [kg/ha]))
+   (wait_mm_dd 3 1)
+   (wait (or trafficable (mm_dd 03 25)))
+;   (fertilize (NPK01 (weight 50 [kg N/ha])))
+   (fertilize ("my_pig_slurry") (equivalent_weight 112 [kg N/ha]) )
+   (wait_days 30)
+   (fertilize (NPK01 (weight 74 [kg N/ha]))); rettet fra 136 kg
+   (wait (or (crop_ds_after "WW-WR" 2.0)  (mm_dd 8 20)))
+   (harvest "WW-WR"(stub 12[cm])(stem 0.90[])(leaf 0.90 []))
+)
+
+(defaction "WW-WW JB5/6 NORM_psl" activity                
+   (wait_mm_dd 9 1)
+   (plowing)
+   (wait_mm_dd 9 15)     
+   (seed_bed_preparation)
+   (sow "WW-WW" (seed 170 [kg/ha]))
+   (wait_mm_dd 3 1)
+   (wait (or trafficable (mm_dd 03 25)))
+   (fertilize ("my_pig_slurry") (equivalent_weight 120 [kg N/ha])) 
+;   (fertilize (NPK01 (weight 70 [kg N/ha])))
+   (wait_days 30)
+   (fertilize (NPK01 (weight 89 [kg N/ha]))); rettet fra 139 kg
+   (wait (or (crop_ds_after "WW-WW" 2.0)  (mm_dd 8 20)))
+   (harvest "WW-WW"(stub 12[cm])(stem 0.90[])(leaf 0.90 []))
+   (disk_harrowing)(sow "WR"); Oil Seed Radish Catch Crop
+)
+
+
+; Norm-N Winter Wheat
+(defaction "JB5/6 NORM_psl" activity "SB JB5/6_psl" "WW-SB JB5/6 NORM_psl" "WR JB5/6_psl" "WW-WR JB5/6 NORM_psl" "WW-WW JB5/6 NORM_psl")

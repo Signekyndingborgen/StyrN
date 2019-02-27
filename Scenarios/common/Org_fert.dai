@@ -3,7 +3,8 @@
 
 (defam kvaeg_gylle slurry
   (description "Baseret på DJF-rapport nr. 36.Kvælstof, fosfor og kalium i husdyrgødning - normtal 2000.")
-  (volatilization 0.15)
+  (volatilization 0.05)
+  (first_year_utilization 0.80 [])
   (dry_matter_fraction 0.103)
   (total_N_fraction 0.053)
   (total_C_fraction 0.4)
@@ -12,20 +13,19 @@
   (defam slagtesvin_gylle slurry
     (description "Baseret på DJF-rapport nr. 36. Kvælstof, fosfor og kalium i husdyrgødning - normtal 2000.")
     (volatilization 0.15)
-    (dry_matter_fraction 0.054)
+   (first_year_utilization 0.80 [])
+   (dry_matter_fraction 0.054)
     (total_N_fraction 0.09)
     (total_C_fraction 0.4)
-  (NH4_fraction 0.75))
+    (NH4_fraction 0.75))
   
-  (defam c_slurry kvaeg_gylle 
-    (first_year_utilization 0.75 [])
-    (volatilization 0.05)
-  )
-  (defam p_slurry slagtesvin_gylle 
-    (first_year_utilization 0.75 [])
-    (volatilization 0.05)
-  )
-(defam c_manure manure 
-    (first_year_utilization 0.50 [])
-    (volatilization 0.05)
-  )
+ (defam kvaeg_dybstroelse slurry
+   (description "Baseret på DJF-rapport nr. 36. Kvælstof, fosfor og kalium i husdyrgødning - normtal 2000.")
+   (volatilization 0.15)
+   (first_year_utilization 0.80 [])
+   (dry_matter_fraction 0.289)
+   (total_N_fraction 0.025)
+   (total_C_fraction 0.4)
+   (NH4_fraction 0.267))
+  
+  

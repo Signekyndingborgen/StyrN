@@ -11,7 +11,8 @@
   (input file "Potato_FP.dai")
   (input file "pea.dai")
   (input file "tillage.dai")
-  (input file "dk-fertilizer.dai")
+  (input file "fertilizer.dai")
+  (input file "Org_fert.dai")
   (input file "Springbarley_MES_23_2.dai")
   (input file "skb-ryegrass.dai")
   (input file "skb-wclover.dai")
@@ -30,40 +31,46 @@
       (equivalent_weight 48.0 [kg N/ha]))
     (wait_mm_dd 06 01)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 07 01)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 08 01)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 09 25)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 03 01)
     (fertilize
       ("kvaeg_gylle")
       (equivalent_weight 111.0 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -76,7 +83,7 @@
       (equivalent_weight 18.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 09 19)
     (plowing)
     (wait_mm_dd 09 20)
@@ -87,7 +94,7 @@
       (equivalent_weight 55.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "Rug"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 09 19)
     (plowing)
     (wait_mm_dd 09 20)
@@ -98,7 +105,7 @@
       (equivalent_weight 70.0 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Winter Wheat JG"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -109,7 +116,7 @@
       (equivalent_weight 55.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -123,40 +130,46 @@
       (equivalent_weight 97.0 [kg N/ha]))
     (wait_mm_dd 06 01)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 07 01)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 08 01)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 09 25)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 03 01)
     (fertilize
       ("kvaeg_gylle")
       (equivalent_weight 221.0 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -169,7 +182,7 @@
       (equivalent_weight 37.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 09 19)
     (plowing)
     (wait_mm_dd 09 20)
@@ -180,7 +193,7 @@
       (equivalent_weight 110.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "Rug"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 09 19)
     (plowing)
     (wait_mm_dd 09 20)
@@ -191,7 +204,7 @@
       (equivalent_weight 139.0 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Winter Wheat JG"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -202,7 +215,7 @@
       (equivalent_weight 111.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -224,16 +237,22 @@
       (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 06 01)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 07 01)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 08 01)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 09 25)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 03 01)
     (fertilize
       ("kvaeg_gylle")
@@ -252,24 +271,24 @@
       (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -279,10 +298,10 @@
     (wait_mm_dd 04 13)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 0 [kg N/ha]))
+      (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 09 19)
     (plowing)
     (wait_mm_dd 09 20)
@@ -297,7 +316,7 @@
       (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "Rug"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 09 19)
     (plowing)
     (wait_mm_dd 09 20)
@@ -312,7 +331,7 @@
       (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Winter Wheat JG"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -320,10 +339,10 @@
     (wait_mm_dd 04 13)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 0 [kg N/ha]))
+      (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -337,40 +356,46 @@
       (equivalent_weight 48.0 [kg N/ha]))
     (wait_mm_dd 06 01)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 07 01)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 08 01)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 09 25)
-    (harvest "Ryegrass")
-    (harvest "Wclover")
+    (harvest "Ryegrass"
+      (stub 10 [cm]))
+    (harvest "Wclover"
+      (stub 10 [cm]))
     (wait_mm_dd 03 01)
     (fertilize
       ("kvaeg_gylle")
       (equivalent_weight 111.0 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (harvest "Ryegrass"
-      (stub 7 [cm]))
+      (stub 5 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -383,7 +408,7 @@
       (equivalent_weight 18.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 09 19)
     (plowing)
     (wait_mm_dd 09 20)
@@ -394,7 +419,7 @@
       (equivalent_weight 55.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "Rug"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 09 19)
     (plowing)
     (wait_mm_dd 09 20)
@@ -405,7 +430,7 @@
       (equivalent_weight 70.0 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Winter Wheat JG"
-      (stub 7 [cm]))
+      (stub 10 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -416,7 +441,7 @@
       (equivalent_weight 55.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
-      (stub 7 [cm])))
+      (stub 10 [cm])))
   (input file "Foulum_soil_vg.dai")
   (input file "OutputLog_2.dai")
   (defunit [kWh/d/m^2] SIfactor 

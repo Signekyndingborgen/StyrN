@@ -10,9 +10,9 @@
 ;;    
 	harvest
 ;
-(Crop (crop "Ryegrass"))
-(Crop (crop "Wclover"))
-(Crop (crop "SB"))
+;(Crop (crop "Ryegrass"))
+;(Crop (crop "Wclover"))
+;(Crop (crop "SB"))
 ;(Crop (crop "Pea"))
 ;(Crop (crop "Winter Wheat"))
 ;(Crop (crop "Fodder Beet"))
