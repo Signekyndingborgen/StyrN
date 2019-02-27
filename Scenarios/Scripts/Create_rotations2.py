@@ -77,7 +77,7 @@ for i in range(1, 13):
                     else:
                         ManureSims.append([ManureType, ManureMass, False])
 
-       
+    print(rotation)   
     newfile= template.copy()    
     block = newfile.Input['defaction'][1]
     #Loop the manure realisations
@@ -107,7 +107,7 @@ for i in range(1, 13):
                         block.Children.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
             
             #Fertilize
-            print(rotation)
+            
             #print(AllCropIDs)
             man=CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureSim[0], ManureSim[1], ManureSim[2])
             LastYearCropID=crop_ID
@@ -196,8 +196,14 @@ for i in range(1, 13):
                 for date in harvestdates:
                     block.Children.append(DaisyEntry('wait_mm_dd', [date.strftime('%m %d')]))
                     for c in crops['Daisynavn1'][cropname].split(','):
-                        block.Children.append(DaisyEntry('harvest', ['"' + str(c.strip()) +'"'] ))
+                        #block.Children.append(DaisyEntry('harvest', ['"' + str(c.strip()) +'"'] ))
+                        harvest = DaisyEntry('harvest', ['"' + str(c.strip()) +'"'])
+                        harvest.Children.append(DaisyEntry('stub', ['7 [cm]']))
                    
+                        #harvest.Children.append(DaisyEntry(crops['HarvestHow'][c], []))
+                        block.Children.append(harvest)
+                    
+                    
                     # BRuges til stub kommentar
                     # harvest = DaisyEntry(df['action'][i], ['"' + crop.strip() +'"'])
                    # harvest.Children.append(DaisyEntry('stub', ['7 [cm]']))

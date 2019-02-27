@@ -24,9 +24,10 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 170.0 [kg N/ha]))
+      (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 09 25)
-    (harvest "Silomajs")
+    (harvest "Silomajs"
+      (stub 7 [cm]))
     (wait_mm_dd 05 01)
     (plowing)
     (wait_mm_dd 05 05)
@@ -34,9 +35,10 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 170.0 [kg N/ha]))
+      (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 09 25)
-    (harvest "Silomajs")
+    (harvest "Silomajs"
+      (stub 7 [cm]))
     (wait_mm_dd 05 01)
     (plowing)
     (wait_mm_dd 05 05)
@@ -44,9 +46,10 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 170.0 [kg N/ha]))
+      (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 09 25)
-    (harvest "Silomajs")
+    (harvest "Silomajs"
+      (stub 7 [cm]))
     (wait_mm_dd 05 01)
     (plowing)
     (wait_mm_dd 05 05)
@@ -54,9 +57,10 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 170.0 [kg N/ha]))
+      (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 09 25)
-    (harvest "Silomajs")
+    (harvest "Silomajs"
+      (stub 7 [cm]))
     (wait_mm_dd 05 01)
     (plowing)
     (wait_mm_dd 05 05)
@@ -64,9 +68,10 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 170.0 [kg N/ha]))
+      (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 09 25)
-    (harvest "Silomajs")
+    (harvest "Silomajs"
+      (stub 7 [cm]))
     (wait_mm_dd 05 01)
     (plowing)
     (wait_mm_dd 05 05)
@@ -74,9 +79,10 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 170.0 [kg N/ha]))
+      (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 09 25)
-    (harvest "Silomajs"))
+    (harvest "Silomajs"
+      (stub 7 [cm])))
   (input file "Foulum_soil_vg.dai")
   (input file "OutputLog_2.dai")
   (defunit [kWh/d/m^2] SIfactor 
