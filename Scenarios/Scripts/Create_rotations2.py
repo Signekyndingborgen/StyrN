@@ -111,13 +111,13 @@ for i in range(1, 23):
             LastYearCropID=crop_ID
             print(man)
             # Hvis gylle ikk
-            if not ManureSim[1]==0.0:
+            if ManureSim[1]!=0.0:
                 ThisYearsEntries.append(DaisyWaitBlock(crops['FDate1'][cropname]))
                 fert = DaisyEntry('fertilize',[])
                 fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
                 fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[0]) , '[kg N/ha]']))                
                 ThisYearsEntries[-1].EntriesAfterWait.append(fert)                
-            else:
+            if ManureSim[2]:
                 #if man
                 Fertilizerdates= []
                 for fdc in range(1,5):
@@ -127,7 +127,7 @@ for i in range(1, 23):
                 for fdate in Fertilizerdates:
                     ThisYearsEntries.append(DaisyWaitBlock(fdate))
                     fert = DaisyEntry('fertilize',[])
-                    fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
+                    fert.Children.append(DaisyEntry('"'+'NPK'+'"',[]))
                     fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/len(Fertilizerdates)), '[kg N/ha]']))                
                     ThisYearsEntries[-1].EntriesAfterWait.append(fert)                
                 
@@ -150,7 +150,7 @@ for i in range(1, 23):
                     ThisYearsEntries.append(DaisyWaitBlock(date))
                     for c in crops['Daisynavn'+hn][cropname].split(','):
                         harvest = DaisyEntry('harvest', ['"' + str(c.strip()) +'"'])
-                        harvest.Children.append(DaisyEntry(crops['HarvestHow'][cropname], []))
+                        harvest.Children.append(DaisyEntry(crops['HarvestHow'+hn][cropname], []))
                         ThisYearsEntries[-1].EntriesAfterWait.append(harvest)
                     
             #Catch crops

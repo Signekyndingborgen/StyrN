@@ -23,22 +23,6 @@
     (wait_mm_dd 04 05)
     (sow "Wclover")
     (sow "Ryegrass")
-    (wait_mm_dd 04 15)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
-    (wait_mm_dd 06 06)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
-    (wait_mm_dd 07 16)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
-    (wait_mm_dd 08 21)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -49,14 +33,6 @@
       (stub 5 [cm]))
     (harvest "Ryegrass"
       (stub 5 [cm]))
-    (wait_mm_dd 05 01)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
-    (wait_mm_dd 07 16)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -67,14 +43,6 @@
       (stub 5 [cm]))
     (harvest "Ryegrass"
       (stub 5 [cm]))
-    (wait_mm_dd 05 01)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
-    (wait_mm_dd 07 16)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -85,14 +53,6 @@
       (stub 5 [cm]))
     (harvest "Ryegrass"
       (stub 5 [cm]))
-    (wait_mm_dd 05 01)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
-    (wait_mm_dd 07 16)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -103,14 +63,6 @@
       (stub 5 [cm]))
     (harvest "Ryegrass"
       (stub 5 [cm]))
-    (wait_mm_dd 05 01)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
-    (wait_mm_dd 07 16)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -121,14 +73,6 @@
       (stub 5 [cm]))
     (harvest "Ryegrass"
       (stub 5 [cm]))
-    (wait_mm_dd 05 01)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
-    (wait_mm_dd 07 16)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))

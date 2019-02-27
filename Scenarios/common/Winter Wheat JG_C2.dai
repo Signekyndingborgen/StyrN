@@ -3,7 +3,7 @@
 ;Winter Wheat JG
 ;Mainly calibrated on the variety Benchmark
 
-(defcrop "Winter Wheat JG" "Winter Wheat"
+(defcrop "Winter Wheat JG2" "Winter Wheat"
 
   (Devel original
          (DSRate1  0.036 [DS/d]); 
@@ -77,4 +77,7 @@
   )
  
 )
-        
+      
+(defcrop "Winter Wheat JG" "Winter Wheat JG2"
+      
+  (Seed original (initial_weight 170 [kg/ha])))

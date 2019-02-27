@@ -2,8 +2,8 @@
 
 (defcrop "Potato; Sava_Figaro" "Potato; Folva"
   "Recalibration of Agria potato performed by Tove Heidman in 2006 based on experimental results from DJF."
-  ;(Devel original (EmrTSum 330 [dg C d])
-  (Devel original (EmrTSum 999999 [dg C d])
+  (Devel original (EmrTSum 330 [dg C d])
+  ;(Devel original (EmrTSum 999999 [dg C d])
                   (DSRate1 0.055)
                   (DSRate2 0.011)) 
   (LeafPhot original (Fm 4.0 [g CO2/m^2/h]))                      

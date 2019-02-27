@@ -32,8 +32,13 @@ conditions = pd.read_excel('../common/masterinput_v1.xlsx', sheet_name = 'soil_c
     
 path=r'../Run'
 
-shutil.rmtree(path)
-#os.makedirs(path)
+if os.path.isdir(path):
+    try:
+        shutil.rmtree(path)
+    except:
+        pass
+if not os.path.isdir(path):
+    os.makedirs(path)
 
 template = DaisyModel(os.path.join(path, '../Common/Scenarier_v1.dai'))
 i=0  
