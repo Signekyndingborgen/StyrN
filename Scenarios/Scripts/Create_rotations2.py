@@ -12,12 +12,11 @@ import sys
 import pandas as pd
 import os
 sys.path.insert(0,r'../../pydaisy/')
-import matplotlib.pyplot as plt
-import numpy as np 
-import datetime as datetime
+from datetime import datetime
 import shutil
-from pydaisy.Daisy import *
+from pydaisy.Daisy import DaisyModel, DaisyEntry
 from fertil import CalcFertil
+from DaisyWaitBlock import DaisyWaitBlock
 
 # Import excel w scenario information
 # the crop rotations
@@ -32,7 +31,6 @@ manure.index = manure['ID']
 conditions = pd.read_excel('../common/masterinput_v1.xlsx', sheet_name = 'soil_climate_more')
     
 path=r'../Run'
-
 
 if os.path.isdir(path):
     try:
@@ -90,35 +88,35 @@ for i in range(1, 23):
             cropname = rota[rotation][year].strip()
             crop_ID = int(crops['afgkode1'][cropname])
             
+            ThisYearsEntries=[]
+            
             #Plowing
             if not pd.isna(crops['Plowing'][cropname]):
-                block.Children.append(DaisyEntry('wait_mm_dd', [crops['Plowing'][cropname].strftime('%m %d')]))  
-                block.Children.append(DaisyEntry('plowing',[]))
+                ThisYearsEntries.append(DaisyWaitBlock(crops['Plowing'][cropname]))
+                ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('plowing',[]))
             
             #Sowing
             if not pd.isna(crops['Sowing1'][cropname]):
-                block.Children.append(DaisyEntry('wait_mm_dd', [crops['Sowing1'][cropname].strftime('%m %d')]))  
+                ThisYearsEntries.append(DaisyWaitBlock(crops['Sowing1'][cropname]))
                 for c in crops['Daisynavn1'][cropname].split(','):
-                    block.Children.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
+                    ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
             if not pd.isna(crops['Sowing2'][cropname]):
                 if str(crops['Sowing2'][cropname]) < str(crops['Harvest1'][cropname]):                
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['Sowing2'][cropname].strftime('%m %d')]))  
+                    ThisYearsEntries.append(DaisyWaitBlock(crops['Sowing2'][cropname]))
                     for c in crops['Daisynavn2'][cropname].split(','):
-                        block.Children.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
-            
-            #Fertilize
-            
-            #print(AllCropIDs)
+                        ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
+
+            #Fertilize            
             man=CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureSim[0], ManureSim[1], ManureSim[2])
             LastYearCropID=crop_ID
             print(man)
             # Hvis gylle ikk
             if not ManureSim[1]==0.0:
-                block.Children.append(DaisyEntry('wait_mm_dd', [crops['FDate1'][cropname].strftime('%m %d')]))
+                ThisYearsEntries.append(DaisyWaitBlock(crops['FDate1'][cropname]))
                 fert = DaisyEntry('fertilize',[])
                 fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
                 fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[0]) , '[kg N/ha]']))                
-                block.Children.append(fert)                
+                ThisYearsEntries[-1].EntriesAfterWait.append(fert)                
             else:
                 #if man
                 Fertilizerdates= []
@@ -127,50 +125,46 @@ for i in range(1, 23):
                         Fertilizerdates.append(crops['FDate' + str(fdc)][cropname])
                 
                 for fdate in Fertilizerdates:
-                    block.Children.append(DaisyEntry('wait_mm_dd', [fdate.strftime('%m %d')]))
+                    ThisYearsEntries.append(DaisyWaitBlock(fdate))
                     fert = DaisyEntry('fertilize',[])
                     fert.Children.append(DaisyEntry('"' + ManureSim[0] +'"',[]))
                     fert.Children.append(DaisyEntry('equivalent_weight',[ str(man[1]/len(Fertilizerdates)), '[kg N/ha]']))                
-                    block.Children.append(fert)                
+                    ThisYearsEntries[-1].EntriesAfterWait.append(fert)                
                 
-                
-                
-            #Harvest
+            HarvestNumbers=[]
             if not pd.isna(crops['Harvest1'][cropname]):
+                HarvestNumbers.append('1');
+            if not pd.isna(crops['Sowing2'][cropname]) and not pd.isna(crops['Harvest2'][cropname]):
+                HarvestNumbers.append('2');
+            
+                 
+            #Harvest
+            for hn in HarvestNumbers:
                 harvestdates=[]
-                if isinstance(crops['Harvest1'][cropname],datetime): 
-                    harvestdates.append(crops['Harvest1'][cropname])
+                if isinstance(crops['Harvest'+hn][cropname], datetime): 
+                    harvestdates.append(crops['Harvest'+hn][cropname])
                 else:
-                    for s in crops['Harvest1'][cropname].split(','):
-                        harvestdates.append(datetime(2010, int(s.split('/')[1]), int(s.split('/')[0])))
+                    for s in crops['Harvest'+hn][cropname].split(','):
+                        harvestdates.append(datetime(2019, int(s.split('/')[1]), int(s.split('/')[0])))
                 for date in harvestdates:
-                    block.Children.append(DaisyEntry('wait_mm_dd', [date.strftime('%m %d')]))
-                    for c in crops['Daisynavn1'][cropname].split(','):
+                    ThisYearsEntries.append(DaisyWaitBlock(date))
+                    for c in crops['Daisynavn'+hn][cropname].split(','):
                         harvest = DaisyEntry('harvest', ['"' + str(c.strip()) +'"'])
                         harvest.Children.append(DaisyEntry(crops['HarvestHow'][cropname], []))
-                        block.Children.append(harvest)
+                        ThisYearsEntries[-1].EntriesAfterWait.append(harvest)
                     
             #Catch crops
             if not pd.isna(crops['Sowing2'][cropname]):
                 if str(crops['Harvest1'][cropname]) < str(crops['Sowing2'][cropname]):
-                    block.Children.append(DaisyEntry('wait_mm_dd', [crops['Sowing2'][cropname].strftime('%m %d')]))
-                    block.Children.append(DaisyEntry('plowing', []))
+                    ThisYearsEntries.append(DaisyWaitBlock(crops['Sowing2'][cropname]))
+                    ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('plowing', []))
                     for c in crops['Daisynavn2'][cropname].split(','):
-                        block.Children.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
-                else:
-                    if not pd.isna(crops['Harvest2'][cropname]):
-                        harvestdates=[]
-                        if isinstance(crops['Harvest2'][cropname],datetime): 
-                            harvestdates.append(crops['Harvest2'][cropname])
-                        else:
-                            for s in crops['Harvest2'][cropname].split(','):
-                                harvestdates.append(datetime(2010, int(s.split('/')[1]), int(s.split('/')[0])))
-                        for date in harvestdates:
-                            block.Children.append(DaisyEntry('wait_mm_dd', [date.strftime('%m %d')]))
-                            for c in crops['Daisynavn2'][cropname].split(','):
-                                harvest = DaisyEntry('harvest', ['"' + str(c.strip()) +'"'])
-                                harvest.Children.append(DaisyEntry(crops['HarvestHow'][cropname], []))
-                                block.Children.append(harvest)
+                        ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
+            
+            
+            ThisYearsEntries.sort(key = lambda t:t.waitdate)
+            for tye in ThisYearsEntries:
+                tye.append_entries(block);
        
         #Now print the daisy file                            
         newfile.save_as(os.path.join(path, rotation + '_' + str(int(ManureSim[1])) +'_' + str(ManureSim[2]), 'model.dai'))
