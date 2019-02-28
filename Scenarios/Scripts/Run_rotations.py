@@ -3,11 +3,8 @@
 Created on Fri Feb  8 11:36:40 2019
 
 @author: tqc268
-
-Vinterbyg PE fikset! 
-Og slætter alle filer i Run mappen inden kørsel - og laver en ny Run mappe.
-Skriver sædskifter og datoer for 1 jord-klima-init-C kombination.
 """
+
 import sys
 import pandas as pd
 import os
@@ -31,6 +28,7 @@ manure.index = manure['ID']
 conditions = pd.read_excel('../common/masterinput_v1.xlsx', sheet_name = 'soil_climate_more')
     
 path=r'../RunK'
+
 if __name__ =='__main__':
     if os.path.isdir(path):
         try:
@@ -170,5 +168,5 @@ if __name__ =='__main__':
             newfile.save_as(os.path.join(path, rotation + '_' + str(int(ManureSim[1])) +'_' + str(ManureSim[2]), 'model.dai'))
     
 
-    DaisyModel.path_to_daisy_executable = r'C:\Program Files\Daisy 5.64\bin\Daisy.exe'
+    DaisyModel.path_to_daisy_executable = r'C:\Program Files\Daisy 5.72\bin\Daisy.exe'
     run_sub_folders(os.path.abspath(path),'setup.dai', NumberOfProcesses=6)
