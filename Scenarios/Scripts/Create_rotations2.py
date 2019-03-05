@@ -74,10 +74,10 @@ for i in range(13,17):
                         ManureSims.append([ManureType, ManureMass, False])
 
     print(rotation)   
-    newfile= template.copy()    
-    block = newfile.Input['defaction'][1]
     #Loop the manure realisations
     for ManureSim in ManureSims:
+        newfile= template.copy()    
+        block = newfile.Input['defaction'][1]
 
         LastYearCropID = int(crops['afgkode1'][rota[rotation][maxnumberyear].strip()])
         
