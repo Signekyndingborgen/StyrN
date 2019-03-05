@@ -74,11 +74,11 @@ for i in range(13,17):
                         ManureSims.append([ManureType, ManureMass, False])
 
     print(rotation)   
-    newfile= template.copy()    
-    block = newfile.Input['defaction'][1]
+    
     #Loop the manure realisations
     for ManureSim in ManureSims:
-
+        newfile= template.copy()    
+        block = newfile.Input['defaction'][0]
         LastYearCropID = int(crops['afgkode1'][rota[rotation][maxnumberyear].strip()])
         
         #Loop the years
@@ -108,7 +108,7 @@ for i in range(13,17):
             man=CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureSim[0], ManureSim[1], ManureSim[2])
             LastYearCropID=crop_ID
             print(man)
-            # Hvis gylle ikk
+            # Hvis der er gylle:
             if ManureSim[1]!=0.0:
                 ThisYearsEntries.append(DaisyWaitBlock(crops['FDate1'][cropname]))
                 fert = DaisyEntry('fertilize',[])

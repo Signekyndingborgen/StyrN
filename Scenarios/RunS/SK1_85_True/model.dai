@@ -16,76 +16,7 @@
   (input file "Springbarley_MES_23_2.dai")
   (input file "skb-ryegrass.dai")
   (input file "skb-wclover.dai")
-  (defaction "Rotation" activity)
-  (defaction "A_F_R" activity "Rotation"
-    (wait_mm_dd 04 01)
-    (plowing)
-    (wait_mm_dd 04 02)
-    (sow "SB")
-    (wait_mm_dd 04 03)
-    (sow "Ryegrass")
-    (wait_mm_dd 04 13)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 142.0 [kg N/ha]))
-    (wait_mm_dd 08 10)
-    (harvest "SB"
-      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
-    (wait_mm_dd 04 01)
-    (plowing)
-    (wait_mm_dd 04 02)
-    (sow "SB")
-    (wait_mm_dd 04 13)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 142.0 [kg N/ha]))
-    (wait_mm_dd 08 10)
-    (harvest "SB"
-      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
-    (wait_mm_dd 04 01)
-    (plowing)
-    (wait_mm_dd 04 02)
-    (sow "SB")
-    (wait_mm_dd 04 13)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 142.0 [kg N/ha]))
-    (wait_mm_dd 08 10)
-    (harvest "SB"
-      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
-    (wait_mm_dd 04 01)
-    (plowing)
-    (wait_mm_dd 04 02)
-    (sow "SB")
-    (wait_mm_dd 04 13)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 142.0 [kg N/ha]))
-    (wait_mm_dd 08 10)
-    (harvest "SB"
-      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
-    (wait_mm_dd 04 01)
-    (plowing)
-    (wait_mm_dd 04 02)
-    (sow "SB")
-    (wait_mm_dd 04 13)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 142.0 [kg N/ha]))
-    (wait_mm_dd 08 10)
-    (harvest "SB"
-      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
-    (wait_mm_dd 04 01)
-    (plowing)
-    (wait_mm_dd 04 02)
-    (sow "SB")
-    (wait_mm_dd 04 13)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 142.0 [kg N/ha]))
-    (wait_mm_dd 08 10)
-    (harvest "SB"
-      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+  (defaction "A_F_R" activity 
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -189,19 +120,21 @@
   (log_prefix "DailyP-")
   (defaction "irrigate_30" activity
     (wait 
-      (not 
-        (soil_water_pressure_above 
-          (height -30.0 [cm])
-          (potential -1000 [cm]))))
-    (irrigate_overhead 30 [mm/h]))
-  (defaction "Irrigated AFR" activity 
-    (while "A_F_R" "irrigation_30"))
-  (manager activity 
-    (repeat 
-      ("Irrigated AFR")))
-  (defcolumn "Foulum; FAO" "Foulum column"
-    (Bioclimate default 
-      (pet FAO_PM)))
-  (column "Foulum; FAO")
-  (time 1994 02 01 1)
-  (stop 1999 12 01 1) 
+      (and 
+        (after_mm_dd 5 1)
+        (before_mm_dd 9 1)
+        (not 
+          (soil_water_pressure_above 
+            (height -30.0 [cm])
+            (potential -1000 [cm]))))
+      (irrigate_overhead 30 [mm/h]))
+    (manager activity 
+      (while A_F_R 
+        (repeat irrigate_30))
+      (stop) )
+    (defcolumn "Foulum; FAO" "Foulum column"
+      (Bioclimate default 
+        (pet FAO_PM)))
+    (column "Foulum; FAO")
+    (time 1994 02 01 1)
+    (stop 1999 12 01 1) ) 

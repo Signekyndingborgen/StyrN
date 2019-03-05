@@ -24,7 +24,7 @@ crops.index = crops['Crop']
 manure = pd.read_excel('../common/masterinput_v2.xlsx',sheet_name= 'Manure1')
 manure.index = manure['ID']
     
-path=r'../RunKS'
+path=r'../RunS'
 
 if __name__ =='__main__':
     if os.path.isdir(path):
@@ -35,7 +35,7 @@ if __name__ =='__main__':
     if not os.path.isdir(path):
         os.makedirs(path)
     
-    template = DaisyModel(os.path.join(path, '../Common/Scenarier_v1.dai'))
+    template = DaisyModel(os.path.join(path, '../Common/Scenarier_v3.dai'))
     
     soil ='JB 1+3'
       
@@ -71,11 +71,11 @@ if __name__ =='__main__':
                             ManureSims.append([ManureType, ManureMass, False])
     
         print(rotation)   
-        newfile= template.copy()    
-        block = newfile.Input['defaction'][1]
+        
         #Loop the manure realisations
         for ManureSim in ManureSims:
-    
+            newfile= template.copy()    
+            block = newfile.Input['defaction'][0]
             LastYearCropID = int(crops['afgkode1'][rota[rotation][maxnumberyear].strip()])
             
             #Loop the years

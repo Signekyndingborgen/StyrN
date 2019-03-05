@@ -11,21 +11,9 @@
 (input file "skb-ryegrass.dai")
 (input file "skb-wclover.dai")
 
-;(defaction "irrigation strategy" activity
-;(wait (and (after_mm_dd 5 1)
-;(before_mm_dd 9 1)(not (soil_water_content_above 200.0 [mm]
-;(from 0 [m]) (to 1 [m])))))
-;(irrigate_overhead 30 [mm/h])	)
-
-(defaction "Rotation" activity)
-  
  ;; Arable Farm Rotation
-(defaction "A_F_R" activity  "Rotation")
+(defaction "A_F_R" activity )
   
- ;; Arable Farm Rotation
-;(defaction "AFR" activity
-;  "Rotation")
-
 (input file "Foulum_soil_vg.dai")   
 (input file "OutputLog_2.dai")   
 
@@ -40,18 +28,17 @@
 
 ; -------------------------------------------------------
 (defaction "irrigate_30" activity
-(wait (not (soil_water_pressure_above (height -30.0 [cm])
+(wait (and (after_mm_dd 5 1)
+(before_mm_dd 9 1)(not (soil_water_pressure_above (height -30.0 [cm])
 (potential -1000 [cm]))))
 (irrigate_overhead 30 [mm/h]))
+
 ;------------------------
-;(manager activity (while (repeat ("A_F_R")) (repeat irrigate)))
 
-(defaction "Irrigated AFR" activity (while "A_F_R" "irrigation_30"))
-
-;(defaction "Irrigated AFR" activity	
-;   (while "A_F_R"(repeat "irrigation_30")))
+(manager activity 
+   (while A_F_R (repeat irrigate_30))
+   (stop))
    
-(manager activity  (repeat ("Irrigated AFR")))
 
 ;;  Selecting column and management
 (defcolumn "Foulum; FAO" "Foulum column"

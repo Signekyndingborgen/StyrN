@@ -16,8 +16,7 @@
   (input file "Springbarley_MES_23_2.dai")
   (input file "skb-ryegrass.dai")
   (input file "skb-wclover.dai")
-  (defaction "Rotation" activity)
-  (defaction "A_F_R" activity "Rotation"
+  (defaction "A_F_R" activity 
     (wait_mm_dd 05 01)
     (plowing)
     (wait_mm_dd 05 05)
@@ -719,9 +718,17 @@
   (weather default "Daily_foulum_1984-2017.dwf")
   (description "Foulum; Weather: Daily values")
   (log_prefix "DailyP-")
+  (defaction "irrigate_30" activity
+    (wait 
+      (not 
+        (soil_water_pressure_above 
+          (height -30.0 [cm])
+          (potential -1000 [cm]))))
+    (irrigate_overhead 30 [mm/h]))
   (manager activity 
-    (repeat 
-      ("A_F_R")))
+    (while A_F_R 
+      (repeat irrigate_30))
+    (stop) )
   (defcolumn "Foulum; FAO" "Foulum column"
     (Bioclimate default 
       (pet FAO_PM)))

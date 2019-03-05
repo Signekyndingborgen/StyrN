@@ -30,7 +30,7 @@ manure.index = manure['ID']
 # import table with file names for weather data, soil data, initialization file, initial SOC content
 conditions = pd.read_excel('../common/masterinput_v1.xlsx', sheet_name = 'soil_climate_more')
     
-path=r'../Run'
+path=r'../Run1'
 
 if os.path.isdir(path):
     try:
