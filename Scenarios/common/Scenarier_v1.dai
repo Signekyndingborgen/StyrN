@@ -11,12 +11,10 @@
 (input file "skb-ryegrass.dai")
 (input file "skb-wclover.dai")
 
-
 (defaction "Rotation" activity)
   
  ;; Arable Farm Rotation
-(defaction "A_F_R" activity
-  "Rotation")
+(defaction "A_F_R" activity "Rotation")
   
 (input file "Foulum_soil_vg.dai")   
 (input file "OutputLog_2.dai")   
@@ -41,4 +39,4 @@
 
 ;; Beginning and end of simulation.
 (time 1994 02 01 1)
-(stop 2000 12 01 1)
+(stop 1999 12 01 1)

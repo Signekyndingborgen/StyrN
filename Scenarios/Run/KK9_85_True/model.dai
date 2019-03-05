@@ -24,140 +24,140 @@
     (sow "Ryegrass")
     (wait_mm_dd 04 15)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 95.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
@@ -172,28 +172,28 @@
       (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 04 15)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
@@ -204,28 +204,28 @@
       (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
@@ -236,28 +236,28 @@
       (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
@@ -268,28 +268,28 @@
       (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
@@ -300,28 +300,28 @@
       (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Ryegrass"
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 80.75 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
@@ -343,4 +343,4 @@
       (pet FAO_PM)))
   (column "Foulum; FAO")
   (time 1994 02 01 1)
-  (stop 2000 12 01 1) 
+  (stop 1999 12 01 1) 

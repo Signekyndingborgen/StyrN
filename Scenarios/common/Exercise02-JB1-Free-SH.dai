@@ -1,0 +1,104 @@
+;; Including external library-files
+(input file "tillage.dai")       ; tillage operation parameterization 
+(input file "crop.dai")          ; crop model parameterization
+(input file "dk-crop.dai")       ; crop model parameterization
+(input file "dk-horizon.dai")    ; predifined soil horizons
+(input file "fertilizer.dai")    ; fertilizer parameterization 
+(input file "log.dai")           ; definition of output logs
+
+;; Weather data
+(weather default "Andeby.dwf"
+  (PrecipScale 2.18 2.19 1.96 1.21 1.22	1.28 1.36 1.29 1.14 1.80 1.66 2.09)) 
+
+;;  Description that will occur in all output files
+(description "Spring Barley; Soil: Coarse sand; Weather: Andeby")
+
+;;  Parameterisation of column (JB1 - Fine sandy loam)
+(defcolumn "JB1" default
+     (Soil (MaxRootingDepth 100 [cm])       ; Max rooting depth in the soil
+           (horizons (  -30 [cm] "Ap_JB1")  ; Depth where the "Ap_JB1" horizon ends
+                     (  -80 [cm] "B_JB1")   ; Depth where the "B_JB1" horizon ends
+                     ( -400 [cm] "C_JB1"))) ; Depth where the "C_JB1" horizon ends
+;;   Defines the drainage condition - deep groundwater corresponds to free drainage
+     (Groundwater deep)
+;;   This information is used initialization of the organic matter pools
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+;; Spring Barley setup - the information is stored under the name "SBarley Management" activity
+(defaction "SBarley Management" activity
+  (wait_mm_dd 3 20)                           ; Wait until March 20 - no actions before this date is reached
+  (plowing)                                   ; Plow the field 
+  (wait_mm_dd 4 15)                           ; Wait until April 15
+  (seed_bed_preparation)                      ; Do a seed bed preparation
+  (sow "Vaarbyg")                             ; Sow a spring barley crop 
+  (wait_mm_dd 4 20)                           ; Wait until April 20
+  (fertilize (N25S (weight 95 [kg N/ha])))    ; Broadcast 95 kg N/ha (fertilizer N25S)
+  (wait (or                                   ; Wait until one of the following conditions is fulfilled
+     (crop_ds_after "Vaarbyg" 2.0)            ; Condition 1: the crop is ripe
+     (mm_dd 8 20)))                           ; Condition 2: we have reached the date: August 20
+  (harvest "Vaarbyg"                          ; Harvest the crop (Spring Barley)
+     (stub 8 [cm])                            ; 8 cm of stubble is left in the field 
+     (stem 0.0)                               ; No stem (straw) is removed from the field
+     (leaf 0.0))                              ; No leaf is removed from the field         
+)
+
+;; Building an irrigation strategy based on the soil water pressure potential at a given depth
+;;   The depth is defined by (height -25 [cm]), viz. 25 cm. (Depth = -Height)
+;;   The potential is not above -300 cm 
+(defaction "My irrigation strategy" activity				
+  (wait (and (after_mm_dd 05 01)	;; Irrigation will only take place after May 1st	
+             (before_mm_dd 09 01)	;; Irrigation will only take place before September 1st 	
+	     (not (soil_water_pressure_above (height -25 [cm])(potential -300 [cm])))))	
+	(irrigate_overhead 10 [mm/h] (hours 3))	;; Overhead irrigation with the intensity 10 mm/h in 3 hours		
+	(wait_days 3)                           ;; Wait 3 days before the irrigation scheme can be activated again		
+)				
+;; While we are growing spring barley the irrigation strategy is repeated.
+;;    If the date is before May 1st or after September 1st no action is taken
+;;    In between the two dates we look at the pressure potential in 25 cm depth, if it gets below -300 cm we 
+;;    irrigate and waits 3 days before we begins to look at the pressure potential again
+(defaction "Irrigated Barley" activity	
+   (while "SBarley Management"(repeat "My irrigation strategy")) 
+)
+
+;;  Selecting column and management
+(column "JB1")
+(manager activity
+  (repeat ("Irrigated Barley")))
+;; Beginning and end of simulation.
+(time 1980 1 1)
+(stop 1990 4 1)
+;;
+(activate_output (after 1980 03 31 23))
+;; Selecting management, we repeat "Irrigated Barley" year after year
+;; Selecting output files
+;; the selected output logs are "harvest", "Crop Production", "Field water" etc.
+;; the "where" statement defines name and location of output file
+;; e.g. the file is placed in an folder named "JB1" just beneath the working folder
+;; the "to" statement defines the balance depth
+;; the "when" statement defines the output frequency
+(log_prefix "JB1/")
+(output ("harvest" (where "Harvest.dlf"))
+        ("Crop Production" (where "CropProduction.dlf"))
+;;      Water balance 0-100 cm  
+        ("Field water"    (to -100 [cm])(when monthly)  
+          (where "FWater100-M.dlf"))  
+        ("Field water"    (to -100 [cm])
+          (when (and (month 4)(mday 1)(hour 0)))
+          (where "FWater100-Y.dlf"))  
+        ("Soil water"     (to -100 [cm])(when monthly)  
+          (where "SWater100-M.dlf"))        
+;;      Nitrogen balance 0-100 cm  
+        ("Field nitrogen" (to -100 [cm])(when monthly)  
+          (where "FN100-M.dlf"))  
+        ("Field nitrogen" (to -100 [cm])
+          (when (and (month 4)(mday 1)(hour 0)))
+          (where "FN100-Y.dlf"))  
+        ("Soil nitrogen"  (to -100 [cm])(when monthly)  
+          (where "SN100-M.dlf"))
+;;      Soil profile data
+        ("Soil Water Content" (when daily)(where "Theta.dlf"))
+        ("Soil Water Potential (pF)"(when daily)(where "pF.dlf"))
+        ("Soil NO3 Concentration"(when daily)(where "SNO3.dlf"))
+)
+

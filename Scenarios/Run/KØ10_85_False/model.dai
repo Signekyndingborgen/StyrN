@@ -91,7 +91,7 @@
     (wait_mm_dd 04 15)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 357.0 [kg N/ha]))
+      (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -105,7 +105,7 @@
     (wait_mm_dd 05 01)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
+      (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -119,7 +119,7 @@
     (wait_mm_dd 05 01)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
+      (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -133,7 +133,7 @@
     (wait_mm_dd 05 01)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
+      (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -147,7 +147,7 @@
     (wait_mm_dd 05 01)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
+      (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -161,7 +161,7 @@
     (wait_mm_dd 05 01)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 0.0 [kg N/ha]))
+      (equivalent_weight 59.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -189,4 +189,4 @@
       (pet FAO_PM)))
   (column "Foulum; FAO")
   (time 1994 02 01 1)
-  (stop 2000 12 01 1) 
+  (stop 1999 12 01 1) 

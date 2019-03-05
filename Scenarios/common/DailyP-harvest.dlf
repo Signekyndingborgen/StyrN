@@ -2,11 +2,5 @@ dlf-0.0 -- harvest
 
 VERSION: 5.64
 LOGFILE: harvest.dlf
-RUN: Fri Feb 08 16:12:55 2019
+RUN: Tue Mar 05 11:47:27 2019
 
-SIMFILE: C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common\Scenarier_v1.dai
-SIM: Foulum; Weather: Daily values
-
---------------------
-year	month	day	column	crop	stem_DM	dead_DM	leaf_DM	sorg_DM	stem_N	dead_N	leaf_N	sorg_N	WStress	NStress	WP_ET	HI
-					Mg DM/ha	Mg DM/ha	Mg DM/ha	Mg DM/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	d	d	kg/m^3	

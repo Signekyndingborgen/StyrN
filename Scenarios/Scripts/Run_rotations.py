@@ -14,7 +14,7 @@ import shutil
 from pydaisy.Daisy import DaisyModel, DaisyEntry
 from fertil import CalcFertil
 from DaisyWaitBlock import DaisyWaitBlock
-from pydaisy.Daisy import *
+
 # Import excel w scenario information
 # the crop rotations
 rota = pd.DataFrame(pd.read_excel('../common/masterinput_v2.xlsx',sheet_name= 'Rotations'))
@@ -23,11 +23,8 @@ crops = pd.read_excel('../common/masterinput_v2.xlsx',sheet_name= 'Crops')
 crops.index = crops['Crop']
 manure = pd.read_excel('../common/masterinput_v2.xlsx',sheet_name= 'Manure1')
 manure.index = manure['ID']
-
-# import table with file names for weather data, soil data, initialization file, initial SOC content
-conditions = pd.read_excel('../common/masterinput_v1.xlsx', sheet_name = 'soil_climate_more')
     
-path=r'../RunK'
+path=r'../RunKS'
 
 if __name__ =='__main__':
     if os.path.isdir(path):
@@ -42,7 +39,7 @@ if __name__ =='__main__':
     
     soil ='JB 1+3'
       
-    for i in range(3, 6):
+    for i in range(2, 5):
         rotation=rota.columns[i]
             #find rotation length
         maxnumberyear = 6
@@ -169,4 +166,4 @@ if __name__ =='__main__':
     
 
     DaisyModel.path_to_daisy_executable = r'C:\Program Files\Daisy 5.72\bin\Daisy.exe'
-    run_sub_folders(os.path.abspath(path),'setup.dai', NumberOfProcesses=6)
+    run_sub_folders(os.path.abspath(path),'model.dai', NumberOfProcesses=6)

@@ -31,7 +31,7 @@
       (equivalent_weight 34.0 [kg N/ha]))
     (wait_mm_dd 04 13)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 30.0 [kg N/ha]))
     (wait_mm_dd 06 01)
     (harvest "SB"
@@ -43,7 +43,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 02)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 30.0 [kg N/ha]))
     (wait_mm_dd 08 01)
     (harvest "Ryegrass"
@@ -52,7 +52,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 02)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 30.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
@@ -65,7 +65,7 @@
       (equivalent_weight 78.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
@@ -74,7 +74,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
@@ -83,7 +83,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
@@ -92,7 +92,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
@@ -105,7 +105,7 @@
       (equivalent_weight 78.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
@@ -114,7 +114,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
@@ -123,7 +123,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
@@ -132,7 +132,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
@@ -145,7 +145,7 @@
       (equivalent_weight 78.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
@@ -154,7 +154,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
@@ -163,7 +163,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
@@ -172,7 +172,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
@@ -185,7 +185,7 @@
       (equivalent_weight 78.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
@@ -194,7 +194,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
@@ -203,7 +203,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
@@ -212,7 +212,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 51.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
@@ -231,7 +231,7 @@
       (equivalent_weight 13.0 [kg N/ha]))
     (wait_mm_dd 04 13)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 129.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
@@ -249,7 +249,7 @@
       (equivalent_weight 68.0 [kg N/ha]))
     (wait_mm_dd 04 13)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 18.666666666666668 [kg N/ha]))
     (wait_mm_dd 06 01)
     (harvest "SB"
@@ -261,7 +261,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 02)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 18.666666666666668 [kg N/ha]))
     (wait_mm_dd 08 01)
     (harvest "Ryegrass"
@@ -270,7 +270,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 02)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 18.666666666666668 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
@@ -283,7 +283,7 @@
       (equivalent_weight 155.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
@@ -292,7 +292,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
@@ -301,7 +301,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
@@ -310,7 +310,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
@@ -323,7 +323,7 @@
       (equivalent_weight 155.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
@@ -332,7 +332,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
@@ -341,7 +341,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
@@ -350,7 +350,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
@@ -363,7 +363,7 @@
       (equivalent_weight 155.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
@@ -372,7 +372,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
@@ -381,7 +381,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
@@ -390,7 +390,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
@@ -403,7 +403,7 @@
       (equivalent_weight 155.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
@@ -412,7 +412,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 06 06)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
@@ -421,7 +421,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 07 16)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
@@ -430,7 +430,7 @@
       (stub 5 [cm]))
     (wait_mm_dd 08 21)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 32.25 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
@@ -449,7 +449,7 @@
       (equivalent_weight 26.0 [kg N/ha]))
     (wait_mm_dd 04 13)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 116.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
@@ -585,4 +585,4 @@
       (pet FAO_PM)))
   (column "Foulum; FAO")
   (time 1994 02 01 1)
-  (stop 2000 12 01 1) 
+  (stop 1999 12 01 1) 

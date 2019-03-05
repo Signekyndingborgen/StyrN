@@ -28,30 +28,11 @@
       (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 27.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 09 25)
-    (harvest "Silomajs"
-      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
-    (wait_mm_dd 05 01)
-    (plowing)
-    (wait_mm_dd 05 05)
-    (sow "Silomajs")
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 119.0 [kg N/ha]))
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("NPK")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 06 10)
-    (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 27.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -66,30 +47,11 @@
       (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 27.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 09 25)
-    (harvest "Silomajs"
-      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
-    (wait_mm_dd 05 01)
-    (plowing)
-    (wait_mm_dd 05 05)
-    (sow "Silomajs")
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 119.0 [kg N/ha]))
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("NPK")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 06 10)
-    (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 27.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -104,11 +66,11 @@
       (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 27.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 27.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -123,11 +85,49 @@
       (equivalent_weight 119.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 27.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
+      ("NPK01")
+      (equivalent_weight 27.0 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Silomajs"
+      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
+    (wait_mm_dd 05 01)
+    (plowing)
+    (wait_mm_dd 05 05)
+    (sow "Silomajs")
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 119.0 [kg N/ha]))
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 27.0 [kg N/ha]))
+    (wait_mm_dd 06 10)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 27.0 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Silomajs"
+      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
+    (wait_mm_dd 05 01)
+    (plowing)
+    (wait_mm_dd 05 05)
+    (sow "Silomajs")
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 119.0 [kg N/ha]))
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 27.0 [kg N/ha]))
+    (wait_mm_dd 06 10)
+    (fertilize
+      ("NPK01")
       (equivalent_weight 27.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -142,11 +142,11 @@
       (equivalent_weight 161.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -161,11 +161,11 @@
       (equivalent_weight 161.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -180,11 +180,11 @@
       (equivalent_weight 161.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -199,11 +199,11 @@
       (equivalent_weight 161.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -218,11 +218,11 @@
       (equivalent_weight 161.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -237,11 +237,11 @@
       (equivalent_weight 161.0 [kg N/ha]))
     (wait_mm_dd 05 05)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
-      ("NPK")
+      ("NPK01")
       (equivalent_weight 6.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
@@ -263,4 +263,4 @@
       (pet FAO_PM)))
   (column "Foulum; FAO")
   (time 1994 02 01 1)
-  (stop 2000 12 01 1) 
+  (stop 1999 12 01 1) 
