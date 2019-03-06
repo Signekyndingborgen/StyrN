@@ -10,128 +10,14 @@
   (input file "potato.dai")
   (input file "Potato_FP.dai")
   (input file "pea.dai")
+  (input file "sugarbeet.dai")
   (input file "tillage.dai")
   (input file "fertilizer.dai")
   (input file "Org_fert.dai")
   (input file "Springbarley_MES_23_2.dai")
   (input file "skb-ryegrass.dai")
   (input file "skb-wclover.dai")
-  (defaction "Rotation" activity)
-  (defaction "A_F_R" activity "Rotation"
-    (wait_mm_dd 05 01)
-    (plowing)
-    (wait_mm_dd 05 05)
-    (sow "Silomajs")
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 119.0 [kg N/ha]))
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 06 10)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 09 25)
-    (harvest "Silomajs"
-      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
-    (wait_mm_dd 05 01)
-    (plowing)
-    (wait_mm_dd 05 05)
-    (sow "Silomajs")
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 119.0 [kg N/ha]))
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 06 10)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 09 25)
-    (harvest "Silomajs"
-      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
-    (wait_mm_dd 05 01)
-    (plowing)
-    (wait_mm_dd 05 05)
-    (sow "Silomajs")
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 119.0 [kg N/ha]))
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 06 10)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 09 25)
-    (harvest "Silomajs"
-      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
-    (wait_mm_dd 05 01)
-    (plowing)
-    (wait_mm_dd 05 05)
-    (sow "Silomajs")
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 119.0 [kg N/ha]))
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 06 10)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 09 25)
-    (harvest "Silomajs"
-      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
-    (wait_mm_dd 05 01)
-    (plowing)
-    (wait_mm_dd 05 05)
-    (sow "Silomajs")
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 119.0 [kg N/ha]))
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 06 10)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 09 25)
-    (harvest "Silomajs"
-      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
-    (wait_mm_dd 05 01)
-    (plowing)
-    (wait_mm_dd 05 05)
-    (sow "Silomajs")
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("kvaeg_gylle")
-      (equivalent_weight 119.0 [kg N/ha]))
-    (wait_mm_dd 05 05)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 06 10)
-    (fertilize
-      ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
-    (wait_mm_dd 09 25)
-    (harvest "Silomajs"
-      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
+  (defaction "A_F_R" activity 
     (wait_mm_dd 05 01)
     (plowing)
     (wait_mm_dd 05 05)
@@ -246,7 +132,7 @@
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
       (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm])))
-  (input file "Foulum_soil_vg.dai")
+  (input file "Soils_3stk.dai")
   (input file "OutputLog_2.dai")
   (defunit [kWh/d/m^2] SIfactor 
     (mass 1)
@@ -255,12 +141,24 @@
   (weather default "Daily_foulum_1984-2017.dwf")
   (description "Foulum; Weather: Daily values")
   (log_prefix "DailyP-")
+  (defaction "irrigate_30" activity
+    (wait 
+      (and 
+        (after_mm_dd 5 1)
+        (before_mm_dd 9 1)
+        (not 
+          (soil_water_pressure_above 
+            (height -30.0 [cm])
+            (potential -600 [cm])))))
+    (irrigate_overhead 30 [mm/h])
+    (wait_days 5) )
   (manager activity 
-    (repeat 
-      ("A_F_R")))
-  (defcolumn "Foulum; FAO" "Foulum column"
+    (while A_F_R 
+      (repeat irrigate_30))
+    (stop) )
+  (defcolumn "JB1-DSG; FAO" "JB1-DSG" 
     (Bioclimate default 
       (pet FAO_PM)))
-  (column "Foulum; FAO")
+  (column "JB1-DSG; FAO")
   (time 1994 02 01 1)
   (stop 1999 12 01 1) 

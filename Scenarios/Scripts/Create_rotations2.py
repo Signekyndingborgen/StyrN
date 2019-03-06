@@ -20,15 +20,15 @@ from DaisyWaitBlock import DaisyWaitBlock
 from pydaisy.Daisy import *
 # Import excel w scenario information
 # the crop rotations
-rota = pd.DataFrame(pd.read_excel('../common/masterinput_v2.xlsx',sheet_name= 'Rotations'))
+rota = pd.DataFrame(pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Rotations'))
 rota.index = rota['ID']
-crops = pd.read_excel('../common/masterinput_v2.xlsx',sheet_name= 'Crops')
+crops = pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Crops')
 crops.index = crops['Crop']
-manure = pd.read_excel('../common/masterinput_v2.xlsx',sheet_name= 'Manure1')
+manure = pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Manure1')
 manure.index = manure['ID']
 
   
-path=r'../RunS'
+path=r'../Run'
 
 if os.path.isdir(path):
     try:
@@ -42,7 +42,7 @@ template = DaisyModel(os.path.join(path, '../Common/Scenarier_v3.dai'))
 
 soil ='JB 1+3'
   
-for i in range(13,17):
+for i in range(1, 23):
     rotation=rota.columns[i]
         #find rotation length
     maxnumberyear = 6

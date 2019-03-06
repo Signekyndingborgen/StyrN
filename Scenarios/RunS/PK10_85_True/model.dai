@@ -10,6 +10,7 @@
   (input file "potato.dai")
   (input file "Potato_FP.dai")
   (input file "pea.dai")
+  (input file "sugarbeet.dai")
   (input file "tillage.dai")
   (input file "fertilizer.dai")
   (input file "Org_fert.dai")
@@ -20,7 +21,7 @@
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 05)
-    (sow "Fodder Beet")
+    (sow "Sugar Beet")
     (wait_mm_dd 04 05)
     (fertilize
       ("slagtesvin_gylle")
@@ -34,7 +35,7 @@
       ("NPK01")
       (equivalent_weight 39.0 [kg N/ha]))
     (wait_mm_dd 09 25)
-    (harvest "Fodder Beet"
+    (harvest "Sugar Beet"
       (sorg 0.99) (leaf 0.01))
     (wait_mm_dd 09 19)
     (plowing)
@@ -75,7 +76,7 @@
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 05)
-    (sow "Fodder Beet")
+    (sow "Sugar Beet")
     (wait_mm_dd 04 05)
     (fertilize
       ("slagtesvin_gylle")
@@ -89,7 +90,7 @@
       ("NPK01")
       (equivalent_weight 39.0 [kg N/ha]))
     (wait_mm_dd 09 25)
-    (harvest "Fodder Beet"
+    (harvest "Sugar Beet"
       (sorg 0.99) (leaf 0.01))
     (wait_mm_dd 04 01)
     (plowing)
@@ -125,7 +126,7 @@
     (wait_mm_dd 08 20)
     (harvest "Winter Wheat JG"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm])))
-  (input file "Foulum_soil_vg.dai")
+  (input file "Soils_3stk.dai")
   (input file "OutputLog_2.dai")
   (defunit [kWh/d/m^2] SIfactor 
     (mass 1)
@@ -142,15 +143,16 @@
         (not 
           (soil_water_pressure_above 
             (height -30.0 [cm])
-            (potential -1000 [cm]))))
-      (irrigate_overhead 30 [mm/h]))
-    (manager activity 
-      (while A_F_R 
-        (repeat irrigate_30))
-      (stop) )
-    (defcolumn "Foulum; FAO" "Foulum column"
-      (Bioclimate default 
-        (pet FAO_PM)))
-    (column "Foulum; FAO")
-    (time 1994 02 01 1)
-    (stop 1999 12 01 1) ) 
+            (potential -600 [cm])))))
+    (irrigate_overhead 30 [mm/h])
+    (wait_days 5) )
+  (manager activity 
+    (while A_F_R 
+      (repeat irrigate_30))
+    (stop) )
+  (defcolumn "JB1-DSG; FAO" "JB1-DSG" 
+    (Bioclimate default 
+      (pet FAO_PM)))
+  (column "JB1-DSG; FAO")
+  (time 1994 02 01 1)
+  (stop 1999 12 01 1) 

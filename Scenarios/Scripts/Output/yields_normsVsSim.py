@@ -28,27 +28,38 @@ norm.index = norm['afgkode']
    if afgkode == : *
    
 """
-MotherFolder='..\..\RunK'
+grain = ['SB', 'Winter Wheat JG','Vinterbyg','Rug','Winter Rape PA','Spring Wheat',
+         'Rug', 'Froegraes', 'Potato; Sava_Figaro','Fodder Beet','Pea']
+silo = ['Ryegrass', 'Wclover', 'Silomajs']
+
+MotherFolder='..\..\Run'
 items = os.walk(MotherFolder)
 index=1
 
-harvest=DaisyDlf(os.path.join(root, "DailyP-harvest.dlf"))
-df=harvest.Data
-DMharv= df[['crop', 'leaf_N', 'stem_N','sorg_N']]
-DMG =DMharv.groupby('crop')
-rg = DMG.get_group('Ryegrass').sum(axis=1)
-wc = DMG.get_group('Wclover').sum(axis=1)
-# Laver et subplot, som derefter bliver det aktive som de næste plt virker på
-df2= pd.DataFrame([rg, wc]).T
-df2.columns =['Ryegrass', 'Wclover']
-df2['sim-totalDM']=df2['Ryegrass']+df2['Wclover']
-#df2 = df2.loc['2006-1-1':'2011-1-1',:]
-# df3 = df2['sim-totalDM'].resample('Y', how='sum')
+allresults={}
 
-p1=plt.bar(df2.index, df2['Ryegrass'])
-p2=plt.bar(df2.index, df2['Wclover'])
+for root, dirs, filenames in items:
+    for d in dirs:
+        if '170_True' in d:    
+            print(d)
+            cropyield={}
+            harvest=DaisyDlf(os.path.join(root, d, "DailyP-harvest.dlf"))
+            df=harvest.Data
+            DMharv= df[['crop', 'leaf_N', 'stem_N','sorg_N']]
+            DMG =DMharv.groupby('crop')
+            for cropname in silo:
+                if cropname in DMG.groups.keys():
+                    rg = DMG.get_group(cropname).sum(axis=1)
+                    cropyield[cropname]= rg.resample('Y').sum().mean()
+     
+            DMharv= df[['crop', 'sorg_N']]
+            DMG =DMharv.groupby('crop')
+            for cropname in grain:
+                if cropname in DMG.groups.keys():
+                    rg = DMG.get_group(cropname).sum(axis=1)
+                    cropyield[cropname]= rg.resample('Y').sum().mean()
+            allresults[d]=cropyield    
 
-plt.legend((p1[0], p2[0]), ('Ryegrass', 'Clover'))
-plt.title(d, position = (0.9, 0.9), fontweight="bold", fontsize=8)
-plt.show()
-plt.tight_layout()
+"""
+Omregn udbyttenormerne 
+"""

@@ -1,0 +1,341 @@
+;; Including external library-files
+(path "." &old)
+(input file "dk-horizon.dai")
+(input file "dk-soil.dai")
+;#############################################################################################################################################################
+;SOILTYPE_ID:
+
+;JB1-T
+;JB1-DSG
+;JB1-HSL
+;JB1-ML
+;JB2-HSL
+;JB2-DSG
+;JB2-Y
+;JB2-MSG
+;JB4-DSG
+;JB4-MSG
+;JB4-F som JB4-DSG
+;JB4-ML
+;JB6-ML
+;JB7-ML
+
+;#############################################################################################################################################################
+; COLUMN WITH deBruin pet function:
+
+(defcolumn evap default
+;(Bioclimate default (pet deBruin87))
+)
+
+;#############################################################################################################################################################
+; ADDITIONAL HORIZONS; In this file, most of the horizons are parameterised so the texture adds up to 100 %.
+
+(defhorizon C_JB7_lime_M USDA3; Based on Maja Holbaks measurements at Tokkerup (MSc)
+	(clay 18 [%])
+	(silt 24 [%])
+        (sand 58 [%])
+	(humus 0.77 [%])
+	(C_per_N 7.5)
+	(dry_bulk_density 1.87); we measure bulk densities up to 2.17 g/cm3
+(hydraulic M_vG	; van Genuchten/Mualem functions
+	(alpha 0.0193)
+	(n 1.128)
+	(K_sat 0.30)
+	(Theta_sat 0.2962)
+	(Theta_res 0.0)
+	(l -3.239))
+)
+
+
+;########################################################################
+
+;Columns. 
+
+;########################################################################
+
+; JB1-T
+
+(defcolumn JB1-T evap
+;  "This is a JB1 soil with free drainage", build on Jyndevad
+  (Groundwater deep)
+  (Soil (MaxRootingDepth 60 [cm])
+        (horizons (  -30.00 "Jyndevad Ap")
+                  ( -250.00 "Jyndevad C")))
+  (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB1-ES
+(defcolumn JB1-ES JB1-T
+)
+
+; JB1-DSG 
+
+(defcolumn "JB1-DSG" evap
+     (Soil (MaxRootingDepth 85 [cm])   
+           (horizons (  -30 [cm] "Ap_JB1") 
+                     (  -60 [cm] "B_JB1")  
+                     (  -80 [cm] "B_JB2")  
+                     ( -250 [cm] "C_JB2"))) 
+
+     (Groundwater deep)
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB1-HSL 
+
+(defcolumn "JB1-HSL" evap ; Should perhaps have high GW
+     (Soil (MaxRootingDepth 120 [cm])   
+           (horizons (  -30 [cm] "Ap_JB1") 
+                     (  -60 [cm] "B_JB1")  
+                     (  -80 [cm] "B_JB4")  
+                     ( -300 [cm] "C_JB4"))) 
+
+     (Drain lateral
+     	(L 20[m]) 
+    	(x 5 [m]) ; 1/4 of drain distance
+     	(pipe_position -1.2 [m]))
+     	
+     (Groundwater aquitard; 
+     	(K_aquitard 9e-4[cm/h]); value equivalent with simulation of JB4 in depression with high percentage going to drains
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB1-ML 
+
+(defcolumn "JB1-ML" evap
+     (Soil (MaxRootingDepth 175 [cm])   
+           (horizons (  -30 [cm] "Ap_JB1") 
+                     (  -80 [cm] "B_JB6")  
+                     ( -300 [cm] "C_JB6"))) 
+
+     (Drain lateral
+     	(L 20[m]) 
+    	(x 5 [m]) ; 1/4 of drain distance
+     	(pipe_position -1.2 [m]))
+ 
+     	
+     (Groundwater aquitard  ; 
+     	(K_aquitard 0.00207 [cm/h]); from Stathis' calibration of JB6
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB2-DSG 
+
+(defcolumn "JB2-DSG" evap
+     (Soil (MaxRootingDepth 85 [cm])   
+           (horizons (  -30 [cm] "Ap_JB2") 
+                     (  -60 [cm] "B_JB2")  
+                     (  -80 [cm] "B_JB2")  
+                     ( -250 [cm] "C_JB2"))) 
+
+     (Groundwater deep)
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB2-Y
+
+(defcolumn "JB2-Y" evap
+     (Soil (MaxRootingDepth 85 [cm])   
+           (horizons (  -30 [cm] "Ap_JB2") 
+                     (  -60 [cm] "B_JB2")  
+                     (  -80 [cm] "B_JB2")  
+                     ( -250 [cm] "C_JB2"))) 
+
+     (Groundwater deep)
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB2-HSL
+
+(defcolumn "JB2-HSL" evap
+     (Soil (MaxRootingDepth 175 [cm])   
+           (horizons (  -30 [cm] "Ap_JB2") 
+                     (  -60 [cm] "B_JB2")  
+                     (  -80 [cm] "B_JB7")  
+                     ( -300 [cm] "C_JB7"))) 
+
+     (Drain lateral
+     	(L 20[m]) 
+    	(x 5 [m]) ; 1/4 of drain distance
+     	(pipe_position -1.2 [m]))
+ 
+     	
+     (Groundwater aquitard  ; 
+     	(K_aquitard 0.00233 [cm/h]); from Stathis' calibration of JB7
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB2-MSG
+
+(defcolumn "JB2-MSG" evap
+     (Soil (MaxRootingDepth 175 [cm])   
+           (horizons (  -30 [cm] "Ap_JB2") 
+                     (  -60 [cm] "B_JB4")  
+                     (  -80 [cm] "B_JB4")  
+                     ( -300 [cm] "C_JB6"))) 
+
+     (Drain lateral
+     	(L 20[m]) 
+    	(x 5 [m]) ; 1/4 of drain distance
+     	(pipe_position -1.2 [m]))
+ 
+     	
+     (Groundwater aquitard  ; 
+     	(K_aquitard 0.00207 [cm/h]); from Stathis' calibration of JB6
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB4-DSG 
+
+(defcolumn "JB4-DSG" evap
+     (Soil (MaxRootingDepth 85 [cm])   
+           (horizons (  -30 [cm] "Ap_JB4") 
+                     (  -60 [cm] "B_JB4")  
+                     (  -80 [cm] "B_JB2")  
+                     ( -250 [cm] "C_JB2"))) 
+
+     (Groundwater deep)
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB4-F 
+
+(defcolumn "JB4-F" evap
+     (Soil (MaxRootingDepth 175 [cm])   
+           (horizons (  -30 [cm] "Ap_JB4") 
+                     (  -60 [cm] "B_JB4")  
+                     (  -80 [cm] "B_JB2")  
+                     ( -250 [cm] "C_JB2"))) 
+
+     (Groundwater deep)
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB4-MSG
+
+(defcolumn "JB4-MSG" evap ;
+     (Soil (MaxRootingDepth 85 [cm])   
+           (horizons(  -30.00 "Ap_JB4")
+                    (  -80.00 "B_JB6")	
+                    ( -250.00 "C_JB6"))) 
+
+     (Groundwater deep)
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB4-ML_Jylland
+
+(defcolumn "JB4-ML_J" evap
+     (Soil (MaxRootingDepth 175 [cm])   
+           (horizons (  -30 [cm] "Ap_JB4") 
+                     (  -60 [cm] "B_JB4")  
+                     (  -80 [cm] "B_JB7")  
+                     ( -130 [cm] "C_JB7")  
+                     ( -300 [cm] "C_JB7"))) 
+
+     (Drain lateral
+     	(L 20[m]) 
+    	(x 5 [m]) ; 1/4 of drain distance
+     	(pipe_position -1.2 [m]))
+ 
+     	
+     (Groundwater aquitard  ; 
+     	(K_aquitard 0.00233 [cm/h]); from Stathis' calibration of JB7
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB4-ML_Fyn og Sjælland
+
+(defcolumn "JB4-ML_F_S" evap
+     (Soil (MaxRootingDepth 175 [cm])   
+           (horizons (  -30 [cm] "Ap_JB4") 
+                     (  -60 [cm] "B_JB4")  
+                     (  -80 [cm] "B_JB7")  
+                     ( -130 [cm] "B_JB7")  
+                     ( -300 [cm] "C_JB7_lime_M"))) 
+
+     (Drain lateral
+     	(L 20[m]) 
+    	(x 5 [m]) ; 1/4 of drain distance
+     	(pipe_position -1.2 [m]))
+ 
+     	
+     (Groundwater aquitard  ; 
+     	(K_aquitard 0.00233 [cm/h]); from Stathis' calibration of JB7
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB6_ML
+
+(defcolumn "JB6-ML" evap
+     (Soil (MaxRootingDepth 175 [cm])          
+           (border     -100 [cm]
+            	       -300 [cm])
+           (horizons (  -30 [cm] "Ap_JB6")  
+                     (  -40 [cm] "B_JB6")
+                     (  -80 [cm] "B_JB7")   
+                     ( -130 [cm] "C_JB7")   
+                     ( -300 [cm] "C_JB7_lime_M")))
+
+     
+     (Drain lateral
+     	(L 18[m]) 
+     	(x 4.5 [m]) 
+     	(pipe_position -1.2[m]))
+     
+     (Groundwater aquitard ; 
+     	(K_aquitard 0.002334[cm/h])
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB7-ML
+
+(defcolumn "JB7-ML" evap ; 
+     (Soil (MaxRootingDepth 175 [cm])          
+           (border     -100 [cm]
+            	       -300 [cm])
+           (horizons (  -30 [cm] "Ap_JB7")
+                     (  -80 [cm] "B_JB7")  
+                     ( -300 [cm] "C_JB7_lime_M")))
+
+     (Drain lateral
+     	(L 16[m]) 
+    	(x 4 [m]) 
+     	(pipe_position -1.2 [m]))
+     	
+     (Groundwater aquitard  
+     	(K_aquitard 0.002334[cm/h])
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)

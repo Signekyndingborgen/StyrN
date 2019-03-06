@@ -10,6 +10,7 @@
   (input file "potato.dai")
   (input file "Potato_FP.dai")
   (input file "pea.dai")
+  (input file "sugarbeet.dai")
   (input file "tillage.dai")
   (input file "fertilizer.dai")
   (input file "Org_fert.dai")
@@ -100,7 +101,7 @@
     (wait_mm_dd 08 10)
     (plowing)
     (sow "Winter Rape PA"))
-  (input file "Foulum_soil_vg.dai")
+  (input file "Soils_3stk.dai")
   (input file "OutputLog_2.dai")
   (defunit [kWh/d/m^2] SIfactor 
     (mass 1)
@@ -117,15 +118,16 @@
         (not 
           (soil_water_pressure_above 
             (height -30.0 [cm])
-            (potential -1000 [cm]))))
-      (irrigate_overhead 30 [mm/h]))
-    (manager activity 
-      (while A_F_R 
-        (repeat irrigate_30))
-      (stop) )
-    (defcolumn "Foulum; FAO" "Foulum column"
-      (Bioclimate default 
-        (pet FAO_PM)))
-    (column "Foulum; FAO")
-    (time 1994 02 01 1)
-    (stop 1999 12 01 1) ) 
+            (potential -600 [cm])))))
+    (irrigate_overhead 30 [mm/h])
+    (wait_days 5) )
+  (manager activity 
+    (while A_F_R 
+      (repeat irrigate_30))
+    (stop) )
+  (defcolumn "JB1-DSG; FAO" "JB1-DSG" 
+    (Bioclimate default 
+      (pet FAO_PM)))
+  (column "JB1-DSG; FAO")
+  (time 1994 02 01 1)
+  (stop 1999 12 01 1) 
