@@ -40,7 +40,7 @@ allresults={}
 
 for root, dirs, filenames in items:
     for d in dirs:
-        if '170_True' in d:    
+        if 'True' in d and not '230' in d:
             print(d)
             cropyield={}
             harvest=DaisyDlf(os.path.join(root, d, "DailyP-harvest.dlf"))
