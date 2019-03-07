@@ -3,6 +3,8 @@
 
 (input file "sbarley.dai")
 
+
+
 (defcrop "SB" "Spring Barley"
 
   ;; Phenology.
@@ -75,4 +77,6 @@
 	(NfSOrgCnc (2.0 [DS] 0.001 [g N/g DM]))
 )
 )
+
+(defcrop "SB-green" "SB")
 

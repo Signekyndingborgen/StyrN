@@ -59,7 +59,7 @@
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
-    (sow "SB")
+    (sow "SB-green")
     (wait_mm_dd 04 03)
     (sow "Ryegrass")
     (sow "Wclover")
@@ -72,7 +72,7 @@
       ("NPK01")
       (equivalent_weight 4.666666666666667 [kg N/ha]))
     (wait_mm_dd 06 01)
-    (harvest "SB"
+    (harvest "SB-green"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
     (wait_mm_dd 07 01)
     (harvest "Ryegrass"

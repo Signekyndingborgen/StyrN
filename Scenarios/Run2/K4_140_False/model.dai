@@ -18,6 +18,17 @@
   (input file "skb-ryegrass.dai")
   (input file "skb-wclover.dai")
   (defaction "A_F_R" activity 
+    (wait_mm_dd 05 01)
+    (plowing)
+    (wait_mm_dd 05 05)
+    (sow "Silomajs")
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 85.0 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Silomajs"
+      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
     (wait_mm_dd 04 01)
     (plowing)
     (wait_mm_dd 04 02)
@@ -25,6 +36,10 @@
     (wait_mm_dd 04 03)
     (sow "Ryegrass")
     (sow "Wclover")
+    (wait_mm_dd 04 13)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 61.0 [kg N/ha]))
     (wait_mm_dd 06 01)
     (harvest "SB-green"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
@@ -43,6 +58,58 @@
       (stub 5 [cm]))
     (harvest "Wclover"
       (stub 5 [cm]))
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 140.0 [kg N/ha]))
+    (wait_mm_dd 06 05)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 07 15)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 08 20)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 09 25)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 140.0 [kg N/ha]))
+    (wait_mm_dd 06 05)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 07 15)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 08 20)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 09 25)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 140.0 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -69,29 +136,12 @@
     (sow "SB")
     (wait_mm_dd 04 03)
     (sow "Ryegrass")
+    (wait_mm_dd 04 13)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 23.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
-      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
-    (wait_mm_dd 04 01)
-    (plowing)
-    (wait_mm_dd 04 02)
-    (sow "SB")
-    (wait_mm_dd 08 10)
-    (harvest "SB"
-      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
-    (wait_mm_dd 09 19)
-    (plowing)
-    (wait_mm_dd 09 20)
-    (sow "Rug")
-    (wait_mm_dd 08 10)
-    (harvest "Rug"
-      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
-    (wait_mm_dd 09 19)
-    (plowing)
-    (wait_mm_dd 09 20)
-    (sow "Winter Wheat JG")
-    (wait_mm_dd 08 20)
-    (harvest "Winter Wheat JG"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm])))
   (input file "Soils_3stk.dai")
   (input file "OutputLog_2.dai")
