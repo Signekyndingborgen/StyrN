@@ -64,7 +64,7 @@ for root, dirs, filenames in items:
                 rg = DMG.get_group(cropname).sum(axis=1)
                 cropyield[cropname]= rg.resample('Y').sum()
         allresults[d]=cropyield    
-grain1 = []
+#grain1 = []
 
  
 for key, value in allresults.items():
@@ -78,11 +78,13 @@ for key, value in allresults.items():
         for year in range(1, maxnumberyear+1):
             cropname = rota[name_entries['rotation']][year].strip()
             crop_ID = int(crops['afgkode1'][cropname])
-            yield_norm = norm['yield_JB 1+3'][crop_ID]
-            daisynames = crops['Daisynavn1'][cropname].split(',')
-            if not pd.isna(crops['afgkode2'][cropname]):
+            yield_norm = norm['yieldkgNha'][crop_ID]
+            if crops[['Daisynavn1']=='Wclover, Ryegrass':
+                sum values for wclover and rygrass :-) 
+            #daisynames = crops['Daisynavn1'][cropname].split(',')
+            if not pd.isna(crops['Harvest2'][cropname]):
                 crop_ID2 = int(crops['afgkode2'][cropname])
-                yield_norm2 = norm['yield_JB 1+3'][crop_ID2]
+                yield_norm2 = norm['yieldkgNha'][crop_ID2]
                 daisynames2 = crops['Daisynavn2'][cropname].split(',')
                 for daisyname in daisynames2:
                     if str(1993+year) in value[daisyname.strip()]:

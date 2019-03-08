@@ -17,10 +17,10 @@ import datetime as datetime
 sys.path.append(r'..\..\..\.')
 from pydaisy.Daisy import *
 
-rota = pd.DataFrame(pd.read_excel('../common/masterinput_v2.xlsx',sheet_name= 'Rotations'))
+rota = pd.DataFrame(pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Rotations'))
 rota.index = rota['ID']
 
-crops = pd.read_excel('../common/masterinput_v2.xlsx',sheet_name= 'Crops')
+crops = pd.read_excel('../common/masterinput_v.xlsx',sheet_name= 'Crops')
 crops.index = crops['Crop']
 
 
