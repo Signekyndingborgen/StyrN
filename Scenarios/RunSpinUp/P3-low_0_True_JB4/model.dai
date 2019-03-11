@@ -25,11 +25,11 @@
     (wait_mm_dd 03 01)
     (fertilize
       ("NPK01")
-      (equivalent_weight 107.5 [kg N/ha]))
+      (equivalent_weight 103.5 [kg N/ha]))
     (wait_mm_dd 04 15)
     (fertilize
       ("NPK01")
-      (equivalent_weight 107.5 [kg N/ha]))
+      (equivalent_weight 103.5 [kg N/ha]))
     (wait_mm_dd 08 01)
     (harvest "Winter Rape PA"
       (sorg 0.99) (leaf 0.01) (stem 0.01) (stub 10 [cm]))
@@ -42,7 +42,7 @@
     (wait_mm_dd 04 13)
     (fertilize
       ("NPK01")
-      (equivalent_weight 145.0 [kg N/ha]))
+      (equivalent_weight 137.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
@@ -53,7 +53,7 @@
     (wait_mm_dd 04 13)
     (fertilize
       ("NPK01")
-      (equivalent_weight 166.0 [kg N/ha]))
+      (equivalent_weight 159.0 [kg N/ha]))
     (wait_mm_dd 08 01)
     (harvest "Spring Wheat"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
@@ -64,7 +64,7 @@
     (wait_mm_dd 04 13)
     (fertilize
       ("NPK01")
-      (equivalent_weight 145.0 [kg N/ha]))
+      (equivalent_weight 137.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
@@ -75,11 +75,11 @@
     (wait_mm_dd 03 01)
     (fertilize
       ("NPK01")
-      (equivalent_weight 106.0 [kg N/ha]))
+      (equivalent_weight 92.5 [kg N/ha]))
     (wait_mm_dd 04 01)
     (fertilize
       ("NPK01")
-      (equivalent_weight 106.0 [kg N/ha]))
+      (equivalent_weight 92.5 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Winter Wheat JG"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
@@ -90,11 +90,11 @@
     (wait_mm_dd 03 01)
     (fertilize
       ("NPK01")
-      (equivalent_weight 97.0 [kg N/ha]))
+      (equivalent_weight 85.5 [kg N/ha]))
     (wait_mm_dd 04 01)
     (fertilize
       ("NPK01")
-      (equivalent_weight 97.0 [kg N/ha]))
+      (equivalent_weight 85.5 [kg N/ha]))
     (wait_mm_dd 07 31)
     (harvest "Vinterbyg"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm])))

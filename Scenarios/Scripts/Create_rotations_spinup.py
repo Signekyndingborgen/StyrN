@@ -27,7 +27,9 @@ def split_unique_name(unique_name):
     NameDictionary['rotation']=splitted[0]
     NameDictionary['ManureMass']=int(splitted[1])
     NameDictionary['IsConventional']=bool(splitted[2])
-    NameDictionary['Soiltype']=splitted[0]
+    NameDictionary['Soiltype']=splitted[3]
+    NameDictionary['Weather']=splitted[4]
+    
     return NameDictionary
 
 path=r'../RunSpinUp'  
@@ -40,7 +42,10 @@ def write_columns(path):
     manure = pd.read_excel('../common/masterinput_spinup.xlsx',sheet_name= 'Manure')
     manure.index = manure['ID']
     SoilClimate = pd.read_excel('../common/masterinput_spinup.xlsx',sheet_name= 'soil_climate', header = 0)
-   
+
+#   weather = ['W_1', 'W_2']
+  # for w in weather:   
+#   weatherfile = weather[w]      
     for s in range (0, 3):
         soil = SoilClimate['Soiltype'][s]
         
@@ -169,8 +174,8 @@ def write_columns(path):
                     for tye in ThisYearsEntries:
                         tye.append_entries(block);
                 
-                block2 =  newfile.Input['defcolumn'][0]
-                block2.Children.append(DaisyEntry(soil,[]))
+               # block2 =  newfile.Input['defcolumn'][0]
+               #block2.Children.append(DaisyEntry(soil,[]))
             #Now print the daisy file
             #create unique name
                 name_entries={}
@@ -178,5 +183,6 @@ def write_columns(path):
                 name_entries['ManureMass']=int(ManureSim[1])
                 name_entries['IsConventional']=ManureSim[2]
                 name_entries['Soiltype']=soil
+#                name_entries['weather']= weatherfile
                 newfile.save_as(os.path.join(path, get_unique_name(name_entries), 'model.dai'))
 write_columns(path)

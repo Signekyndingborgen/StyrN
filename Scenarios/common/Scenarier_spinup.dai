@@ -20,10 +20,10 @@
 ;---------------------------------------------------------------------------------
 ;; Weather data & Description that will occur in all output files
 (defunit [kWh/d/m^2] SIfactor (mass 1)(time -3)(factor 41.67))
-(weather default "Daily_foulum_1984-2017.dwf")
-(description "Foulum; Weather: Daily values")
-;When you have run the simulation be sure to rename the daisy.log 
-;so you can keep the runtime information
+
+(weather default "Weather1.dwf")
+
+(description "Weather 1")
 (log_prefix "DailyP-")
 
 ; -------------------------------------------------------

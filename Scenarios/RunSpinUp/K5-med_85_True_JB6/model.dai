@@ -175,8 +175,8 @@
     (mass 1)
     (time -3)
     (factor 41.67))
-  (weather default "Daily_foulum_1984-2017.dwf")
-  (description "Foulum; Weather: Daily values")
+  (weather default "Weather1.dwf")
+  (description "Weather 1")
   (log_prefix "DailyP-")
   (defaction "irrigate_30" activity
     (wait 
@@ -193,8 +193,7 @@
     (while A_F_R 
       (repeat irrigate_30))
     (stop) )
-  (defcolumn "JB1; FAO" "JB1" )
+  (defcolumn "JB1; FAO" "JB1")
   (column "JB1; FAO")
-
   (time 1994 02 01 1)
   (stop 2000 12 01 1) 
