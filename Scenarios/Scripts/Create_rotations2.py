@@ -53,9 +53,9 @@ def write_columns(path):
         os.makedirs(path)
     
     
-    soil ='JB 1+3'
+    soil ='JB1'
     
-    for i in range(1, 25):
+    for i in range(1, 3):
         rotation=rota.columns[i]
             #find rotation length
         maxnumberyear = 6
@@ -184,3 +184,4 @@ def write_columns(path):
             name_entries['ManureMass']=int(ManureSim[1])
             name_entries['IsConventional']=ManureSim[2]
             newfile.save_as(os.path.join(path, get_unique_name(name_entries), 'model.dai'))
+write_columns(path)

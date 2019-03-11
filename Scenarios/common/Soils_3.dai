@@ -45,7 +45,7 @@
 
 ; JB1-DSG 
 
-(defcolumn "JB1-DSG" evap
+(defcolumn "JB1" evap
      (Soil (MaxRootingDepth 85 [cm])   
            (horizons (  -30 [cm] "Ap_JB1") 
                      (  -60 [cm] "B_JB1")  
@@ -61,7 +61,7 @@
 
 ; JB4-ML_Jylland
 
-(defcolumn "JB4-ML_J" evap
+(defcolumn "JB4" evap
      (Soil (MaxRootingDepth 175 [cm])   
            (horizons (  -30 [cm] "Ap_JB4") 
                      (  -60 [cm] "B_JB4")  
