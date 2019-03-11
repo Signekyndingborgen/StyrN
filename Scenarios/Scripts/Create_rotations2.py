@@ -55,7 +55,7 @@ def write_columns(path):
     
     soil ='JB 1+3'
     
-    for i in range(1, 23):
+    for i in range(1, 25):
         rotation=rota.columns[i]
             #find rotation length
         maxnumberyear = 6

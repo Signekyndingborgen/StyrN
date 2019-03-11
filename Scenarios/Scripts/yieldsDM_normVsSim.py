@@ -25,16 +25,6 @@ crops.index = crops['Crop']
 norm = pd.read_excel('../common/Nnorm_2019_yields.xlsx', sheet_name = "Ark1")
 norm.index = norm['afgkode']
 
-
-
-## Hente yield_soil, all feed crops must be converted to DM from FE
-"""if afgkode == 216: *1.14
-   if afgkode == 701: 1.26
-   if afgkode == 252: *1.39
-   if afgkode == 260 OR 963 OR 257 OR 256: 1.2
-   if afgkode == : *
-   
-"""
 grain = ['SB', 'Winter Wheat JG','Vinterbyg','Rug','Winter Rape PA','Spring Wheat',
          'Rug', 'Froegraes', 'Potato; Sava_Figaro','Fodder Beet','Pea']
 silo = ['Ryegrass', 'Wclover', 'Silomajs', 'SB-green'] 
@@ -42,7 +32,8 @@ silo = ['Ryegrass', 'Wclover', 'Silomajs', 'SB-green']
 MotherFolder='..\Run'
 items = os.walk(MotherFolder)
 index=1
-
+soil ='JB 1+3'
+    
 allresults={}
 
 for root, dirs, filenames in items:
@@ -50,22 +41,20 @@ for root, dirs, filenames in items:
         cropyield={}            
         harvest=DaisyDlf(os.path.join(root, d, "DailyP-harvest.dlf"))
         df=harvest.Data
-        DMharv= df[['crop', 'leaf_N', 'stem_N','sorg_N']]
+        DMharv= df[['crop', 'leaf_DM', 'stem_DM','sorg_DM']]
         DMG =DMharv.groupby('crop')
         for cropname in silo:
             if cropname in DMG.groups.keys():
                 rg = DMG.get_group(cropname).sum(axis=1)
                 cropyield[cropname]= rg.resample('Y').sum()
  
-        DMharv= df[['crop', 'sorg_N']]
+        DMharv= df[['crop', 'sorg_DM']]
         DMG =DMharv.groupby('crop')
         for cropname in grain:
             if cropname in DMG.groups.keys():
                 rg = DMG.get_group(cropname).sum(axis=1)
                 cropyield[cropname]= rg.resample('Y').sum()
         allresults[d]=cropyield    
-#grain1 = []
-
  
 for key, value in allresults.items():
     name_entries = split_unique_name(key)    
@@ -78,18 +67,26 @@ for key, value in allresults.items():
         for year in range(1, maxnumberyear+1):
             cropname = rota[name_entries['rotation']][year].strip()
             crop_ID = int(crops['afgkode1'][cropname])
-            yield_norm = norm['yieldkgNha'][crop_ID]
+            yield_norm = norm['norm_' + soil][crop_ID]*norm['yieldfaktorDM'][crop_ID]
             daisynames = crops['Daisynavn1'][cropname].split(',')
             if not pd.isna(crops['Harvest2'][cropname]):
                 crop_ID2 = int(crops['afgkode2'][cropname])
-                yield_norm2 = norm['yieldkgNha'][crop_ID2]
+                yield_norm2 = norm['norm_' + soil][crop_ID2]*norm['yieldfaktorDM'][crop_ID2]
                 daisynames2 = crops['Daisynavn2'][cropname].split(',')
                 for daisyname in daisynames2:
-                    if str(1993+year) in value[daisyname.strip()]:
+                    if crops[['Daisynavn2']=='Wclover, Ryegrass':
+                        value['RyeGrass'][str(1993+year)][0] + value['WClover'][str(1993+year)][0]    
+                    else:
+                        if str(1993+year) in value[daisyname.strip()]:
                         print(daisyname + ' ' + str(value[daisyname.strip()][str(1993+year)][0]-yield_norm))
             
             for daisyname in daisynames:
- #              Clovergrass = value['RyeGrass'][str(1993+year)][0] + value['WClover''][str(1993+year)][0]
+                if crops[['Daisynavn2']=='Wclover, Ryegrass':
+                    value['RyeGrass'][str(1993+year)][0] + value['WClover'][str(1993+year)][0]   #              
+                else:
+                    if str(1993+year) in value[daisyname.strip()]:
+                        
+ #Clovergrass = value['RyeGrass'][str(1993+year)][0] + value['WClover''][str(1993+year)][0]
                 print(daisyname + ' ' + str(value[daisyname.strip()][str(1993+year)][0]-yield_norm))
 
 #if crops[['Daisynavn1']=='Wclover, Ryegrass':
