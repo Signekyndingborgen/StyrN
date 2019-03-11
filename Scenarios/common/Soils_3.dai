@@ -14,7 +14,7 @@
 ; COLUMN WITH deBruin pet function:
 
 (defcolumn evap default
-;(Bioclimate default (pet deBruin87))
+(Bioclimate default (pet FAO_PM))
 )
 
 ;#############################################################################################################################################################

@@ -193,9 +193,8 @@
     (while A_F_R 
       (repeat irrigate_30))
     (stop) )
-  (defcolumn "JB1-DSG; FAO" "JB1-DSG" 
-    (Bioclimate default 
-      (pet FAO_PM)))
-  (column "JB1-DSG; FAO")
+  (defcolumn "JB1; FAO" "JB1" )
+  (column "JB1; FAO")
+
   (time 1994 02 01 1)
-  (stop 2017 12 01 1) 
+  (stop 2000 12 01 1) 

@@ -168,7 +168,9 @@ def write_columns(path):
                     ThisYearsEntries.sort(key = lambda t:t.waitdate)
                     for tye in ThisYearsEntries:
                         tye.append_entries(block);
-    
+                
+                block2 =  newfile.Input['defcolumn'][0]
+                block2.Children.append(DaisyEntry(soil,[]))
             #Now print the daisy file
             #create unique name
                 name_entries={}

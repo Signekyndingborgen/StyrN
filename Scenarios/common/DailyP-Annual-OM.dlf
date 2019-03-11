@@ -2,17 +2,17 @@ dlf-0.0 -- Organic Matter (defined in 'log.dai').
 
 VERSION: 5.64
 LOGFILE: Annual-OM.dlf
-RUN: Wed Mar 06 14:32:12 2019
+RUN: Mon Mar 11 14:07:08 2019
 
 COLUMN: *
 INTERVAL: box none
 
 LOG: Information about all organic matter pools.
 
-SIMFILE: C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common\Scenarier_v3.dai
+SIMFILE: C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common\Scenarier_spinup.dai
 SIM: Foulum; Weather: Daily values
 
 --------------------
 year	month	mday	hour	SOM1-N	SOM1-C	SOM2-N	SOM2-C	SOM3-N	SOM3-C	SMB1-N	SMB1-C	SMB2-N	SMB2-C	AOM1-N	AOM1-C	AOM2-N	AOM2-C	AOM3-N	AOM3-C	BUFFER-N	BUFFER-C
 				kg N/ha	kg C/ha	kg N/ha	kg C/ha	kg N/ha	kg C/ha	kg N/ha	kg C/ha	kg N/ha	kg C/ha	kg N/ha	kg C/ha	kg N/ha	kg C/ha	kg N/ha	kg C/ha	kg N/ha	kg C/ha
-1994	2	1	1	1488.51	18272.6	2180.29	26954.9	2387.07	28772.6	122.943	823.72	191.352	1282.06	4.26667	384	7.73333	96	00.00	00.00	0	0
+1994	2	1	1	3401.13	49044.4	1467.24	21136.4	6033.34	70616.4	141.303	946.728	48.2336	323.165	4.26667	384	7.73333	96	00.00	00.00	0	0

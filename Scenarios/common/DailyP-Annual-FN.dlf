@@ -2,7 +2,7 @@ dlf-0.0 -- Field nitrogen (defined in 'log-std.dai').
 
 VERSION: 5.64
 LOGFILE: Annual-FN.dlf
-RUN: Wed Mar 06 14:32:12 2019
+RUN: Mon Mar 11 14:07:08 2019
 
 COLUMN: *
 INTERVAL: box none
@@ -23,10 +23,10 @@ LOG:
 LOG: For the balances of this log to work, you must include the entire
 LOG: root zone
 
-SIMFILE: C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common\Scenarier_v3.dai
+SIMFILE: C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common\Scenarier_spinup.dai
 SIM: Foulum; Weather: Daily values
 
 --------------------
 year	month	mday	hour	Min-Surface-Fertilizer	Min-Soil-Fertilizer	Deposition	Matrix-Leaching	Biopore-Leaching	Soil-Drain	Biopore-Drain	Surface-Loss	Min-Surface	Min-Soil	Min-Biopores	Error	Mineralization	Immobilization	Crop-Uptake	Volatilization	N2O-Nitrification	Denitrification	Fixated	Org-Fertilizer	Seed	Harvest	Residuals-Surface	Residuals-Soil	Org-Surface	Org-Soil	Crop
 				kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha
-1994	2	1	1	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	0	12.3882	0	0	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	0	6382.16	0
+1994	2	1	1	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	0	17.3224	0	0	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	0	11103.2	0

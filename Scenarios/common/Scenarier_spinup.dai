@@ -42,11 +42,9 @@
   
 
 ;;  Selecting column and management
-(defcolumn "JB1-DSG; FAO" "JB1-DSG"
-    (Bioclimate default 
-      (pet FAO_PM)))
-  (column "JB1-DSG; FAO")
+(defcolumn "JB1; FAO" "JB1")
+   (column "JB1; FAO")
 
 ;; Beginning and end of simulation.
 (time 1994 02 01 1)
-(stop 2017 12 01 1)
+(stop 2000 12 01 1)
