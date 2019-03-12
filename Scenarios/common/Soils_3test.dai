@@ -1,0 +1,111 @@
+;; Including external library-files
+(path "." &old)
+(input file "dk-horizon.dai")
+(input file "dk-soil.dai")
+;#############################################################################################################################################################
+;SOILTYPE_ID:
+
+
+;JB1-DSG
+;JB4-ML
+;JB6-ML
+
+;#############################################################################################################################################################
+; COLUMN WITH deBruin pet function:
+
+(defcolumn evap default
+(Bioclimate default (pet FAO_PM))
+)
+
+;#############################################################################################################################################################
+; ADDITIONAL HORIZONS; In this file, most of the horizons are parameterised so the texture adds up to 100 %.
+
+(defhorizon C_JB7_lime_M USDA3; Based on Maja Holbaks measurements at Tokkerup (MSc)
+	(clay 18 [%])
+	(silt 24 [%])
+        (sand 58 [%])
+	(humus 0.77 [%])
+	(C_per_N 7.5)
+	(dry_bulk_density 1.87); we measure bulk densities up to 2.17 g/cm3
+(hydraulic M_vG	; van Genuchten/Mualem functions
+	(alpha 0.0193)
+	(n 1.128)
+	(K_sat 0.30)
+	(Theta_sat 0.2962)
+	(Theta_res 0.0)
+	(l -3.239))
+)
+
+
+;########################################################################
+
+;Columns. 
+
+;########################################################################
+
+; JB1-DSG 
+
+(defcolumn "JB1" evap
+     (Soil (MaxRootingDepth 85 [cm])   
+           (horizons (  -30 [cm] "Ap_JB1") 
+                     (  -60 [cm] "B_JB1")  
+                     (  -80 [cm] "B_JB2")  
+                     ( -250 [cm] "C_JB2"))) 
+
+     (Groundwater deep)
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+
+
+; JB4-ML_Jylland
+
+(defcolumn "JB4" evap
+     (Soil (MaxRootingDepth 175 [cm])   
+           (horizons (  -30 [cm] "Ap_JB4") 
+                     (  -60 [cm] "B_JB4")  
+                     (  -80 [cm] "B_JB7")  
+                     ( -130 [cm] "C_JB7")  
+                     ( -300 [cm] "C_JB7"))) 
+
+     (Drain lateral
+     	(L 20[m]) 
+    	(x 5 [m]) ; 1/4 of drain distance
+     	(pipe_position -1.2 [m]))
+ 
+     	
+     (Groundwater aquitard  ; 
+     	(K_aquitard 0.00233 [cm/h]); from Stathis' calibration of JB7
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+
+; JB6_ML
+
+(defcolumn "JB6" evap
+     (Soil (MaxRootingDepth 175 [cm])          
+           (border     -100 [cm]
+            	       -300 [cm])
+           (horizons (  -30 [cm] "Ap_JB6")  
+                     (  -40 [cm] "B_JB6")
+                     (  -80 [cm] "B_JB7")   
+                     ( -130 [cm] "C_JB7")   
+                     ( -300 [cm] "C_JB7_lime_M")))
+
+     
+     (Drain lateral
+     	(L 18[m]) 
+     	(x 4.5 [m]) 
+     	(pipe_position -1.2[m]))
+     
+     (Groundwater aquitard ; 
+     	(K_aquitard 0.002334[cm/h])
+     	(Z_aquitard 2.0[m])
+     	(h_aquifer 2.0[m]))
+
+     (OrganicMatter original (init (input 3000 [kg C/ha/y])))
+)
+

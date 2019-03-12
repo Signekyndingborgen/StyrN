@@ -28,7 +28,7 @@ def split_unique_name(unique_name):
     NameDictionary['ManureMass']=int(splitted[1])
     NameDictionary['IsConventional']=bool(splitted[2])
     NameDictionary['Soiltype']=splitted[3]
-    NameDictionary['Weather']=splitted[4]
+    #NameDictionary['Weather']=splitted[4]
     
     return NameDictionary
 
@@ -59,7 +59,7 @@ def write_columns(path):
         if not os.path.isdir(path):
             os.makedirs(path)    
         
-        for i in range(1, 4):
+        for i in range(1, 6):
             rotation=rota.columns[i]
                 #find rotation length
             maxnumberyear = 6

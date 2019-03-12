@@ -104,8 +104,8 @@
     (mass 1)
     (time -3)
     (factor 41.67))
-  (weather default "Weather1.dwf")
-  (description "Weather 1")
+  (weather default "DK-taastrup.dwf")
+  (description "DK-taastrup")
   (log_prefix "DailyP-")
   (defaction "irrigate_30" activity
     (wait 
@@ -119,10 +119,12 @@
     (irrigate_overhead 30 [mm/h])
     (wait_days 5) )
   (manager activity 
-    (while A_F_R 
-      (repeat irrigate_30))
+    (while 
+      (repeat 
+        (A_F_R))
+      (repeat irrigate_30) )
     (stop) )
   (defcolumn "JB1; FAO" "JB1")
   (column "JB1; FAO")
-  (time 1994 02 01 1)
-  (stop 2000 12 01 1) 
+  (time 1993 02 01 1)
+  (stop 2018 12 01 1) 

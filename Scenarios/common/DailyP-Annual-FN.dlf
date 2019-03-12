@@ -2,7 +2,7 @@ dlf-0.0 -- Field nitrogen (defined in 'log-std.dai').
 
 VERSION: 5.64
 LOGFILE: Annual-FN.dlf
-RUN: Mon Mar 11 14:07:08 2019
+RUN: Tue Mar 12 11:12:42 2019
 
 COLUMN: *
 INTERVAL: box none
@@ -24,9 +24,16 @@ LOG: For the balances of this log to work, you must include the entire
 LOG: root zone
 
 SIMFILE: C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common\Scenarier_spinup.dai
-SIM: Foulum; Weather: Daily values
+SIM: Weather 1
 
 --------------------
 year	month	mday	hour	Min-Surface-Fertilizer	Min-Soil-Fertilizer	Deposition	Matrix-Leaching	Biopore-Leaching	Soil-Drain	Biopore-Drain	Surface-Loss	Min-Surface	Min-Soil	Min-Biopores	Error	Mineralization	Immobilization	Crop-Uptake	Volatilization	N2O-Nitrification	Denitrification	Fixated	Org-Fertilizer	Seed	Harvest	Residuals-Surface	Residuals-Soil	Org-Surface	Org-Soil	Crop
 				kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha	kg N/ha
 1994	2	1	1	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	0	17.3224	0	0	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	00.00	0	11103.2	0
+1994	8	2	0	0	0	5.37901	0.239465	-0	-0	0	0	0.0391526	91.0871	0	0	70.0783	-0	-0	0	1.40852	0.00544608	0	0	0	0	0	0	0	11033.2	0
+1995	8	2	0	0	0	18.1268	104.608	-0	-0	0	0	0.100432	77.2933	0	0	74.6981	-0	-0	0	1.73578	0.213191	0	0	0	0	0	0	0	10958.5	0
+1996	8	2	0	0	0	8.90034	14.9362	-0	-0	0	0	0.0275429	130.359	0	0	60.3461	-0	-0	0	1.31752	4.01183e-006	0	0	0	0	0	0	0	10898.1	0
+1997	8	2	0	0	0	15.4208	54.0982	-0	-0	0	0	0.0198924	156.536	0	0	66.7499	-0	-0	0	1.51768	0.38519	0	0	0	0	0	0	0	10831.4	0
+1998	8	2	0	0	0	14.2958	124.11	-0	-0	0	0	0.0267065	117.399	0	0	72.3361	-0	-0	0	1.63157	0.0212563	0	0	0	0	0	0	0	10759	0
+1999	8	2	0	0	0	16.3988	108.94	-0	-0	0	0	0.11815	88.5056	0	0	65.4593	-0	-0	0	1.51543	0.204358	0	0	0	0	0	0	0	10693.6	0
+2000	8	2	0	0	0	15.7568	79.4474	-0	-0	0	0	0.0405752	93.5808	0	0	70.4021	-0	-0	0	1.60165	0.112303	0	0	0	0	0	0	0	10623.2	0

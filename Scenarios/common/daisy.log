@@ -235,8 +235,8 @@ Storing 'daisy.log' in 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common'
 * weather: default weather_initialize
 ** source_initialize
 In directory 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common':
-Looking for file 'Daily_foulum_1984-2017.dwf'
-Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common\Daily_foulum_1984-2017.dwf' (cwd) success!
+Looking for file 'Weather1.dwf'
+Trying 'C:\Users\tqc268\Desktop\Github\StyrN\Scenarios\common\Weather1.dwf' (cwd) success!
 * column: JB1; FAO initialize
 ** Soil
 *** Horizons
@@ -345,107 +345,108 @@ Specified background mineralization	not specified	kg N/ha/y
 Zone input	2960.11	kg C/ha/y
 Zone background mineralization	0	kg C/ha/y
 Zone humus change	0	kg C/ha/y
-Time	Mon Mar 11 14:07:08 2019
+Time	Tue Mar 12 11:12:42 2019
 
-Program started Mon Mar 11 14:07:07 2019, 1 second ago.
+Program started Tue Mar 12 11:12:42 2019., 0 seconds ago.
 * Running
 ** 1994-02-01T01:00:00
 Begin simulation
 Start logging
+** 2000-12-01T00:00:00
 End simulation
 * Summary
 ** log: Field nitrogen summarize
 LOGFILE: Annual-FN.dlf
 VOLUME: box none
-TIME: 1994-02-01T01:00:00 to 1994-02-01T02:00:00
+TIME: 1994-02-01T01:00:00 to 2000-12-01T01:00:00
 *** summary: Field nitrogen balance summarize
 Nitrogen balance for the complete system.
 
-         Min-Surface-Fertilizer = 0.000 [kg N/ha]
-            Min-Soil-Fertilizer = 0.000 [kg N/ha]
-                 Org-Fertilizer = 0.000 [kg N/ha]
-                     Deposition = 0.000 [kg N/ha]
-                        Fixated = 0.000 [kg N/ha]
-                           Seed = 0.000 [kg N/ha]
-                                  -----
-                    Total input = 0.000 [kg N/ha]
+         Min-Surface-Fertilizer =    0.000 [kg N/ha]
+            Min-Soil-Fertilizer =    0.000 [kg N/ha]
+                 Org-Fertilizer =    0.000 [kg N/ha]
+                     Deposition =   94.278 [kg N/ha]
+                        Fixated =    0.000 [kg N/ha]
+                           Seed =    0.000 [kg N/ha]
+                                  --------
+                    Total input =   94.278 [kg N/ha]
 
-              N2O-Nitrification = 0.000 [kg N/ha]
-                Denitrification = 0.000 [kg N/ha]
-                Matrix-Leaching = 0.000 [kg N/ha]
-               Biopore-Leaching = 0.000 [kg N/ha]
-                     Soil-Drain = 0.000 [kg N/ha]
-                  Biopore-Drain = 0.000 [kg N/ha]
-                   Surface-Loss = 0.000 [kg N/ha]
-                        Harvest = 0.000 [kg N/ha]
-                                  -----
-                   Total output = 0.000 [kg N/ha]
+              N2O-Nitrification =   10.728 [kg N/ha]
+                Denitrification =    0.942 [kg N/ha]
+                Matrix-Leaching =  486.379 [kg N/ha]
+               Biopore-Leaching =    0.000 [kg N/ha]
+                     Soil-Drain =    0.000 [kg N/ha]
+                  Biopore-Drain =    0.000 [kg N/ha]
+                   Surface-Loss =    0.000 [kg N/ha]
+                        Harvest =    0.000 [kg N/ha]
+                                  --------
+                   Total output =  498.049 [kg N/ha]
 
-           Min-Surface increase = 0.000 [kg N/ha]
-              Min-Soil increase = 0.000 [kg N/ha]
-          Min-Biopores increase = 0.000 [kg N/ha]
-           Org-Surface increase = 0.000 [kg N/ha]
-              Org-Soil increase = 0.000 [kg N/ha]
-                  Crop increase = 0.000 [kg N/ha]
-                                  -----
-      Total increase in content = 0.000 [kg N/ha]
+           Min-Surface increase =    0.041 [kg N/ha]
+              Min-Soil increase =   76.258 [kg N/ha]
+          Min-Biopores increase =    0.000 [kg N/ha]
+           Org-Surface increase =    0.000 [kg N/ha]
+              Org-Soil increase = -480.070 [kg N/ha]
+                  Crop increase =    0.000 [kg N/ha]
+                                  --------
+      Total increase in content = -403.771 [kg N/ha]
 
-                                  -----
-Balance (= In - Out - Increase) = 0.000 [kg N/ha]
-                                  =====
+                                  --------
+Balance (= In - Out - Increase) =    0.000 [kg N/ha]
+                                  ========
 *** summary: Field mineral nitrogen balance summarize
 Mineral balance for the complete system.
 
-         Min-Surface-Fertilizer = 0.000 [kg N/ha]
-            Min-Soil-Fertilizer = 0.000 [kg N/ha]
-                     Deposition = 0.000 [kg N/ha]
-                 Mineralization = 0.000 [kg N/ha]
-                                  -----
-                    Total input = 0.000 [kg N/ha]
+         Min-Surface-Fertilizer =   0.000 [kg N/ha]
+            Min-Soil-Fertilizer =   0.000 [kg N/ha]
+                     Deposition =  94.278 [kg N/ha]
+                 Mineralization = 480.070 [kg N/ha]
+                                  -------
+                    Total input = 574.348 [kg N/ha]
 
-                 Immobilization = 0.000 [kg N/ha]
-                Matrix-Leaching = 0.000 [kg N/ha]
-               Biopore-Leaching = 0.000 [kg N/ha]
-                     Soil-Drain = 0.000 [kg N/ha]
-                  Biopore-Drain = 0.000 [kg N/ha]
-                   Surface-Loss = 0.000 [kg N/ha]
-                    Crop-Uptake = 0.000 [kg N/ha]
-              N2O-Nitrification = 0.000 [kg N/ha]
-                Denitrification = 0.000 [kg N/ha]
-                                  -----
-                   Total output = 0.000 [kg N/ha]
+                 Immobilization =   0.000 [kg N/ha]
+                Matrix-Leaching = 486.379 [kg N/ha]
+               Biopore-Leaching =   0.000 [kg N/ha]
+                     Soil-Drain =   0.000 [kg N/ha]
+                  Biopore-Drain =   0.000 [kg N/ha]
+                   Surface-Loss =   0.000 [kg N/ha]
+                    Crop-Uptake =   0.000 [kg N/ha]
+              N2O-Nitrification =  10.728 [kg N/ha]
+                Denitrification =   0.942 [kg N/ha]
+                                  -------
+                   Total output = 498.049 [kg N/ha]
 
-           Min-Surface increase = 0.000 [kg N/ha]
-              Min-Soil increase = 0.000 [kg N/ha]
-          Min-Biopores increase = 0.000 [kg N/ha]
-                                  -----
-      Total increase in content = 0.000 [kg N/ha]
+           Min-Surface increase =   0.041 [kg N/ha]
+              Min-Soil increase =  76.258 [kg N/ha]
+          Min-Biopores increase =   0.000 [kg N/ha]
+                                  -------
+      Total increase in content =  76.299 [kg N/ha]
 
-                                  -----
-Balance (= In - Out - Increase) = 0.000 [kg N/ha]
-                                  =====
+                                  -------
+Balance (= In - Out - Increase) =  -0.000 [kg N/ha]
+                                  =======
 *** summary: Field organic nitrogen balance summarize
 Organic nitrogen balance for the complete system.
 
-              Residuals-Surface = 0.000 [kg N/ha]
-                 Residuals-Soil = 0.000 [kg N/ha]
-                 Org-Fertilizer = 0.000 [kg N/ha]
-                 Immobilization = 0.000 [kg N/ha]
-                                  -----
-                    Total input = 0.000 [kg N/ha]
+              Residuals-Surface =    0.000 [kg N/ha]
+                 Residuals-Soil =    0.000 [kg N/ha]
+                 Org-Fertilizer =    0.000 [kg N/ha]
+                 Immobilization =    0.000 [kg N/ha]
+                                  --------
+                    Total input =    0.000 [kg N/ha]
 
-                 Mineralization = 0.000 [kg N/ha]
-                                  -----
-                   Total output = 0.000 [kg N/ha]
+                 Mineralization =  480.070 [kg N/ha]
+                                  --------
+                   Total output =  480.070 [kg N/ha]
 
-           Org-Surface increase = 0.000 [kg N/ha]
-              Org-Soil increase = 0.000 [kg N/ha]
-                                  -----
-      Total increase in content = 0.000 [kg N/ha]
+           Org-Surface increase =    0.000 [kg N/ha]
+              Org-Soil increase = -480.070 [kg N/ha]
+                                  --------
+      Total increase in content = -480.070 [kg N/ha]
 
-                                  -----
-Balance (= In - Out - Increase) = 0.000 [kg N/ha]
-                                  =====
+                                  --------
+Balance (= In - Out - Increase) =    0.000 [kg N/ha]
+                                  ========
 *** summary: Field crop nitrogen balance summarize
 Crop nitrogen balance for the complete system.
 
@@ -471,7 +472,7 @@ Balance (= In - Out - Increase) = 0.000 [kg N/ha]
 ** log: Carbon Balance summarize
 LOGFILE: SC80-M.dlf
 VOLUME: box [-80; none]
-TIME: 1994-02-01T01:00:00 to 1994-02-01T02:00:00
+TIME: 1994-02-01T01:00:00 to 2000-12-01T01:00:00
 *** summary: Total Carbon Balance summarize
 Carbon balance for the complete system.
 
@@ -479,28 +480,28 @@ Warning: This balance is not finished.
 
 Note that negative deltas means the amount of carbon increases.
 
-             delta Soil content = -0.000 [kg C/ha]
-                   delta Litter = -0.000 [kg C/ha]
-       Soil biomass respiration = -0.000 [kg C/ha]
-   Bioincorporated from surface = -0.000 [kg C/ha]
-        Bioincorporated to soil = 0.000 [kg C/ha]
-                           Seed = 0.000 [kg C/ha]
-                   delta Leaves = -0.000 [kg C/ha]
-delta Dead leaves still on crop = -0.000 [kg C/ha]
-                     delta Stem = -0.000 [kg C/ha]
-            delta Storage organ = -0.000 [kg C/ha]
-                    delta Roots = -0.000 [kg C/ha]
-               delta Assimilate = -0.000 [kg C/ha]
-           Netto photosynthesis = 0.000 [kg C/ha]
-             Removed by harvest = -0.000 [kg C/ha]
-        Dead roots lost by crop = -0.000 [kg C/ha]
-       Dead roots added to soil = 0.000 [kg C/ha]
-                  Fertilization = 0.000 [kg C/ha]
-Removed from surface by tillage = 0.000 [kg C/ha]
-       Added to soil by tillage = 0.000 [kg C/ha]
--------------------------------------------------
-                        Balance = 0.000 [kg C/ha]
-                                  =====
+             delta Soil content =  7703.773 [kg C/ha]
+                   delta Litter =    -0.000 [kg C/ha]
+       Soil biomass respiration = -7703.773 [kg C/ha]
+   Bioincorporated from surface =    -0.000 [kg C/ha]
+        Bioincorporated to soil =     0.000 [kg C/ha]
+                           Seed =     0.000 [kg C/ha]
+                   delta Leaves =    -0.000 [kg C/ha]
+delta Dead leaves still on crop =    -0.000 [kg C/ha]
+                     delta Stem =    -0.000 [kg C/ha]
+            delta Storage organ =    -0.000 [kg C/ha]
+                    delta Roots =    -0.000 [kg C/ha]
+               delta Assimilate =    -0.000 [kg C/ha]
+           Netto photosynthesis =     0.000 [kg C/ha]
+             Removed by harvest =    -0.000 [kg C/ha]
+        Dead roots lost by crop =    -0.000 [kg C/ha]
+       Dead roots added to soil =     0.000 [kg C/ha]
+                  Fertilization =     0.000 [kg C/ha]
+Removed from surface by tillage =     0.000 [kg C/ha]
+       Added to soil by tillage =     0.000 [kg C/ha]
+-----------------------------------------------------
+                        Balance =    -0.000 [kg C/ha]
+                                  =========
 *** summary: Crop Carbon Balance summarize
 Carbon balance for the crops.
 
@@ -540,14 +541,14 @@ Carbon balance for the soil.
 
 Note that negative deltas means the amount of carbon increases.
 
- Bioincorporated to soil = 0.000 [kg C/ha]
-Dead roots added to soil = 0.000 [kg C/ha]
-Added to soil by tillage = 0.000 [kg C/ha]
-Soil biomass respiration = -0.000 [kg C/ha]
-      delta Soil content = -0.000 [kg C/ha]
-------------------------------------------
-                 Balance = 0.000 [kg C/ha]
-                           =====
+ Bioincorporated to soil =     0.000 [kg C/ha]
+Dead roots added to soil =     0.000 [kg C/ha]
+Added to soil by tillage =     0.000 [kg C/ha]
+Soil biomass respiration = -7703.773 [kg C/ha]
+      delta Soil content =  7703.773 [kg C/ha]
+----------------------------------------------
+                 Balance =    -0.000 [kg C/ha]
+                           =========
 *** summary: C Input summarize
 This summary provides the information needed by the OrganicMatter init
 submodel.  The amount printed under 'Total C Input' corresponds to the
@@ -561,4 +562,4 @@ submodel.  The amount printed under 'Total C Input' corresponds to the
 ---------------------------
 Total C input = 0 [kg C/ha]
                 =
-Program finished after 1 second.
+Program finished after 17 seconds.
