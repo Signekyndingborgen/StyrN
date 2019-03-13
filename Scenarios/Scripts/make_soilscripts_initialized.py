@@ -10,10 +10,27 @@ Script that reads C roots and C input values from the spin-up simulations and pu
 import sys
 import os
 import pandas as pd
-from dateutil.relativedelta import relativedelta
+sys.path.insert(0,r'../../pydaisy/')
+from pydaisy.Daisy import DaisyModel, DaisyEntry
 
-path=r'../RunSpinUp'  
-MotherFolder=r'..\RunSpinUp'
+from dateutil.relativedelta import relativedelta
+from Create_rotations_spinup import split_unique_name
+
+
+
+
+def getitem(name_entries, init):
+    for k, v in init.items():
+        names = split_unique_name(k)
+#        if names['Weather']==name_entries['Weather']:
+        if names['SoilType']==name_entries['SoilType']:
+            return v
+
+
+
+
+path=r'../RunSpinUp1'  
+MotherFolder=r'..\RunSpinUp1'
 items = os.walk(MotherFolder)
 index=1
 init = {}  
@@ -27,12 +44,19 @@ for root, dirs, filenames in items:
         inputC = int(df['CLeaf'].sum(axis = 0)/diff_years)
         roots = int(df['Residuals_C_root'].sum(axis = 0)/diff_years)
         initialValues = [inputC, roots] 
-        init[d]= initialValues
+        init[d]= initialValues    
 
 
-#pathin = r'../Run3'
-#template = DaisyModel(os.path.join(path, '../Common/Soils_3test.dai'))   
-        
+items = os.walk(r'../RunSpinUp3')
+for root, dirs, filenames in items:
+    for d in dirs:    
+        template = DaisyModel(os.path.join(root, d, 'model.dai'))   
+        name_entries = split_unique_name(d)    
+        item = getitem(name_entries, init)
+        print(item)
+
+
+
 #newfile= template.copy()    
 #block = newfile.Input['defcolumn']['OrganicMatter'][0]
 

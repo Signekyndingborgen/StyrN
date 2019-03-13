@@ -10,11 +10,16 @@
 (input file "Springbarley_MES_23_2.dai")   
 (input file "skb-ryegrass.dai")
 (input file "skb-wclover.dai")
+(input file "dk-horizon.dai")
+(input file "dk-soil.dai")
 
  ;; Arable Farm Rotation
 (defaction "A_F_R" activity )
   
-(input file "Soils_3.dai")
+(defcolumn evap default
+(Bioclimate default (pet FAO_PM))  )
+
+;(input file "Soils_3.dai")
 (input file "OutputLog_spinup.dai")   
 
 ;---------------------------------------------------------------------------------
@@ -22,7 +27,6 @@
 (defunit [kWh/d/m^2] SIfactor (mass 1)(time -3)(factor 41.67))
 
 (weather default "DK-taastrup.dwf")
- (description "DK-taastrup")
 (log_prefix "DailyP-")
 
 ; -------------------------------------------------------
@@ -41,9 +45,8 @@
   
 
 ;;  Selecting column and management
-(defcolumn "JB1; FAO" "JB1")
-   (column "JB1; FAO")
+(column "JB1; FAO")
 
 ;; Beginning and end of simulation.
 (time 1993 02 01 1)
-(stop 2018 12 01 1)
+(stop 2005 12 01 1)

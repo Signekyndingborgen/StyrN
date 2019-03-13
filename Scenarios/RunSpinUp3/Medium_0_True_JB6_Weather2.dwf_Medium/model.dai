@@ -1,0 +1,206 @@
+ 
+  (path "./common" "./../../common" &old)
+  (input file "dk-maize.dai")
+  (input file "dk-rye.dai")
+  (input file "wrape_mes.dai")
+  (input file "dk-grass.dai")
+  (input file "Winter Wheat JG_C2.dai")
+  (input file "swheat.dai")
+  (input file "dk-wbarley.dai")
+  (input file "potato.dai")
+  (input file "Potato_FP.dai")
+  (input file "pea.dai")
+  (input file "sugarbeet.dai")
+  (input file "tillage.dai")
+  (input file "fertilizer.dai")
+  (input file "Org_fert.dai")
+  (input file "Springbarley_MES_23_2.dai")
+  (input file "skb-ryegrass.dai")
+  (input file "skb-wclover.dai")
+  (input file "dk-horizon.dai")
+  (input file "dk-soil.dai")
+  (defaction "A_F_R" activity 
+    (wait_mm_dd 04 01)
+    (plowing)
+    (wait_mm_dd 04 02)
+    (sow "SB-green")
+    (wait_mm_dd 04 03)
+    (sow "Ryegrass")
+    (sow "Wclover")
+    (wait_mm_dd 04 13)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 40.0 [kg N/ha]))
+    (wait_mm_dd 06 01)
+    (harvest "SB-green"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+    (wait_mm_dd 07 01)
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (wait_mm_dd 07 02)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 40.0 [kg N/ha]))
+    (wait_mm_dd 08 01)
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (wait_mm_dd 08 02)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 40.0 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 72.5 [kg N/ha]))
+    (wait_mm_dd 06 05)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 06 06)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 72.5 [kg N/ha]))
+    (wait_mm_dd 07 15)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 07 16)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 72.5 [kg N/ha]))
+    (wait_mm_dd 08 20)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 08 21)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 72.5 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Wclover"
+      (stub 5 [cm]))
+    (harvest "Ryegrass"
+      (stub 5 [cm]))
+    (wait_mm_dd 04 01)
+    (plowing)
+    (wait_mm_dd 04 02)
+    (sow "SB")
+    (wait_mm_dd 04 03)
+    (sow "Ryegrass")
+    (wait_mm_dd 04 13)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 145.0 [kg N/ha]))
+    (wait_mm_dd 08 10)
+    (harvest "SB"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+    (wait_mm_dd 04 01)
+    (plowing)
+    (wait_mm_dd 04 02)
+    (sow "SB")
+    (wait_mm_dd 04 13)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 145.0 [kg N/ha]))
+    (wait_mm_dd 08 10)
+    (harvest "SB"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+    (wait_mm_dd 09 19)
+    (plowing)
+    (wait_mm_dd 09 20)
+    (sow "Rug")
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 78.0 [kg N/ha]))
+    (wait_mm_dd 04 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 78.0 [kg N/ha]))
+    (wait_mm_dd 08 10)
+    (harvest "Rug"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+    (wait_mm_dd 09 19)
+    (plowing)
+    (wait_mm_dd 09 20)
+    (sow "Winter Wheat JG")
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 106.0 [kg N/ha]))
+    (wait_mm_dd 04 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 106.0 [kg N/ha]))
+    (wait_mm_dd 08 20)
+    (harvest "Winter Wheat JG"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm])))
+  (defcolumn evap default
+    (Bioclimate default 
+      (pet FAO_PM)) )
+  (defcolumn "JB6" evap 
+    (Soil 
+      (MaxRootingDepth 175 [cm])
+      (border -100 [cm] -300 [cm])
+      (horizons 
+        ( -30 [cm] "Ap_JB6")
+        ( -40 [cm] "B_JB6")
+        ( -80 [cm] "B_JB7")
+        ( -130 [cm] "C_JB7")
+        ( -300 [cm] "C_JB7_lime_M") ) )
+    (Drain lateral 
+      (L 18 [m])
+      (x 4.5 [m])
+      (pipe_position -1.2 [m]) )
+    (Groundwater aquitard 
+      (K_aquitard 0.002334 [cm/h])
+      (Z_aquitard 2.0 [m])
+      (h_aquifer 2.0 [m]) )
+    (OrganicMatter original 
+      (init 
+        (input 3289 [kg C/ha/y])
+        (root 1156 [kg C/ha/y]) )
+      (initial_SOM 
+        (-25 [cm] 5.76 [kg C/m^2])
+        (-50 [cm] 4.20 [kg C/m^2])
+        (-75 [cm] 2.66 [kg C/m^2])
+        (-100 [cm] 1.28 [kg C/m^2]) ) ) )
+  (input file "OutputLog_spinup.dai")
+  (defunit [kWh/d/m^2] SIfactor 
+    (mass 1)
+    (time -3)
+    (factor 41.67))
+  (weather default "Weather2.dwf")
+  (log_prefix "DailyP-")
+  (defaction "irrigate_30" activity
+    (wait 
+      (and 
+        (after_mm_dd 5 1)
+        (before_mm_dd 9 1)
+        (not 
+          (soil_water_pressure_above 
+            (height -30.0 [cm])
+            (potential -600 [cm])))))
+    (irrigate_overhead 30 [mm/h])
+    (wait_days 5) )
+  (manager activity 
+    (while 
+      (repeat 
+        (A_F_R))
+      (repeat irrigate_30) )
+    (stop) )
+  (column "JB6")
+  (time 1993 02 01 1)
+  (stop 2005 12 01 1) 
