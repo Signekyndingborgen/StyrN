@@ -29,11 +29,11 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
       (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
@@ -48,11 +48,11 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
       (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
@@ -67,11 +67,11 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
       (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
@@ -86,11 +86,11 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
       (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
@@ -105,11 +105,11 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
       (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
@@ -124,11 +124,11 @@
     (wait_mm_dd 05 05)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 06 10)
     (fertilize
       ("NPK01")
-      (equivalent_weight 27.0 [kg N/ha]))
+      (equivalent_weight 34.5 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Silomajs"
       (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm])))

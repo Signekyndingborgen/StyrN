@@ -11,15 +11,16 @@ Skriver sædskifter og datoer for 1 jord-klima-init-C kombination.
 import sys
 import pandas as pd
 import os
-sys.path.insert(0,r'../../pydaisy/')
+
+sys.path.insert(0, r'../../../pydaisy/')
 from datetime import datetime
 import shutil
 from pydaisy.Daisy import DaisyModel, DaisyEntry
 from fertil import CalcFertil
 from DaisyWaitBlock import DaisyWaitBlock
 from pydaisy.Daisy import *
-# Import excel w scenario information
-# the crop rotations
+
+path=r'../Run'
 
 def get_unique_name(NameDictionary):
     return NameDictionary['rotation'] + '_' + str(NameDictionary['ManureMass']) +'_' + str(NameDictionary['IsConventional'])
@@ -55,7 +56,7 @@ def write_columns(path):
     
     soil ='JB1'
     
-    for i in range(1, 3):
+    for i in range(1, 24):
         rotation=rota.columns[i]
             #find rotation length
         maxnumberyear = 6
@@ -184,4 +185,4 @@ def write_columns(path):
             name_entries['ManureMass']=int(ManureSim[1])
             name_entries['IsConventional']=ManureSim[2]
             newfile.save_as(os.path.join(path, get_unique_name(name_entries), 'model.dai'))
-write_columns(path)
+# write_columns(path)

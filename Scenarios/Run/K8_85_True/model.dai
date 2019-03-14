@@ -28,11 +28,11 @@
     (wait_mm_dd 04 13)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 34.0 [kg N/ha]))
+      (equivalent_weight 35.0 [kg N/ha]))
     (wait_mm_dd 04 13)
     (fertilize
       ("NPK01")
-      (equivalent_weight 30.0 [kg N/ha]))
+      (equivalent_weight 34.666666666666664 [kg N/ha]))
     (wait_mm_dd 06 01)
     (harvest "SB-green"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
@@ -44,7 +44,7 @@
     (wait_mm_dd 07 02)
     (fertilize
       ("NPK01")
-      (equivalent_weight 30.0 [kg N/ha]))
+      (equivalent_weight 34.666666666666664 [kg N/ha]))
     (wait_mm_dd 08 01)
     (harvest "Ryegrass"
       (stub 5 [cm]))
@@ -53,7 +53,7 @@
     (wait_mm_dd 08 02)
     (fertilize
       ("NPK01")
-      (equivalent_weight 30.0 [kg N/ha]))
+      (equivalent_weight 34.666666666666664 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Ryegrass"
       (stub 5 [cm]))
@@ -62,11 +62,11 @@
     (wait_mm_dd 03 01)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 78.0 [kg N/ha]))
+      (equivalent_weight 76.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -75,7 +75,7 @@
     (wait_mm_dd 06 06)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -84,7 +84,7 @@
     (wait_mm_dd 07 16)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -93,7 +93,7 @@
     (wait_mm_dd 08 21)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -102,11 +102,11 @@
     (wait_mm_dd 03 01)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 78.0 [kg N/ha]))
+      (equivalent_weight 76.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -115,7 +115,7 @@
     (wait_mm_dd 06 06)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -124,7 +124,7 @@
     (wait_mm_dd 07 16)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -133,7 +133,7 @@
     (wait_mm_dd 08 21)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -142,11 +142,11 @@
     (wait_mm_dd 03 01)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 78.0 [kg N/ha]))
+      (equivalent_weight 76.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -155,7 +155,7 @@
     (wait_mm_dd 06 06)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -164,7 +164,7 @@
     (wait_mm_dd 07 16)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -173,7 +173,7 @@
     (wait_mm_dd 08 21)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -182,11 +182,11 @@
     (wait_mm_dd 03 01)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 78.0 [kg N/ha]))
+      (equivalent_weight 76.0 [kg N/ha]))
     (wait_mm_dd 03 01)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 06 05)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -195,7 +195,7 @@
     (wait_mm_dd 06 06)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 07 15)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -204,7 +204,7 @@
     (wait_mm_dd 07 16)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 08 20)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -213,7 +213,7 @@
     (wait_mm_dd 08 21)
     (fertilize
       ("NPK01")
-      (equivalent_weight 51.5 [kg N/ha]))
+      (equivalent_weight 56.0 [kg N/ha]))
     (wait_mm_dd 09 25)
     (harvest "Wclover"
       (stub 5 [cm]))
@@ -228,11 +228,11 @@
     (wait_mm_dd 04 13)
     (fertilize
       ("kvaeg_gylle")
-      (equivalent_weight 13.0 [kg N/ha]))
+      (equivalent_weight 17.0 [kg N/ha]))
     (wait_mm_dd 04 13)
     (fertilize
       ("NPK01")
-      (equivalent_weight 129.0 [kg N/ha]))
+      (equivalent_weight 143.0 [kg N/ha]))
     (wait_mm_dd 08 10)
     (harvest "SB"
       (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm])))

@@ -22,7 +22,7 @@ rota = pd.DataFrame(pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'R
 rota.index = rota['ID']
 crops = pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Crops')
 crops.index = crops['Crop']
-norm = pd.read_excel('../common/Nnorm_2019_yields.xlsx', sheet_name = "Ark1")
+norm = pd.read_excel('../common/Nnorm_2019.xlsx', sheet_name = "Sheet1")
 norm.index = norm['afgkode']
 
 grain = ['SB', 'Winter Wheat JG','Vinterbyg','Rug','Winter Rape PA','Spring Wheat',
@@ -76,8 +76,8 @@ for key, value in allresults.items():
                 for daisyname in daisynames2:
                     if crops[['Daisynavn2']=='Wclover, Ryegrass':
                         value['RyeGrass'][str(1993+year)][0] + value['WClover'][str(1993+year)][0]    
-                    else:
-                        if str(1993+year) in value[daisyname.strip()]:
+                    elif:
+                        str(1993+year) in value[daisyname.strip()]:
                         print(daisyname + ' ' + str(value[daisyname.strip()][str(1993+year)][0]-yield_norm))
             
             for daisyname in daisynames:
