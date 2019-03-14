@@ -32,7 +32,7 @@ def split_unique_name(unique_name):
     
     return NameDictionary
 
-path=r'../RunSpinUp3'  
+path=r'../RunSpinUp4'  
 def write_columns(path):
 
     rota = pd.DataFrame(pd.read_excel('../common/masterinput_spinup.xlsx',sheet_name= 'Rotations'))
@@ -175,6 +175,9 @@ def write_columns(path):
                     soilblock = [x for x in template2.Input['defcolumn'] if x.getvalue()=='"' + soil +'"'][0]
                     newfile.Input.Children.insert(22, soilblock)
                     newfile.Input['column'].setvalue('"'+ soil + '"')
+                    if soil == 'JB6':
+                        C_JB7 = template2.Input['defhorizon']
+                        newfile.Input.Children.insert(21, C_JB7)
                     newfile.Input['weather'].setvalue('"'+ w +'"',1)
                #Now print the daisy file
                 #create unique name
@@ -186,4 +189,4 @@ def write_columns(path):
                     name_entries['Weather']= w
                     name_entries['Initlevel']= rotation
                     newfile.save_as(os.path.join(path, get_unique_name(name_entries), 'model.dai'))
-#write_columns(path)
+write_columns(path)

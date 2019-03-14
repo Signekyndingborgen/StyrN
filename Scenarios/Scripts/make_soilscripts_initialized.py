@@ -11,7 +11,7 @@ import sys
 import os
 import pandas as pd
 sys.path.insert(0,r'../../pydaisy/')
-from pydaisy.Daisy import DaisyModel, DaisyEntry
+from pydaisy.Daisy import DaisyModel, DaisyDlf, DaisyEntry
 
 from dateutil.relativedelta import relativedelta
 from Create_rotations_spinup import split_unique_name
@@ -22,9 +22,9 @@ from Create_rotations_spinup import split_unique_name
 def getitem(name_entries, init):
     for k, v in init.items():
         names = split_unique_name(k)
-#        if names['Weather']==name_entries['Weather']:
-        if names['SoilType']==name_entries['SoilType']:
-            return v
+        if names['Weather']==name_entries['Weather']:
+            if names['SoilType']==name_entries['SoilType']:
+                return v
 
 
 

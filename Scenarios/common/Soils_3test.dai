@@ -46,7 +46,9 @@
  
  (defcolumn "JB1" evap
       (Soil (MaxRootingDepth 85 [cm])   
-            (horizons (  -30 [cm] "Ap_JB1") 
+           (border     -100 [cm]
+             	       -300 [cm])
+           (horizons (  -30 [cm] "Ap_JB1") 
                       (  -60 [cm] "B_JB1")  
                       (  -80 [cm] "B_JB2")  
                       ( -250 [cm] "C_JB2"))) 
@@ -66,7 +68,9 @@
  
  (defcolumn "JB4" evap
       (Soil (MaxRootingDepth 175 [cm])   
-            (horizons (  -30 [cm] "Ap_JB4") 
+            (border     -100 [cm]
+             	       -300 [cm])
+           (horizons (  -30 [cm] "Ap_JB4") 
                       (  -60 [cm] "B_JB4")  
                       (  -80 [cm] "B_JB7")  
                       ( -130 [cm] "C_JB7")  
