@@ -1,0 +1,166 @@
+ 
+  (path "./common" "./../../common" &old)
+  (input file "dk-maize.dai")
+  (input file "dk-rye.dai")
+  (input file "wrape_mes.dai")
+  (input file "dk-grass.dai")
+  (input file "Winter Wheat JG_C2.dai")
+  (input file "swheat.dai")
+  (input file "dk-wbarley.dai")
+  (input file "potato.dai")
+  (input file "Potato_FP.dai")
+  (input file "pea.dai")
+  (input file "sugarbeet.dai")
+  (input file "tillage.dai")
+  (input file "fertilizer.dai")
+  (input file "Org_fert.dai")
+  (input file "Springbarley_MES_23_2.dai")
+  (input file "skb-ryegrass.dai")
+  (input file "skb-wclover.dai")
+  (input file "dk-horizon.dai")
+  (input file "dk-soil.dai")
+  (input file "Def_horizons.dai")
+  (defaction "A_F_R" activity 
+    (wait_mm_dd 09 19)
+    (plowing)
+    (wait_mm_dd 09 20)
+    (sow "Winter Wheat JG")
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 04 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 08 20)
+    (harvest "Winter Wheat JG"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+    (wait_mm_dd 09 19)
+    (plowing)
+    (wait_mm_dd 09 20)
+    (sow "Winter Wheat JG")
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 04 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 08 20)
+    (harvest "Winter Wheat JG"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+    (wait_mm_dd 09 19)
+    (plowing)
+    (wait_mm_dd 09 20)
+    (sow "Winter Wheat JG")
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 04 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 08 20)
+    (harvest "Winter Wheat JG"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+    (wait_mm_dd 09 19)
+    (plowing)
+    (wait_mm_dd 09 20)
+    (sow "Winter Wheat JG")
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 04 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 08 20)
+    (harvest "Winter Wheat JG"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+    (wait_mm_dd 09 19)
+    (plowing)
+    (wait_mm_dd 09 20)
+    (sow "Winter Wheat JG")
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 04 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 08 20)
+    (harvest "Winter Wheat JG"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm]))
+    (wait_mm_dd 09 19)
+    (plowing)
+    (wait_mm_dd 09 20)
+    (sow "Winter Wheat JG")
+    (wait_mm_dd 03 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 04 01)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 103.0 [kg N/ha]))
+    (wait_mm_dd 08 20)
+    (harvest "Winter Wheat JG"
+      (sorg 0.99) (leaf 0.7) (stem 0.7) (stub 10 [cm])))
+  (defcolumn "JB1-1-2-2_low" deBruin 
+    (Soil 
+      (MaxRootingDepth 60 [cm])
+      (border -100 [cm] -150 [cm] -300 [cm])
+      (horizons 
+        ( -30 [cm] "Ap_JB1_low_OM")
+        ( -60 [cm] "B_JB1_")
+        ( -80 [cm] "B_JB2_")
+        ( -250 [cm] "C_JB2") ) )
+    (Groundwater deep)
+    (Chemistry multi 
+      (combine 
+        (N 
+          (reaction nitrification 
+            (denitrification 
+              (water_factor 
+                (0.6 0.0)
+                (0.8 0.1)
+                (0.9 0.2)
+                (1.0 1.0)) )))))
+    (OrganicMatter original 
+      (init 
+        (input 2000 [kg C/ha/y]))) )
+  (defcolumn evap default
+    (Bioclimate default 
+      (pet FAO_PM)) )
+  (input file "OutputLog_spinup.dai")
+  (defunit [kWh/d/m^2] SIfactor 
+    (mass 1)
+    (time -3)
+    (factor 41.67))
+  (weather default "Vejen_1990-2010.dwf")
+  (log_prefix "DailyP-")
+  (defaction "irrigate_30" activity
+    (wait 
+      (and 
+        (after_mm_dd 5 1)
+        (before_mm_dd 9 1)
+        (not 
+          (soil_water_pressure_above 
+            (height -30.0 [cm])
+            (potential -600 [cm])))))
+    (irrigate_overhead 30 [mm/h])
+    (wait_days 5) )
+  (manager activity 
+    (while 
+      (repeat 
+        (A_F_R))
+      (repeat irrigate_30) )
+    (stop) )
+  (column "JB1-1-2-2_low")
+  (time 1993 02 01 1)
+  (stop 2005 12 01 1) 

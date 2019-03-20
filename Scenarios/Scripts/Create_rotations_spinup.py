@@ -15,7 +15,7 @@ sys.path.insert(0,r'../../pydaisy/')
 from datetime import datetime
 import shutil
 from pydaisy.Daisy import DaisyModel, DaisyEntry
-from fertil import CalcFertil
+from fertil_1 import CalcFertil
 from DaisyWaitBlock import DaisyWaitBlock
 from pydaisy.Daisy import *
 
@@ -50,12 +50,12 @@ def write_columns(path):
     if not os.path.isdir(path):
         os.makedirs(path)    
     template = DaisyModel(os.path.join(path, '../Common/Scenarier_spinup.dai'))   
-    template2 = DaisyModel(os.path.join(path, '../Common/Soils_3test.dai'))   
-    weather = ['Weather1.dwf', 'Weather2.dwf']
-
+    template2 = DaisyModel(os.path.join(path, '../Common/Def_columns.dai'))   # SoilJB1_4_5_OM.dai
+    weather = SoilClimate['Climate'][0:2].tolist()
+    
     for w in weather:   
         
-        for s in range (0, 3):
+        for s in range (0, 9):
             soil = SoilClimate['Soiltype'][s]
              
             for i in range(1, 4):
@@ -175,9 +175,9 @@ def write_columns(path):
                     soilblock = [x for x in template2.Input['defcolumn'] if x.getvalue()=='"' + soil +'"'][0]
                     newfile.Input.Children.insert(22, soilblock)
                     newfile.Input['column'].setvalue('"'+ soil + '"')
-                    if soil == 'JB6':
-                        C_JB7 = template2.Input['defhorizon']
-                        newfile.Input.Children.insert(21, C_JB7)
+                   #if soil == 'JB6':
+                   #     C_JB7 = template2.Input['defhorizon']
+                   #     newfile.Input.Children.insert(21, C_JB7)
                     newfile.Input['weather'].setvalue('"'+ w +'"',1)
                #Now print the daisy file
                 #create unique name
