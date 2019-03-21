@@ -26,13 +26,13 @@ norm = pd.read_excel('../common/Nnorm_2019.xlsx', sheet_name = "Sheet1")
 norm.index = norm['afgkode']
 
 grain = ['SB', 'Winter Wheat JG','Vinterbyg','Rug','Winter Rape PA','Spring Wheat',
-         'Rug', 'Froegraes', 'Potato; Sava_Figaro','Fodder Beet','Pea']
+         'Rug', 'Froegraes', 'Potato; Sava_Figaro','Sugar Beet','Pea']
 silo = ['Ryegrass', 'Wclover', 'Silomajs', 'SB-green'] 
 
 MotherFolder='..\Run'
 items = os.walk(MotherFolder)
 index=1
-soil ='JB 1+3'
+soil ='JB1'
     
 allresults={}
 
@@ -74,20 +74,19 @@ for key, value in allresults.items():
                 yield_norm2 = norm['norm_' + soil][crop_ID2]*norm['yieldfaktorDM'][crop_ID2]
                 daisynames2 = crops['Daisynavn2'][cropname].split(',')
                 for daisyname in daisynames2:
-                    if crops[['Daisynavn2']=='Wclover, Ryegrass':
+                    if crops['Daisynavn2'][cropname]=='Wclover, Ryegrass':
                         value['RyeGrass'][str(1993+year)][0] + value['WClover'][str(1993+year)][0]    
-                    elif:
-                        str(1993+year) in value[daisyname.strip()]:
-                        print(daisyname + ' ' + str(value[daisyname.strip()][str(1993+year)][0]-yield_norm))
+                        if str(1993+year) in value[daisyname.strip()]:
+                            print(daisyname + ' ' + str(value[daisyname.strip()][str(1993+year)][0]-yield_norm))
             
             for daisyname in daisynames:
-                if crops[['Daisynavn2']=='Wclover, Ryegrass':
+                if crops['Daisynavn2'][cropname]=='Wclover, Ryegrass':
                     value['RyeGrass'][str(1993+year)][0] + value['WClover'][str(1993+year)][0]   #              
                 else:
                     if str(1993+year) in value[daisyname.strip()]:
                         
  #Clovergrass = value['RyeGrass'][str(1993+year)][0] + value['WClover''][str(1993+year)][0]
-                print(daisyname + ' ' + str(value[daisyname.strip()][str(1993+year)][0]-yield_norm))
+                        print(daisyname + ' ' + str(value[daisyname.strip()][str(1993+year)][0]-yield_norm))
 
 #if crops[['Daisynavn1']=='Wclover, Ryegrass':
 #                sum values for wclover and rygrass :-) 

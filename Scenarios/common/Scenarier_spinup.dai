@@ -12,6 +12,7 @@
 (input file "skb-wclover.dai")
 (input file "dk-horizon.dai")
 (input file "dk-soil.dai")
+(input file "Def_horizons.dai")
 
  ;; Arable Farm Rotation
 (defaction "A_F_R" activity )

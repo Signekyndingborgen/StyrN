@@ -1,17 +1,6 @@
-;; Including external library-files
+
 (path "." &old)
 (input file "dk-horizon.dai")
-(input file "dk-soil.dai")
-;#############################################################################################################################################################
-;SOILTYPE_ID:
-
-
-;JB1-DSG
-;JB4-ML
-;JB6-ML
-
-;#############################################################################################################################################################
-; COLUMN WITH deBruin pet function:
 
 (defcolumn evap default
 (Bioclimate default (pet FAO_PM))
