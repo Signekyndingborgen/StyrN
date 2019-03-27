@@ -10,8 +10,8 @@
 ;;    
 	harvest
 ;
-; Carbon balance 0-100 cm
-        ("Carbon Balance" (to -100[cm])(when monthly)
-          (where "SC100-M.dlf")) 
+; Carbon balance 0-80 cm
+        ("Carbon Balance" (to -80[cm])(when monthly)
+          (where "SC80-M.dlf")) 
 
 )
