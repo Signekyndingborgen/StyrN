@@ -4,13 +4,13 @@ norm = pd.read_excel('../common/Nnorm_2019.xlsx', sheet_name = "Sheet1")
 norm.index = norm['afgkode']
 
 def CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureType, ManureMass, IsConventional):
-    norm_crop = norm['norm_'+soil][crop_ID]
+    norm_crop = norm['norm_'+soil[0:3]][crop_ID]
     forfrugt=0
     if norm['Ja/Nej'][crop_ID]==1:
         forfrugt = norm['Forfrugt'][LastYearCropID]
     SumNorm=0
     for i in range(0,len(AllCropIDs)):
-        SumNorm+=norm['norm_'+soil][AllCropIDs[i]]
+        SumNorm+=norm['norm_'+soil[0:3]][AllCropIDs[i]]
         if norm['Ja/Nej'][AllCropIDs[i]]==1:
             lastyear=i-1
             if i==0:
@@ -30,7 +30,10 @@ def CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureType, ManureMass
     MineralN=0
     #In conventional we apply Mineral N to fulfill the norm
     if IsConventional:
-        MineralN = norm_crop - GylleN
+        if norm_crop - GylleN > 0:
+            MineralN = norm_crop - GylleN
+        elif norm_crop-GylleN < 0:
+            MineralN =0
     return [GylleN, MineralN]
     
   

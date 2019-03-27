@@ -1,0 +1,192 @@
+ 
+  (path "./common" "./../../common" &old)
+  (input file "dk-maize.dai")
+  (input file "dk-rye.dai")
+  (input file "wrape_mes.dai")
+  (input file "dk-grass.dai")
+  (input file "Winter Wheat JG_C2.dai")
+  (input file "swheat.dai")
+  (input file "dk-wbarley.dai")
+  (input file "potato.dai")
+  (input file "Potato_FP.dai")
+  (input file "pea.dai")
+  (input file "sugarbeet.dai")
+  (input file "tillage.dai")
+  (input file "fertilizer.dai")
+  (input file "Org_fert.dai")
+  (input file "Springbarley_MES_23_2.dai")
+  (input file "skb-ryegrass.dai")
+  (input file "skb-wclover.dai")
+  (input file "Def_horizons.dai")
+  (defaction "A_F_R" activity 
+    (wait_mm_dd 05 01)
+    (plowing)
+    (wait_mm_dd 05 05)
+    (sow "Silomajs")
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 161.0 [kg N/ha]))
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 06 10)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Silomajs"
+      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
+    (wait_mm_dd 05 01)
+    (plowing)
+    (wait_mm_dd 05 05)
+    (sow "Silomajs")
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 161.0 [kg N/ha]))
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 06 10)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Silomajs"
+      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
+    (wait_mm_dd 05 01)
+    (plowing)
+    (wait_mm_dd 05 05)
+    (sow "Silomajs")
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 161.0 [kg N/ha]))
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 06 10)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Silomajs"
+      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
+    (wait_mm_dd 05 01)
+    (plowing)
+    (wait_mm_dd 05 05)
+    (sow "Silomajs")
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 161.0 [kg N/ha]))
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 06 10)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Silomajs"
+      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
+    (wait_mm_dd 05 01)
+    (plowing)
+    (wait_mm_dd 05 05)
+    (sow "Silomajs")
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 161.0 [kg N/ha]))
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 06 10)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Silomajs"
+      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm]))
+    (wait_mm_dd 05 01)
+    (plowing)
+    (wait_mm_dd 05 05)
+    (sow "Silomajs")
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("kvaeg_gylle")
+      (equivalent_weight 161.0 [kg N/ha]))
+    (wait_mm_dd 05 05)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 06 10)
+    (fertilize
+      ("NPK01")
+      (equivalent_weight 0.5 [kg N/ha]))
+    (wait_mm_dd 09 25)
+    (harvest "Silomajs"
+      (sorg 0.95) (leaf 0.95) (stem 0.95) (stub 20 [cm])))
+  (input file "OutputLog_2.dai")
+  (weather default "East.dwf")
+  (defcolumn "JB6-6-7-7-7L_low" deBruin 
+    (Soil 
+      (MaxRootingDepth 230 [cm])
+      (border -100 [cm] -150 [cm] -200 [cm] -300 [cm])
+      (horizons 
+        ( -30 [cm] "Ap_JB6_low_OM")
+        ( -36 [cm] "B_JB6_Pp")
+        ( -60 [cm] "B_JB6_")
+        ( -80 [cm] "B_JB7_")
+        ( -130 [cm] "C_JB7_lime_M")
+        ( -300 [cm] "C_JB7") ) )
+    (Movement vertical 
+      (Geometry 
+        (zplus -0.5 -1 -1.5 -2 -2.5 -3 -3.5 -4 -4.5 -5 -6 -7 -8 -9 -10 -12 -14 -16 -18 -20 -22 -24 -26 -28 -30 -32 -34 -36 -40 -45 -50 -55 -60 -65 -70 -75 -80 -85 -90 -95 -100 -110 -120 -130 -140 -150 -160 -170 -180 -190 -200 -210 -220 -230 -240 -250 -260 -270 -280 -290 -300 [cm])))
+    (Drain lateral 
+      (L 100 [m])
+      (x 50 [m])
+      (pipe_position -1.5 [m]) )
+    (Groundwater aquitard 
+      (K_aquitard 2e-2 [cm/h])
+      (Z_aquitard 2.0 [m])
+      (h_aquifer 2.0 [m]) )
+    (Chemistry multi 
+      (combine 
+        (N 
+          (reaction nitrification 
+            (denitrification 
+              (water_factor 
+                (0.6 0.0)
+                (0.8 0.1)
+                (0.9 0.2)
+                (1.0 1.0)) )))))
+    (OrganicMatter original 
+      (init 
+        (input 3000 [kg C/ha/y]))) )
+  (defaction "irrigate_30" activity
+    (wait 
+      (and 
+        (after_mm_dd 5 1)
+        (before_mm_dd 9 1)
+        (not 
+          (soil_water_pressure_above 
+            (height -30.0 [cm])
+            (potential -600 [cm])))))
+    (irrigate_overhead 30 [mm/h])
+    (wait_days 5) )
+  (manager activity 
+    (while 
+      (repeat 
+        (A_F_R))
+      (repeat irrigate_30) )
+    (stop) )
+  (column "JB6-6-7-7-7L_low")
+  (time 1990 02 01 1)
+  (stop 2001 12 01 1) 

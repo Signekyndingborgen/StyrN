@@ -15,7 +15,7 @@ sys.path.insert(0,r'../../pydaisy/')
 from datetime import datetime
 import shutil
 from pydaisy.Daisy import DaisyModel, DaisyEntry
-from fertil_1 import CalcFertil
+from fertil import CalcFertil
 from DaisyWaitBlock import DaisyWaitBlock
 from pydaisy.Daisy import *
 
@@ -32,16 +32,16 @@ def split_unique_name(unique_name):
     
     return NameDictionary
 
-path=r'../RunSpinUp4'  
+path=r'../Run1'  
 def write_columns(path):
 
-    rota = pd.DataFrame(pd.read_excel('../common/masterinput_spinup.xlsx',sheet_name= 'Rotations'))
+    rota = pd.DataFrame(pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Rotations'))
     rota.index = rota['ID']
-    crops = pd.read_excel('../common/masterinput_spinup.xlsx',sheet_name= 'Crops')
+    crops = pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Crops')
     crops.index = crops['Crop']
-    manure = pd.read_excel('../common/masterinput_spinup.xlsx',sheet_name= 'Manure')
+    manure = pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Manure')
     manure.index = manure['ID']
-    SoilClimate = pd.read_excel('../common/masterinput_spinup.xlsx',sheet_name= 'soil_climate', header = 0)
+    SoilClimate = pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'soil_climate', header = 0)
     if os.path.isdir(path):
         try:
             shutil.rmtree(path)
@@ -49,7 +49,7 @@ def write_columns(path):
             pass
     if not os.path.isdir(path):
         os.makedirs(path)    
-    template = DaisyModel(os.path.join(path, '../Common/Scenarier_spinup.dai'))   
+    template = DaisyModel(os.path.join(path, '../Common/Scenarier_v4.dai'))   
     template2 = DaisyModel(os.path.join(path, '../Common/Def_columns.dai'))   # SoilJB1_4_5_OM.dai
     weather = SoilClimate['Climate'][0:2].tolist()
     
@@ -58,7 +58,7 @@ def write_columns(path):
         for s in range (0, 9):
             soil = SoilClimate['Soiltype'][s]
              
-            for i in range(1, 4):
+            for i in range(1, 3):
                 rotation=rota.columns[i]
                     #find rotation length
                 maxnumberyear = 6
@@ -175,9 +175,10 @@ def write_columns(path):
                     soilblock = [x for x in template2.Input['defcolumn'] if x.getvalue()=='"' + soil +'"'][0]
                     newfile.Input.Children.insert(22, soilblock)
                     newfile.Input['column'].setvalue('"'+ soil + '"')
-                   #if soil == 'JB6':
-                   #     C_JB7 = template2.Input['defhorizon']
-                   #     newfile.Input.Children.insert(21, C_JB7)
+    # Insert irrigation if soil == JB1
+                    #if soil[0:3] == 'JB1':
+                    #    irrigationblock = template2.Input['defaction'].getvalue()
+                    #    newfile.Input.Children.insert(25, irrigationblock)
                     newfile.Input['weather'].setvalue('"'+ w +'"',1)
                #Now print the daisy file
                 #create unique name
@@ -189,4 +190,5 @@ def write_columns(path):
                     name_entries['Weather']= w
                     name_entries['Initlevel']= rotation
                     newfile.save_as(os.path.join(path, get_unique_name(name_entries), 'model.dai'))
-write_columns(path)
+if __name__ =='__main__':
+    write_columns(path)

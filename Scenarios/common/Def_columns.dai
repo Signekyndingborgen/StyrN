@@ -146,7 +146,7 @@
            (horizons (  -30 [cm] "Ap_JB6_med_OM")  
                      (  -36 [cm] "B_JB6_Pp")
                      (  -60 [cm] "B_JB6_")   
-                     ( - 80 [cm] "B_JB7_")
+                     (  -80 [cm] "B_JB7_")
                      ( -130 [cm] "C_JB7_lime_M")
                      ( -300 [cm] "C_JB7")))  
      (Movement vertical
@@ -173,7 +173,7 @@
            (horizons (  -30 [cm] "Ap_JB6_low_OM")  
                      (  -36 [cm] "B_JB6_Pp")
                      (  -60 [cm] "B_JB6_")   
-                     ( - 80 [cm] "B_JB7_")
+                     (  -80 [cm] "B_JB7_")
                      ( -130 [cm] "C_JB7_lime_M")
                      ( -300 [cm] "C_JB7")))  
      (Movement vertical
@@ -200,7 +200,7 @@
            (horizons (  -30 [cm] "Ap_JB6_high_OM")  
                      (  -36 [cm] "B_JB6_Pp")
                      (  -60 [cm] "B_JB6_")   
-                     ( - 80 [cm] "B_JB7_")
+                     (  -80 [cm] "B_JB7_")
                      ( -130 [cm] "C_JB7_lime_M")
                      ( -300 [cm] "C_JB7")))  
      (Movement vertical
@@ -219,3 +219,9 @@
 
 ;#############################################################################################################################################################
 
+(defaction "irrigate_30" activity
+(wait (and (after_mm_dd 5 1)
+(before_mm_dd 9 1)(not (soil_water_pressure_above (height -30.0 [cm])
+(potential -600 [cm]))))) ; måske -400 cm
+(irrigate_overhead 30 [mm/h])
+	(wait_days 5))

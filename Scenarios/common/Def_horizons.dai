@@ -1,6 +1,6 @@
 ;; Including external library-files
 (path "." &old)
-(input file "dk-horizon.dai")
+
 ;#############################################################################################################################################################
 
 ; ALL SOILS WITH MaxRootingDepth 175 [cm] has been changed to 230 [cm] (29. oct. 2018)
@@ -15,9 +15,9 @@
 ; JB1-1-2-2_low
 ; JB1-1-2-2_high
 
-; JB4-4-7-7-7-med
-; JB4-4-7-7-7-low
-; JB4-4-7-7-7-high
+; JB4-4-7-7-7_med
+; JB4-4-7-7-7_low
+; JB4-4-7-7-7_high
 
 ; JB6-6-7-7-7L_med
 ; JB6-6-7-7-7L_low
