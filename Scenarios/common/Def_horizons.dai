@@ -1,6 +1,5 @@
 ;; Including external library-files
 (path "." &old)
-
 ;#############################################################################################################################################################
 
 ; ALL SOILS WITH MaxRootingDepth 175 [cm] has been changed to 230 [cm] (29. oct. 2018)
@@ -11,17 +10,17 @@
 ; JB1 og 4 deep drainage and no ploughpan
 ; JB6 tile drainage and ploughpan
 
-; JB1-1-2-2_med
-; JB1-1-2-2_low
-; JB1-1-2-2_high
+; JB1-1-2-2med
+; JB1-1-2-2low
+; JB1-1-2-2high
 
-; JB4-4-7-7-7_med
-; JB4-4-7-7-7_low
-; JB4-4-7-7-7_high
+; JB4-4-7-7-7med
+; JB4-4-7-7-7low
+; JB4-4-7-7-7high
 
-; JB6-6-7-7-7L_med
-; JB6-6-7-7-7L_low
-; JB6-6-7-7-7L_high
+; JB6-6-7-7-7Lmed
+; JB6-6-7-7-7Llow
+; JB6-6-7-7-7Lhigh
 
 ;#############################################################################################################################################################
 ; COLUMN WITH deBruin pet function:

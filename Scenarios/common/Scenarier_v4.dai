@@ -1,5 +1,4 @@
 ;; Including external library-files
-
 (path "./common" "./../../common" &old)
 (input file "dk-maize.dai") (input file "dk-rye.dai") (input file "wrape_mes.dai") (input file "dk-grass.dai")
 (input file "Winter Wheat JG_C2.dai") (input file "swheat.dai") (input file "dk-wbarley.dai") (input file "potato.dai")
@@ -10,6 +9,7 @@
 (input file "skb-ryegrass.dai")
 (input file "skb-wclover.dai")
 (input file "Def_horizons.dai")
+
  ;; Arable Farm Rotation
 (defaction "A_F_R" activity )
  
@@ -19,21 +19,12 @@
 ;; Weather data & Description that will occur in all output files
 (weather default "Daily_foulum_1984-2017.dwf")
 
-; -------------------------------------------------------
-(defaction "irrigate_30" activity
-(wait (and (after_mm_dd 5 1)
-(before_mm_dd 9 1)(not (soil_water_pressure_above (height -30.0 [cm])
-(potential -600 [cm]))))) ; måske -400 cm
-(irrigate_overhead 30 [mm/h])
-	(wait_days 5))
-
 ;------------------------
 
 (manager activity 
-   (while (repeat (A_F_R)) (repeat irrigate_30))
+  
    (stop))
   
-
 ;;  Selecting column and management
 (column "JB1-DSG; FAO")
 

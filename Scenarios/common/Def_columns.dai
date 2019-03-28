@@ -8,13 +8,13 @@
 ;########################################################################
 ; JB1 TOPSOIL
 
-; JB1-1-2-2_med
-; JB1-1-2-2_low
-; JB1-1-2-2_high
+; JB1med
+; JB1low
+; JB1high
 ;########################################################################
 
 ; JB1-1-2-2_med
-(defcolumn "JB1-1-2-2_med" deBruin
+(defcolumn "JB1med" deBruin
      (Soil (MaxRootingDepth 60 [cm])   
            (border -100 [cm]
                    -150 [cm]
@@ -30,10 +30,10 @@
     	   (denitrification 
      	   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))
       	   	)))))	
-     (OrganicMatter original (init (input 2000 [kg C/ha/y]))))
+     (OrganicMatter original (init (input 4000 [kg C/ha/y]))))
 
 ; JB1-1-2-2_low
-(defcolumn "JB1-1-2-2_low" deBruin
+(defcolumn "JB1low" deBruin
      (Soil (MaxRootingDepth 60 [cm])   
            (border -100 [cm]
                    -150 [cm]
@@ -46,10 +46,10 @@
      (Chemistry multi 
       (combine (N   (reaction nitrification	   (denitrification 	   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))
       	   	)))))	
-     (OrganicMatter original (init (input 2000 [kg C/ha/y]))))
+     (OrganicMatter original (init (input 4000 [kg C/ha/y]))))
      
 ; JB1-1-2-2_high
-(defcolumn "JB1-1-2-2_high" deBruin
+(defcolumn "JB1high" deBruin
      (Soil (MaxRootingDepth 60 [cm])   
            (border -100 [cm]
                    -150 [cm]
@@ -62,7 +62,7 @@
      (Chemistry multi 
       (combine (N          (reaction nitrification   	   (denitrification (water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))
       	   	)))))	
-     (OrganicMatter original (init (input 2000 [kg C/ha/y]))))
+     (OrganicMatter original (init (input 4000 [kg C/ha/y]))))
 ;#############################################################################################################################################################
 ; JB4 TOPSOILS
 
@@ -72,7 +72,7 @@
 ;#############################################################################################################################################################
 
 ; JB4-4-7-7-7-med
-(defcolumn "JB4-4-7-7-7_med" deBruin 
+(defcolumn "JB4med" deBruin 
      (Soil (MaxRootingDepth 75 [cm])       
            (border -100 [cm]
                    -150 [cm]
@@ -88,10 +88,10 @@
      (Chemistry multi    (combine (N 
          (reaction nitrification
     	   (denitrification   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))    	   	)))))	
-     (OrganicMatter original (init (input 2000 [kg C/ha/y]))))
+     (OrganicMatter original (init (input 4000 [kg C/ha/y]))))
 
 ; JB4-4-7-7-7-low
-(defcolumn "JB4-4-7-7-7_low" deBruin 
+(defcolumn "JB4low" deBruin 
      (Soil (MaxRootingDepth 75 [cm])       
            (border -100 [cm]
                    -150 [cm]
@@ -107,10 +107,10 @@
      (Chemistry multi 
       (combine (N  (reaction nitrification
     	   (denitrification   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))    	   	)))))	
-     (OrganicMatter original (init (input 2000 [kg C/ha/y]))))
+     (OrganicMatter original (init (input 4000 [kg C/ha/y]))))
 
 ; JB4-4-7-7-7-high
-(defcolumn "JB4-4-7-7-7_high" deBruin 
+(defcolumn "JB4high" deBruin 
      (Soil (MaxRootingDepth 75 [cm])       
            (border -100 [cm]
                    -150 [cm]
@@ -126,7 +126,7 @@
      (Chemistry multi 
       (combine (N  (reaction nitrification
     	   (denitrification   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))    	   	)))))	
-     (OrganicMatter original (init (input 2000 [kg C/ha/y]))))
+     (OrganicMatter original (init (input 4000 [kg C/ha/y]))))
 
 ;#############################################################################################################################################################
 ; JB6 TOPSOILS + ploughpan and drain
@@ -137,7 +137,7 @@
 ;#############################################################################################################################################################
 
 ; JB6-6-7-7-7L_med
-(defcolumn "JB6-6-7-7-7L_med" deBruin
+(defcolumn "JB6med" deBruin
      (Soil (MaxRootingDepth 230 [cm])          
            (border     -100 [cm]
                        -150 [cm]
@@ -161,10 +161,10 @@
      (Chemistry multi 
       (combine (N          (reaction nitrification   	   (denitrification 
      	   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))     	   	)))))	
-     (OrganicMatter original (init (input 3000 [kg C/ha/y]))) )
+     (OrganicMatter original (init (input 4000 [kg C/ha/y]))) )
 
 ; JB6-6-7-7-7L_low
-(defcolumn "JB6-6-7-7-7L_low" deBruin
+(defcolumn "JB6low" deBruin
      (Soil (MaxRootingDepth 230 [cm])          
            (border     -100 [cm]
                        -150 [cm]
@@ -188,10 +188,10 @@
      (Chemistry multi 
       (combine (N          (reaction nitrification   	   (denitrification 
      	   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))     	   	)))))	
-     (OrganicMatter original (init (input 3000 [kg C/ha/y]))) )
+     (OrganicMatter original (init (input 4000 [kg C/ha/y]))) )
 
 ; JB6-6-7-7-7L_high
-(defcolumn "JB6-6-7-7-7L_high" deBruin
+(defcolumn "JB6high" deBruin
      (Soil (MaxRootingDepth 230 [cm])          
            (border     -100 [cm]
                        -150 [cm]
@@ -215,9 +215,7 @@
      (Chemistry multi 
       (combine (N          (reaction nitrification   	   (denitrification 
      	   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))     	   	)))))	
-     (OrganicMatter original (init (input 3000 [kg C/ha/y]))) )
-
-;#############################################################################################################################################################
+     (OrganicMatter original (init (input 4000 [kg C/ha/y]))) )
 
 (defaction "irrigate_30" activity
 (wait (and (after_mm_dd 5 1)
