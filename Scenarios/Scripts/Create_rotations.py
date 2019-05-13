@@ -15,42 +15,30 @@ from pydaisy.Daisy import DaisyModel, DaisyEntry
 from fertil import CalcFertil
 from DaisyWaitBlock import DaisyWaitBlock
 from pydaisy.Daisy import *
+from split_nameDir import split_unique_nameSpin
+from split_nameDir import split_unique_name
 from get_SOMspinup import getSOMspinup
 
 def get_unique_name(NameDictionary):
-    
-    return NameDictionary['rotation'] + '_' + str(NameDictionary['ManureMass']) +'_' + str(NameDictionary['IsConventional']) +'_'+ str(NameDictionary['Soiltype'])+ '_'+ str(NameDictionary['Weather'])+ '_'+str(NameDictionary['Initlevel'])
+    return NameDictionary['Rotation'] + '_' + str(NameDictionary['ManureMass']) +'_' + str(NameDictionary['IsConventional']) +'_'+ str(NameDictionary['Soiltype'])+ '_'+ str(NameDictionary['Weather'])+ '_'+str(NameDictionary['Initlevel'])
 
-def split_unique_nameSpin(unique_name):
-    splitted = unique_name.split('_')
-    NameDictionary={}
-    NameDictionary['spinup']=splitted[0]
-    NameDictionary['Soiltype']=splitted[1]
-    NameDictionary['Weather']=splitted[2]
-    return NameDictionary
+xlfile = '../common/masterinput_v7.xlsx'
 
-def split_unique_name(unique_name):
-    splitted = unique_name.split('_')
-    NameDictionary={}
-    NameDictionary['rotation']=splitted[0]
-    NameDictionary['ManureMass']=int(splitted[1])
-    NameDictionary['IsConventional']=bool(splitted[2])
-    NameDictionary['Soiltype']=splitted[3]
-    NameDictionary['Weather']=splitted[4]
-
-    return NameDictionary
-
-path=r'../Run2'
+path=r'../RunKK9'
 def write_columns(path):
     init = getSOMspinup(r'../RunSpinup5')
     initlevels = ['High', 'Medium', 'Low']
-    rota = pd.DataFrame(pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Rotations'))
+    
+    rota = pd.DataFrame(pd.read_excel(xlfile,sheet_name= 'RotationsK'))
     rota.index = rota['ID']
-    crops = pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Crops')
+    crops = pd.read_excel(xlfile,sheet_name= 'Crops')
     crops.index = crops['Crop']
-    manure = pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Manure')
+    cropsJB6 = pd.read_excel(xlfile,sheet_name= 'Crops_JB6')
+    cropsJB6.index = crops['Crop']
+    manure = pd.read_excel(xlfile, sheet_name= 'Manure')
     manure.index = manure['ID']
-    SoilClimate = pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'soil_climate', header = 0)
+    SoilClimate = pd.read_excel(xlfile, sheet_name= 'soil_climate', header = 0)
+    
     if os.path.isdir(path):
         try:
             shutil.rmtree(path)
@@ -58,7 +46,7 @@ def write_columns(path):
             pass
     if not os.path.isdir(path):
         os.makedirs(path)
-    template = DaisyModel(os.path.join(path, '../Common/Scenarier_v4.dai'))
+    template = DaisyModel(os.path.join(path, '../Common/Scenarier_v7.dai'))
     template2 = DaisyModel(os.path.join(path, '../Common/Def_columns.dai'))   # SoilJB1_4_5_OM.dai
     weather = SoilClimate['Climate'][0:2].tolist()
     
@@ -69,7 +57,7 @@ def write_columns(path):
             for s in range (0, 9):
                 soil = SoilClimate['Soiltype'][s]
     
-                for i in range(1, 2):
+                for i in range(11, 12):
                     rotation=rota.columns[i]
         #find rotation length
                     maxnumberyear = 6
@@ -108,20 +96,26 @@ def write_columns(path):
     
                             ThisYearsEntries=[]
     #Plowing
-                            if not pd.isna(crops['Plowing'][cropname]):
-                                ThisYearsEntries.append(DaisyWaitBlock(crops['Plowing'][cropname]))
-                                ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('plowing',[]))
-    
+                            if soil[0:3]=='JB6':
+                                if not pd.isna(cropsJB6['Plowing'][cropname]):
+                                    ThisYearsEntries.append(DaisyWaitBlock(cropsJB6['Plowing'][cropname]))
+                                    ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('plowing',[]))
+                                
+                            else:
+                                if not pd.isna(crops['Plowing'][cropname]):
+                                    ThisYearsEntries.append(DaisyWaitBlock(crops['Plowing'][cropname]))
+                                    ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('plowing',[]))
+        
     #Sowing
-                            if not pd.isna(crops['Sowing1'][cropname]):
-                                ThisYearsEntries.append(DaisyWaitBlock(crops['Sowing1'][cropname]))
-                                for c in crops['Daisynavn1'][cropname].split(','):
+                        if not pd.isna(crops['Sowing1'][cropname]):
+                            ThisYearsEntries.append(DaisyWaitBlock(crops['Sowing1'][cropname]))
+                            for c in crops['Daisynavn1'][cropname].split(','):
+                                ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
+                        if not pd.isna(crops['Sowing2'][cropname]):
+                            if str(crops['Sowing2'][cropname]) < str(crops['Harvest1'][cropname]):
+                                ThisYearsEntries.append(DaisyWaitBlock(crops['Sowing2'][cropname]))
+                                for c in crops['Daisynavn2'][cropname].split(','):
                                     ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
-                            if not pd.isna(crops['Sowing2'][cropname]):
-                                if str(crops['Sowing2'][cropname]) < str(crops['Harvest1'][cropname]):
-                                    ThisYearsEntries.append(DaisyWaitBlock(crops['Sowing2'][cropname]))
-                                    for c in crops['Daisynavn2'][cropname].split(','):
-                                        ThisYearsEntries[-1].EntriesAfterWait.append(DaisyEntry('sow', ['"' + str(c.strip()) +'"']))
     #Fertilize
                             man=CalcFertil(crop_ID, LastYearCropID, soil, AllCropIDs, ManureSim[0], ManureSim[1], ManureSim[2])
                             LastYearCropID=crop_ID
@@ -175,19 +169,16 @@ def write_columns(path):
     
                             ThisYearsEntries.sort(key = lambda t:t.waitdate)
                             for tye in ThisYearsEntries:
-                                tye.append_entries(block);
+                                tye.append_entries(block)
+                        
                         soilblock = [x for x in template2.Input['defcolumn'] if x.getvalue()=='"' + soil +'"'][0].copy()
                         newfile.Input.Children.insert(20, soilblock)
                         
-                        
-                        
-                        
-                        
                         for key, value in init.items():
                             name_entries_Spinup = split_unique_nameSpin(key)
-                            if il == name_entries_Spinup['spinup'] and name_entries_Spinup['Soiltype'] == soil and name_entries_Spinup['Weather']== w:
+                            if il == name_entries_Spinup['Spinup'] and name_entries_Spinup['Soiltype'] == soil and name_entries_Spinup['Weather']== w:
                                soilblock['OrganicMatter']['init']['input'].setvalue(str(init[key][0]))     
-                        
+                               soilblock['OrganicMatter']['init']['root'].setvalue(str(init[key][1]))                            
                                 #print(name_entries_Spinup['spinup'])
                                 #newfile.Input['def]
                         newfile.Input['column'].setvalue('"'+ soil + '"')
@@ -199,26 +190,16 @@ def write_columns(path):
                         else:
                             newfile.Input['manager'].setvalue('(repeat (A_F_R))', 2)
                         newfile.Input['weather'].setvalue('"'+ w +'"',1)
-                        
-                                
-                                
-    #newfile= template.copy()    
-    #block = newfile.Input['defcolumn']['OrganicMatter'][0]
-    #OrgMatter = DaisyEntry('OrganicMatter',[])
-    #OrgMatter.Children.append(DaisyEntry('init + str(init['t'][i] +','[kg N/ha/y]'])
-    #OrgMatter.Children.append(DaisyEntry('equivalent_weight',[ str(df['amount'][i]) , '[kg N/ha]']))
-    #block.Children.append(OrgMatter)
-                    
                     
                     #Now print the daisy file
                     #create unique name
                         name_entries={}
-                        name_entries['rotation']=rotation
+                        name_entries['Rotation']=rotation
                         name_entries['ManureMass']=int(ManureSim[1])
                         name_entries['IsConventional']=ManureSim[2]
                         name_entries['Soiltype']=soil
                         name_entries['Weather']= w
                         name_entries['Initlevel']= il
                         newfile.save_as(os.path.join(path, get_unique_name(name_entries), 'model.dai'))
-#if __name__ =='__main__':
-write_columns(path)
+if __name__ =='__main__':
+    write_columns(path)

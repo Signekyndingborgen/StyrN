@@ -14,7 +14,7 @@ sys.path.insert(0,r'./../pydaisy/')
 from pydaisy.Daisy import DaisyModel, DaisyEntry, DaisyDlf
 
 from dateutil.relativedelta import relativedelta
-from Create_rotations_spinup import split_unique_name
+#from Create_rotations_spinup import split_unique_name
 
 def getSOMspinup(path):
    

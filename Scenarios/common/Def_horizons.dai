@@ -10,13 +10,13 @@
 ; JB1 og 4 deep drainage and no ploughpan
 ; JB6 tile drainage and ploughpan
 
-; JB1-1-2-2med
-; JB1-1-2-2low
-; JB1-1-2-2high
+; JB1-1-1med
+; JB1-1-1low
+; JB1-1-1high
 
-; JB4-4-7-7-7med
-; JB4-4-7-7-7low
-; JB4-4-7-7-7high
+; JB4-4-4med
+; JB4-4-4low
+; JB4-4-4high
 
 ; JB6-6-7-7-7Lmed
 ; JB6-6-7-7-7Llow
@@ -186,23 +186,6 @@
 	(l -0.261))) ;
 
 
-(defhorizon B_JB2_ USDA3 ;(normalize true) Slightly corrected compared to Daisy Handbook
-	(clay 4.05 [%])
-	(silt 10.10 [%])
-	;; (fine_sand 55.51)
-	;; (coarse_sand 29.44)
-        (sand 84.95 [%])
-	(humus 0.89 [%])
-	(C_per_N 12.5)
-	(dry_bulk_density 1.45)
-	(hydraulic M_vG	; van Genuchten/Mualem functions
-	(alpha 0.0687)
-	(n 1.459)
-	(K_sat 2.67)
-	(Theta_sat 0.4050)
-	(Theta_res 0.0)
-	(l -0.253))) ;
-
 (defhorizon B_JB4_ USDA3 ;(normalize true) Slightly corrected compared to Daisy Handbook
 	(clay 7.11 [%])
 	(silt 19.38 [%])
@@ -260,18 +243,6 @@
 ;######################################################################
 ;B-horizons with ploughpan
 
-(defhorizon B_JB2_Pp B_JB2_
-	(dry_bulk_density 1.78)
-(hydraulic M_vG	; van Genuchten/Mualem functions
-	(alpha 0.0546)
-	(n 1.371)
-	(K_sat 0.89)
-	(Theta_sat 0.3060)
-	(Theta_res 0.0)
-	(l -0.37))
-)
-
-
 (defhorizon B_JB4_Pp B_JB4_
 	(dry_bulk_density 1.78)
 (hydraulic M_vG	; van Genuchten/Mualem functions
@@ -311,21 +282,38 @@
 
 ; C-horizons with limestone 
 
-(defhorizon C_JB2 USDA3 (normalize true)
-	(clay 3.4 [%])
-	(silt 5.9 [%])
-	;; (fine_sand 59.8)
-	;; (coarse_sand 30.7)
-        (sand 90.5 [%])
+(defhorizon C_JB1 USDA3 (normalize true)
+	(clay 2.9 [%])
+	(silt 2.0 [%])
+	;; (fine_sand 17.3)
+	;; (coarse_sand 77.6)
+        (sand 94.9 [%])
 	(humus 0.2 [%])
-	(dry_bulk_density 1.55)
+	(dry_bulk_density 1.56)
 	(hydraulic M_vG	; van Genuchten/Mualem functions
-	(alpha 0.08)
-	(n 1.557)
-	(K_sat 2.288)
-	(Theta_sat 0.370)
+	(alpha 0.085)
+	(n 1.721)
+	(K_sat 4.046)
+	(Theta_sat 0.355)
 	(Theta_res 0.0)
-	(l 1.188))) ;
+	(l 1.180))) ;
+
+(defhorizon C_JB4 USDA3 (normalize true)
+	(clay 8.0 [%])
+	(silt 18.6 [%])
+	;; (fine_sand 43.7)
+	;; (coarse_sand 29.4)
+        (sand 73.1 [%])
+	(humus 0.3 [%])
+	(dry_bulk_density 1.65)
+	(hydraulic M_vG	; van Genuchten/Mualem functions
+	(alpha 0.056)
+	(n 1.325)
+	(K_sat 1.0773)
+	(Theta_sat 0.354)
+	(Theta_res 0.0)
+	(l -0.191))) ;
+	
 
 (defhorizon C_JB7 USDA3 (normalize true)
 	(clay 19.8 [%])

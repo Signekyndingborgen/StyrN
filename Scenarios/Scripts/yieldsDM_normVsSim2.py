@@ -7,14 +7,12 @@ Created on Tue Mar  5 14:17:20 2019
 
 import sys
 import pandas as pd
-import os
 sys.path.append(r'../../../pydaisy')
-from pydaisy.Daisy import DaisyDlf, DaisyModel
-from Create_rotations_spinup import split_unique_name
-
-import matplotlib.pyplot as plt
+from split_nameDir import split_unique_name
+from Get_allyields import get_allYields
 import numpy as np 
-import datetime as datetime
+import operator 
+from functools import reduce
 
 rota = pd.DataFrame(pd.read_excel('../common/masterinput_v4.xlsx',sheet_name= 'Rotations'))
 rota.index = rota['ID']
@@ -23,71 +21,91 @@ crops.index = crops['Crop']
 norm = pd.read_excel('../common/Nnorm_2019.xlsx', sheet_name = "Sheet1")
 norm.index = norm['afgkode']
 
-grain = ['SB', 'Winter Wheat JG','Vinterbyg','Rug','Winter Rape PA','Spring Wheat',
-         'Rug', 'Froegraes', 'Potato; Sava_Figaro','Sugar Beet','Pea']
-silo = ['Ryegrass', 'Wclover', 'Silomajs', 'SB-green'] 
+path = r'../Run'
 
-MotherFolder='..\Run1'
-items = os.walk(MotherFolder)
-index=1
-soil ='JB4'
+
+allresults = get_allYields(path)
+soil = 'JB6'
+name_entries = split_unique_name(key)
+for key, value in allresults.items():     
+    sim_yieldmean ={}  
+    if name_entries['Soiltype'][0:3]!=soil:
+        allresult = allresults
+        
+for key, value in allresults.items():   
+    for kl, vl in value.items():
+        allresults[key][kl] = np.mean(vl) ## mean value includes zero and it should not
+df =pd.DataFrame.from_dict(d,orient='index')  
+df['clovergrass']=df['Ryegrass']+df['Wclover']
+
+norm170 = [v for k, v in allresults.items() if split_unique_name(k)['ManureMass']==170 and split_unique_name(k)['Soiltype'][0:3]==soil]
+
+
+cropkeys=[]
+for key, value in allresults.items():   
+    for kl, vl in value.items():
+        cropkeys[key][value] = kl
+
+for key, value in allresults.items():   
+    for kl, vl in value.items():
+        if kl == 'Potato; Sava_Figaro':
+            value['Potato'] = value.pop(kl)
+
+
+evalu = {}
+
+        
+        evalu[key][]= np.mean(vl)
+cmean = [x for x in d if x != 0]
+
+
+ean= round(np.mean([d[k] for d in result if k in d]), 2)
+    cropmean.append([k, mean])
+name_entries = split_unique_name(key) 
+norm170 = [v for k, v in allresults.items() if split_unique_name(k)['ManureMass']==170 and split_unique_name(k)['Soiltype'][0:3]==soil]
+
+crop = 'Ryegrass'
+
+np.mean([v[crop] for v in norm170])
+
+
+for key, value in allresults.items():    
+
     
-allresults={}
+    sim_yieldmean ={}
+    
+    if name_entries['ManureMass']==170 and name_entries['Soiltype'][0:3]==soil:
+        cropnames = allresults.get(key).keys()
+        for cropname in cropnames:
+            mean= np.mean(allresults.get(key).get(cropname))
+            sim_yieldmean.append(key: [cropname, mean])
+     
+    yield_norm = round(norm['yield_' + soil][crop_ID]*norm['yieldfaktorDM'][crop_ID], 2)
+    daisyname = crops['Daisynavn1'][cropname].split(',')
+    print(key)
+    for daisyname in daisynames:
+        simyieldmean = np.mean(value[daisyname.strip()][str(actualyear)][0])
+        sim_yields.append([cropname, simyieldmean, yield_norm])
+    print(cropname)
+evalu[key]=sim_yields 
+dict2 = {}
+for key in allresults:
+    dict2[key] = sum(allresults[key])
 
-for root, dirs, filenames in items:
-    for d in dirs:
-        cropyield={}            
-        if os.path.isfile(os.path.join(root, d, "harvest.dlf")):
-            harvest=DaisyDlf(os.path.join(root, d, "harvest.dlf"))
-            df=harvest.Data
-            DMharv= df[['crop', 'leaf_DM', 'stem_DM','sorg_DM']]
-            DMS =DMharv.groupby('crop')
-            for cropname in silo:
-                if cropname in DMS.groups.keys():
-                    rg = DMS.get_group(cropname).sum(axis=1)
-                    cropyield[cropname]= rg.resample('Y').sum()
+"""
+        for daisyname in daisynames:
+            if crops['Daisynavn1'][cropname]=='Wclover, Ryegrass':
+                simyieldmean = np.mean(value['Wclover'][str(actualyear)][0] + value['Ryegrass'][str(actualyear)][0])
+                sim_yields.append([cropname, simyieldmean, yield_norm])
+            else:
+                simyieldmean = np.mean(value[daisyname.strip()][str(actualyear)][0])
+                sim_yields.append([cropname, simyieldmean, yield_norm])
+
                     
-            DMharvG= df[['crop', 'sorg_DM']]
-            DMG =DMharvG.groupby('crop')
-            for cropname in grain:
-                if cropname in DMG.groups.keys():
-                    rg = DMG.get_group(cropname).sum(axis=1)
-                    cropyield[cropname]= rg.resample('Y').sum()
-            allresults[d]=cropyield
-            
-#[allresults[x] for x in Ryegrass]
-
-for key, value in allresults.items():
-    name_entries = split_unique_name(key)    
-    if name_entries['IsConventional'] and name_entries['ManureMass']!=230 and name_entries['Soiltype'][0:3]=='JB6':
-        evalu={}
-        maxnumberyear = 6
-        while pd.isna(rota[name_entries['rotation']][maxnumberyear]):
-            maxnumberyear-=1
-        print(key)
-        #print([name_entries['rotation'], name_entries['ManureMass'], name_entries['Soiltype']])
-        sim_yields =[]
-        for year in range(1, maxnumberyear+1):
-            actualyear=1990+year
-            cropname = rota[name_entries['rotation']][year].strip()
-            crop_ID = int(crops['afgkode1'][cropname])
-            yield_norm = norm['norm_' + soil][crop_ID]*norm['yieldfaktorDM'][crop_ID]
-            daisynames = crops['Daisynavn1'][cropname].split(',')
-            print(cropname)
-            for daisyname in daisynames:
-                if crops['Daisynavn1'][cropname]=='Wclover, Ryegrass':
-                    simyieldmean = np.mean(value['Wclover'][str(actualyear)][0] + value['Ryegrass'][str(actualyear)][0]*10)
-                    print(sim_yields.append([cropname, simyieldmean]))
-                    #evalu[daisyname] = sim_yields
+                    #if str(1990+year) in value[daisyname.strip()]:
+                #evalu[daisyname] = sim_yields
                     #print(sim_yields)
                     #print([daisyname, np.mean(sim_yields[:1])*10])
                     #evalu[daisyname] = [int(sim_yield), int(yield_norm)]
-                else:
-                    simyieldmean = np.mean(value[daisyname.strip()][str(actualyear)][0]*10)
-                    #if str(1990+year) in value[daisyname.strip()]:
-                    print(sim_yields.append([cropname, simyieldmean]))
-                    #evalu[daisyname] = sim_yields
-                        #rint([daisyname, np.mean(sim_yields)*10])
- #Clovergrass = value['RyeGrass'][str(1993+year)][0] + value['WClover''][str(1993+year)][0]
-      #                  evalu[daisyname] = [int(sim_yield), int(yield_norm)]
-                            #print(str(value[daisyname.strip()][str(1993+year)][0]-yield_norm))
+                
+ """                   

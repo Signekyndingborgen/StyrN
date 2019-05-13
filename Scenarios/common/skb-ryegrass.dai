@@ -79,9 +79,9 @@
 	(ReMobilDS 1.00)		; Remobilization, Initial DS
 	(ReMobilRt 0.1)			; Remobilization, release rate
 	(LfDR (0.00 0.00) (0.50 0.025)  (2.00 0.05))
-		(RtDR (0.00 0.00) (0.50 0.025)  (2.00 0.03))
-		(Large_RtDR 0.05)
-		(RtDR_T_factor (-5.0 0.0) (5.0 1.0) ) )    ; Gill & Jackson (2000) New Phytol 147:13-31
+	(RtDR (0.00 0.00) (0.50 0.025)  (2.00 0.03))
+	(Large_RtDR 0.05)
+	(RtDR_T_factor (-5.0 0.0) (5.0 1.0) ) )    ; Gill & Jackson (2000) New Phytol 147:13-31
    (CrpN (PtRootCnc (0.00 0.020) (1.00 0.020) (2.00 0.020))
 	(CrRootCnc (0.00 0.015) (1.00 0.012) (2.00 0.0075))
 	(NfRootCnc (0.00 0.012) (2.00 0.0010))
