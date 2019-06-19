@@ -10,7 +10,7 @@ import sys
 import pandas as pd
 sys.path.append(r'../../../pydaisy')
 from split_nameDir import split_unique_name
-from Get_allyields import get_allYields
+#from Get_allyields import get_allYields
 import numpy as np 
 import operator 
 from functools import reduce

@@ -147,17 +147,18 @@
                      (  -36 [cm] "B_JB6_Pp")
                      (  -60 [cm] "B_JB6_")   
                      (  -80 [cm] "B_JB7_")
-                     ( -130 [cm] "C_JB7_lime_M")
-                     ( -300 [cm] "C_JB7")))  
+                     ( -130 [cm] "C_JB7")
+                     ( -300 [cm] "C_JB7_lime_M")))  
      (Movement vertical
          (Geometry       (zplus 
             -0.5 -1 -1.5 -2 -2.5 -3 -3.5 -4 -4.5 -5 -6 -7 -8 -9 -10 -12 -14 -16 -18 -20 -22 -24 -26 -28 -30 -32 -34 -36 -40 -45 -50 -55 -60 -65 -70 -75 -80 -85 -90 -95 -100 -110 -120 -130 -140 -150 -160 -170 -180 -190 -200 -210 -220 -230 -240 -250 -260 -270 -280 -290 -300[cm])))
-     (Drain lateral
-     	(L 100[m])   	(x 50 [m])     	(pipe_position -1.5 [m]))
-     (Groundwater aquitard
-     	(K_aquitard 2e-2[cm/h]); Calibrated by Merete
+    (Drain lateral
+         	(L 18[m])      	(x 4.5 [m])    	(pipe_position -1.2[m]))
+     (Groundwater aquitard ; 
+     	(K_aquitard 2.45E-3[cm/h])
      	(Z_aquitard 2.0[m])
      	(h_aquifer 2.0[m]))
+     
      (Chemistry multi 
       (combine (N          (reaction nitrification   	   (denitrification 
      	   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))     	   	)))))	
@@ -176,17 +177,17 @@
                      (  -36 [cm] "B_JB6_Pp")
                      (  -60 [cm] "B_JB6_")   
                      (  -80 [cm] "B_JB7_")
-                     ( -130 [cm] "C_JB7_lime_M")
-                     ( -300 [cm] "C_JB7")))  
-     (Movement vertical
-         (Geometry       (zplus 
-            -0.5 -1 -1.5 -2 -2.5 -3 -3.5 -4 -4.5 -5 -6 -7 -8 -9 -10 -12 -14 -16 -18 -20 -22 -24 -26 -28 -30 -32 -34 -36 -40 -45 -50 -55 -60 -65 -70 -75 -80 -85 -90 -95 -100 -110 -120 -130 -140 -150 -160 -170 -180 -190 -200 -210 -220 -230 -240 -250 -260 -270 -280 -290 -300[cm])))
-     (Drain lateral
-     	(L 100[m])   	(x 50 [m])     	(pipe_position -1.5 [m]))
-     (Groundwater aquitard
-     	(K_aquitard 2e-2[cm/h]); Calibrated by Merete
-     	(Z_aquitard 2.0[m])
-     	(h_aquifer 2.0[m]))
+		     ( -130 [cm] "C_JB7")
+		     ( -300 [cm] "C_JB7_lime_M")))  
+	  (Movement vertical
+	      (Geometry       (zplus 
+		 -0.5 -1 -1.5 -2 -2.5 -3 -3.5 -4 -4.5 -5 -6 -7 -8 -9 -10 -12 -14 -16 -18 -20 -22 -24 -26 -28 -30 -32 -34 -36 -40 -45 -50 -55 -60 -65 -70 -75 -80 -85 -90 -95 -100 -110 -120 -130 -140 -150 -160 -170 -180 -190 -200 -210 -220 -230 -240 -250 -260 -270 -280 -290 -300[cm])))
+	 (Drain lateral
+		(L 18[m])	(x 4.5 [m]) 	(pipe_position -1.2[m]))
+	  (Groundwater aquitard 
+		(K_aquitard 2.45E-3[cm/h])
+		(Z_aquitard 2.0[m])
+		(h_aquifer 2.0[m]))
      (Chemistry multi 
       (combine (N          (reaction nitrification   	   (denitrification 
      	   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))     	   	)))))	
@@ -205,17 +206,18 @@
                      (  -36 [cm] "B_JB6_Pp")
                      (  -60 [cm] "B_JB6_")   
                      (  -80 [cm] "B_JB7_")
-                     ( -130 [cm] "C_JB7_lime_M")
-                     ( -300 [cm] "C_JB7")))  
-     (Movement vertical
-         (Geometry       (zplus 
-            -0.5 -1 -1.5 -2 -2.5 -3 -3.5 -4 -4.5 -5 -6 -7 -8 -9 -10 -12 -14 -16 -18 -20 -22 -24 -26 -28 -30 -32 -34 -36 -40 -45 -50 -55 -60 -65 -70 -75 -80 -85 -90 -95 -100 -110 -120 -130 -140 -150 -160 -170 -180 -190 -200 -210 -220 -230 -240 -250 -260 -270 -280 -290 -300[cm])))
-     (Drain lateral
-     	(L 100[m])   	(x 50 [m])     	(pipe_position -1.5 [m]))
-     (Groundwater aquitard
-     	(K_aquitard 2e-2[cm/h]); Calibrated by Merete
-     	(Z_aquitard 2.0[m])
-     	(h_aquifer 2.0[m]))
+                     ( -130 [cm] "C_JB7")
+		     ( -300 [cm] "C_JB7_lime_M")))  
+	  (Movement vertical
+	      (Geometry       (zplus 
+		 -0.5 -1 -1.5 -2 -2.5 -3 -3.5 -4 -4.5 -5 -6 -7 -8 -9 -10 -12 -14 -16 -18 -20 -22 -24 -26 -28 -30 -32 -34 -36 -40 -45 -50 -55 -60 -65 -70 -75 -80 -85 -90 -95 -100 -110 -120 -130 -140 -150 -160 -170 -180 -190 -200 -210 -220 -230 -240 -250 -260 -270 -280 -290 -300[cm])))
+	 (Drain lateral
+		(L 18[m])	(x 4.5 [m]) 	(pipe_position -1.2[m]))
+	  (Groundwater aquitard 
+		(K_aquitard 2.45E-3[cm/h])
+		(Z_aquitard 2.0[m])
+		(h_aquifer 2.0[m]))
+     
      (Chemistry multi 
       (combine (N          (reaction nitrification   	   (denitrification 
      	   	(water_factor      (0.6 0.0)(0.8 0.1)(0.9 0.2)(1.0 1.0))     	   	)))))	

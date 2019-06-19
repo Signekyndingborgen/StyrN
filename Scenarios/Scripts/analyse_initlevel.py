@@ -10,7 +10,7 @@ from Get_allSOC import get_allSOM
 from split_nameDir import split_unique_name
 import matplotlib.pyplot as plt
 
-path = r'../RunKK1E'
+path = r'../RunK_170'
 dSOMperkey = get_allSOM(path)
 
 #dictKonv = {key:value for key, value in dSOMperkey.items() if split_unique_name(key)['IsConventional'] == "True"}
@@ -34,6 +34,6 @@ for il in initlevel:
             means = df.mean(axis = 0)
             meanILRO[il][ro] = means[0]
 
-ax = meanILRO.plot(kind = 'bar', legend = True, title = 'Årlig N-puljeændring')
+ax = meanILRO.plot(kind = 'bar', legend = True, title = 'Annual change in SON')
 ax.set(ylabel = 'kg N/ha/yr')
 plt.tight_layout()

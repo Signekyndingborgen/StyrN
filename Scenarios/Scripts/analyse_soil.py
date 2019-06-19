@@ -11,8 +11,8 @@ from Get_allSOC import get_allSOM
 from split_nameDir import split_unique_name
 import matplotlib.pyplot as plt
 
-path = r'../Run4'
-#dSOMperkey = get_allSOM(path)
+path = r'../RunPK3_few'
+dSOMperkey = get_allSOM(path)
 
 #dictKonv = {key:value for key, value in dSOMperkey.items() if split_unique_name(key)['IsConventional'] == "True"}
 #dictOrg = {key:value for key, value in dSOMperkey.items() if split_unique_name(key)['IsConventional'] == "False"}
@@ -20,7 +20,7 @@ path = r'../Run4'
 rota= [split_unique_name(k)['Rotation'] for k,v in dSOMperkey.items() ]
 rk = np.unique(np.array(rota))
 rotations= rk.tolist()
-
+#dSOMperkey = dict1
 
 ## Effekt of soil texture within rotations   
 soiltype = ['JB1', 'JB4', 'JB6']
@@ -35,7 +35,8 @@ for st in soiltype:
             means = df.mean(axis = 0)
             meanJBRO[st][ro] = means[0]
 
-meanJBRO.plot(kind = 'bar', legend = True)
+ax= meanJBRO.plot(kind = 'bar', legend = True, title = 'Mean annual change in SON')
+ax.set(ylabel = 'kg N / ha yr')
 
 
 ## Effekt of topsoil SOC within rotations   
@@ -51,4 +52,5 @@ for sc in soilC:
             means = df.mean(axis = 0)
             meanCRO[sc][ro] = means[0]
 
-meanCRO.plot(kind = 'bar', legend = True, title= 'Mean dSON per topsoil C content level', ylabel = 'kg N / ha yr')
+ax= meanCRO.plot(kind = 'bar', legend = True, title= 'Annual change in SON')
+ax.set(ylabel = 'kg N / ha yr')

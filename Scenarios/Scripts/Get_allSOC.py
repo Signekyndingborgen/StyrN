@@ -15,7 +15,7 @@ import numpy as np
 # Calculates the pool changes by summing all daisy pools SOM+AOM+SMB as: end - start / yrs
 
 
-path = r'../Run3'
+#path = r'../Run3'
 def get_allSOM(path):
     items = os.walk(path)
     allSOMresults={}

@@ -15,7 +15,7 @@ from pydaisy.Daisy import DaisyModel, DaisyEntry, run_sub_folders
 
     
 if __name__ =='__main__':
-    path=r'../RunKK9'
+    path=r'../RunK2-7SB1'
     write_columns(path)
     DaisyModel.path_to_daisy_executable = r'C:\Program Files\Daisy 5.64\bin\Daisy.exe'
     run_sub_folders(os.path.abspath(path),'model.dai', NumberOfProcesses=6)

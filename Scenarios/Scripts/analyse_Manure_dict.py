@@ -11,8 +11,8 @@ from Get_allSOC import get_allSOM
 from split_nameDir import split_unique_name
 import matplotlib.pyplot as plt
 
-path = r'../Run4'
-#dSOMperkey = get_allSOM(path)
+path = r'../RunPK3_few'
+dSOMperkey = get_allSOM(path)
 
 dictKonv = {key:value for key, value in dSOMperkey.items() if split_unique_name(key)['IsConventional'] == "True"}
 #dictOrg = {key:value for key, value in dSOMperkey.items() if split_unique_name(key)['IsConventional'] == "False"}
